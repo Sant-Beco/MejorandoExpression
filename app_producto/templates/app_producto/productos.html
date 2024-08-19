@@ -3,7 +3,8 @@
 {% load static %}
 
 <head>
-  {% block title %} Productos {% endblock %}
+    {% block title %} producto {% endblock %}
+    <link href="{% static 'app_funcionalidad/css/inicio.css' %}" rel="stylesheet">
 </head>
 
 {% block filtro %}
@@ -25,12 +26,24 @@
 {% endblock %}
 
 {% block crear %}
-<div class="mt-2 ">
+<!-- se agrega d-none d-lg-block -->
+<div class="mt-2 d-none d-lg-block">
   <a href="{% url 'formulario_producto' %}">
       <button class="btncrear"><strong>Anunciar Producto</strong></button>
   </a>
 </div>
 
+{% endblock %}
+
+<!-- boton movile -->
+{% block crear-moviles %}
+  <div class="d-flex d-lg-none">
+    <a href="{% url 'formulario_producto' %}">
+        <!-- clase boton-crear -->
+        <button class="btncrear buton-crear"><strong> Crear
+        </strong></button>
+    </a>
+  </div>
 {% endblock %}
 
 {% block content %}
@@ -260,18 +273,18 @@
   padding: 10px;
 }
 
-
+.col-1, .col-10 {
+  text-align: center;
+}
 
 .col-1 {
   margin-bottom: 10px;
 }
 
- .fotos{
-      width: 42px;
-      height: 42px;
-      margin-left: -20px;
-      margin-top: 5px;
-  }
+.fotos {
+  width: 42px;
+  height: 42px;
+}
 
 .titulo-convocatoria {
   font-size: 1em;
@@ -281,7 +294,9 @@
   font-size: 0.8em;
 }
 
-
+strong em {
+  font-size: 0.9em;
+}
 
 .comment-form .form {
   width: calc(100% - 40px);
@@ -296,11 +311,11 @@
   margin-bottom: 10px;
 }
 
-.img {
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
-  }
+img {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+}
 
 .like {
   font-size: 1.2em;
@@ -311,11 +326,25 @@
     margin-left: 10px;
   }
 
-    .imagen-publica{
-    width: 100%;
-    margin: 2px;
+  .imagen-publica{
+    margin: 10px 10px
   }
 
+  /* espacio */
+  .caja-cultura{
+    left: -36px;
+  }
+
+  /* botones moviles */
+
+.buton-crear{
+    position: relative;
+    top: -50px;
+    left: 260px;
+    width: 90px;
+    background: #b9b4b9;
+    margin: 6px;
+  }
 
 }
 
@@ -351,12 +380,12 @@
             <p class="descripcion">{{ producto.descripcion }}</p>
             <div class="contenedor-valor">
               <strong class="titulo-publicacion">$</strong> <p class="valor-articulo">{{ producto.precio }}</p>
-            </div>
+            </div>
           </div>
             <!--IMAGENES DE PRODUCTO-->
           <div class="col-12">
             {% if producto.archivo_multimedia and producto.archivo_multimedia.url %}
-            <img   src="{{ producto.archivo_multimedia.url }}" width="700" class="imagen-publica">
+            <img src="{{ producto.archivo_multimedia.url }}" alt=""  width="700" km>
             {% else %}
             <p>No image available</p>
           {% endif %}

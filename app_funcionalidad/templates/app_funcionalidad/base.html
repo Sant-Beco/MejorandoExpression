@@ -2,10 +2,9 @@
 
   {% load static %}
   <head>
-    <title>{% block title %}Cultural Expression{%endblock %}</title>
+    <title>{% block title %}master{%endblock %}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="{% static 'app_funcionalidad/img/img_corporativa.png' %}"/>
     <link
       href="{% static 'app_funcionalidad' %}/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
@@ -263,37 +262,39 @@
 
 }
 
-    </style>
+</style>
 
 </head>
 <body>
      <!-- Encabezado fijo -->
      <div class="container-fluid fixed-top-bar">
         <div class="row">
+          <!-- sean igual -->
             <div class="col-10 col-sm-7 col-lg-5 me-5 caja-cultura">
                 <h1 class="titulo mt-2">Cultural Expression</h1>
             </div>
+            <!-- sean igual -->
             <div class="d-none d-sm-block col-sm-1 col-lg-4 crear text-end ">
                 {% block filtro %}
                 
                 {% endblock %}
             </div>
-            
+          
             <div class="d-sm-block  col-sm-4 col-lg-2 ">
 
-              {% block crear %}
-          
-              {% endblock %}
+                {% block crear %}
+            
+                {% endblock %}
 
-              <!-- boton movile -->
-            <div class="crear1">
-              {% block crear-moviles %}
-          
-              {% endblock %}
+                <!-- boton movile -->
+              <div class="crear1">
+                {% block crear-moviles %}
+            
+                {% endblock %}
+              </div>
+                
             </div>
-              
-          </div>
-<div class="d-sm-block  col-sm-4 col-lg-2 ">
+
         </div>
     </div>
             

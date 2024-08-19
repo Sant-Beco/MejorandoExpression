@@ -2,8 +2,6 @@
 
 {% load static %}
 
-{% block title %} Perfil {% endblock %}
-
 {% block filtro %}
 <form class="d-flex contenedor-filtro mt-1" method="GET" action="{% url 'convocatorias' %}">
   <select class="form-control me-2 mt-1 selecciona-categoria" name="categoria">
@@ -23,13 +21,24 @@
 {% endblock %}
 
 {% block crear %}
-<div class="mt-2 ">
+<!-- se agrega d-none d-lg-block -->
+<div class="mt-2 d-none d-lg-block"> 
   <a href="{% url 'formulario_convocatoria' %}">
       <button class="btncrear"><strong> Crear Convocatoria</strong></button>
   </a>
 </div>
 {% endblock %}
 
+<!-- boton movile -->
+{% block crear-moviles %}
+  <div class="d-flex d-lg-none">
+    <a href="{% url 'formulario_convocatoria' %}">
+        <!-- clase boton-crear -->
+        <button class="btncrear buton-crear"><strong> Crear
+        </strong></button>
+    </a>
+  </div>
+{% endblock %}
 
 {% block content %}
 
@@ -247,38 +256,33 @@
     padding: 0;
   }
 
-    .nombre{
-    left: 10px;
+  .alias {
+    font-size: 1em;
+
+  }
+
+  .nombre{
+    position: relative;
+    right: 80px;
     top: 12px;
   }
 
   .fecha {
-    left: 10px;
-    top:12px;
+    font-size: 0.9em;
+    position: relative;
+    right: 50px;
+  top:12px;
 }
+
   .contenedor {
     margin: 0;
     padding: 0;
   }
 
   .contenidos{
-
       border: 2px solid #000;
       margin-left: 10px;
   }
-
-  .enunciado{
-      margin-top: 10px;
-      font-size: 0.8rem;
-  }
-
-    .titulo-fechas{
-    font-size: 1rem;
-
-  }
-
-  .titulo-publicacion{
-    font-size: 1rem;
 
   }
 
@@ -294,16 +298,14 @@
     margin-bottom: 10px;
   }
 
-  .fotos{
-      width: 42px;
-      height: 42px;
-      margin-left: -20px;
-  }
+
 
   .imagen-publica {
     width: 100%;
     margin: 2px;
   }
+
+
 
 
   .titulo-convocatoria {
@@ -334,13 +336,26 @@
   }
 
   .like {
-      margin-left: -70px;
     font-size: 1.2em;
   }
 
-  .comentario{
-       margin-left: -70px;
+  /* espacio */
+  .caja-cultura{
+    left: -36px;
   }
+
+  /* botones moviles */
+
+.buton-crear{
+    position: relative;
+    top: -50px;
+    left: 260px;
+    width: 90px;
+    background: #b9b4b9;
+    margin: 6px;
+  }
+
+
 }
 
 
@@ -362,6 +377,7 @@
                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg>
               {% endif %}
+
             </i>
 
         </div>

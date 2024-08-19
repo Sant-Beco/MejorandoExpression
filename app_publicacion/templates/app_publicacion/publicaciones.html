@@ -2,8 +2,6 @@
 
 {% load static %}
 
-{% block title %} Publicaciones {% endblock %}
-
 {% block crear %}
 <!-- se agrega d-none d-lg-block -->
 <div class="mt-2 d-none d-lg-block">
@@ -24,7 +22,7 @@
   </div>
 {% endblock %}
 
-
+          
 {% block filtro %}
 <form class="d-flex contenedor-filtro mt-1" method="GET" action="{% url 'publicaciones' %}">
   <select class="form-control me-2 mt-1 selecciona-categoria" name="categoria">
@@ -43,7 +41,7 @@
 </form>
 {% endblock %}
 
-{% block content %}
+{% block content %} 
 <style>
   /*BOTON DEL FORMULARIO*/
   /*BOTON DEL FORMULARIO*/
@@ -56,45 +54,21 @@
     box-shadow:  1px 1px 4px rgb(7, 7, 7);
     border: none;
     font-size: 17px;
-
-  }
-
-
-  /*ESTILOS contenido*/
-  .nombre{
-    font-size: 20px;
-    color: #0c0c0c;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 0%;
-  }
-
-  .fecha{
-    font-size: 13px;
-    color: #858585;
-    text-decoration: none;
-    font-family: 'pompiere';
+   
   }
 
   .titulo-publicacion{
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: pompiere; 
+    font-size: 24px;
+
   }
-
-  .descripcion{
-    font-size: 20px;
-    font-family: 'pompiere';
-  }
-
-
 
   /*ESTILOS FILTRO*/
   .contenedor-filtro{
     position: absolute;
     right: 0;
   }
-
+  
   .selecciona-catgoria{
     width: 250px;
     height: auto;
@@ -112,7 +86,7 @@
       margin-bottom: 10px;
       margin-left: 30px;
       max-width: 600px;
-      word-wrap: break-word;
+      word-wrap: break-word; 
   }
 
   .comment-author {
@@ -126,7 +100,7 @@
   }
 
   .comment-section {
-    position: relative;
+    position: relative; 
     max-width: 600px;
     margin-left: 100px;
     display: none;
@@ -135,42 +109,41 @@
   .comment-form {
     position: sticky;
     bottom: 0;
-    background: #fff;
-    border-top: 1px solid #ccc;
+    background: #fff; 
+    border-top: 1px solid #ccc; 
     padding: 10px;
     z-index: 1000;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
   }
-
 
   /* Estilos del textarea */
  .comment-form textarea {
-  width: calc(100% - 40px);
+  width: calc(100% - 40px); 
   height: 40px;
   resize: vertical;
   box-sizing: border-box;
-  padding-right: 50px;
+  padding-right: 50px; 
 }
 
   .envia{
     color: black;
   }
-
+  
   .envia:hover{
     color: #cc0000;
   }
   .comment-form .enviar {
     position: absolute;
     font-size: 20px;
-    right: 15px;
+    right: 15px; 
     bottom: 25px;
-    height: 40px;
-    background: #c2abd1;
+    height: 40px; 
+    background: #c2abd1; 
     border: none;
     cursor: pointer;
     border-radius: 20px;
   }
-
+  
   .comment-form .enviar:hover{
     background: #f7f4f4;
   }
@@ -182,39 +155,39 @@
     text-decoration: none;
     border-bottom: none;
   }
-
+  
   .eliminar{
     color: #ff0000;
     cursor: pointer;
   }
-
+  
   .eliminar:hover {
     color: #cc0000; /* Color más oscuro al pasar el mouse */
   }
-
+  
   .comentario{
     margin-top: 2px;
     margin-left: 4px;
   }
-
+  
   .comment-row {
     display: flex; /* Usamos flexbox para alinear los elementos del comentario */
     align-items: center; /* Alineamos verticalmente al centro */
     justify-content: space-between; /* Separar el texto del botón de eliminar */
   }
-
+  
   .likes{
-    margin-left: 125px;
-    cursor: pointer;
+    margin-left: 125px; 
+    cursor: pointer; 
   }
-
+  
   .like{
     margin-left: 125px;
     background: none;
     margin-top: -10PX;
     border: none;
   }
-
+  
   .bi-heart{
     font-size: 35px;
     color: red;
@@ -225,7 +198,7 @@
     border-radius: 30px;
     margin-left: 20px;
   }
-
+  
   .person{
     width: 50px;
     height: 50px;
@@ -245,46 +218,43 @@
     border: 2px solid #000;
     margin-left: 110px;
   }
-
+ 
 /* Estilos para pantallas pequeñas (movile) */
 @media (max-width: 576px) {
 
-    .nombre{
-        color: #0c0c0c;
-
-    }
-
-
-  .fotos{
-      width: 42px;
-      height: 42px;
-      margin-left: -20px;
-  }
-
-  .like {
-      margin-left: -70px;
-    font-size: 1.2em;
-  }
-
-  .comentario{
-       margin-left: -70px;
+  .contenedor{
+    margin: 0;
+    padding: 0;
   }
 
   .publicaciones {
     padding: 10px;
   }
 
-
+  .col-1, .col-10 {
+    text-align: center;
+  }
 
   .col-1 {
     margin-bottom: 10px;
   }
 
-
+  .fotos {
+    width: 42px;
+    height: 42px;
+  }
 
   .imagen-publica{
     width: 100%;
     margin: 2px;
+  }
+
+  .alias {
+    font-size: 1em;
+  }
+
+  .fecha {
+    font-size: 0.9em;
   }
 
   .titulo-publicacion {
@@ -308,7 +278,7 @@
     margin-left: 10px;
   }
 
-  /* espacio */
+   /* espacio */
   .caja-cultura{
     left: -36px;
   }
@@ -323,11 +293,12 @@
     background: #b9b4b9;
     margin: 6px;
   }
+
 }
 
 </style>
 
-<!--ESTE ES EL CONTENIDO DE PUBLICACIONES CON LOS DATOS DE LA BD-->
+<!--ESTE ES EL CONTENIDO DE PUBLICACIONES CON LOS DATOS DE LA BD--> 
 {% for publicacion in publicaciones %}
 <div class="contenedor">
   <div class="col">
@@ -337,34 +308,34 @@
           <a href="">
             <i>
               {% if publicacion.id_usuario.foto_perfil and publicacion.id_usuario.foto_perfil.url %}
-              <img class="fotos" src="{{ publicacion.id_usuario.foto_perfil.url }}" alt="" >
+              <img class="fotos" src="{{ publicacion.id_usuario.foto_perfil.url }}" alt="">
               {% else %}
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="person bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg>
-              {% endif %}
-
+              {% endif %} 
+              
             </i>
 
           </a>
         </div>
-        <div class="col-10 mt-4">
-          <p class="nombre">{{ publicacion.id_usuario.alias }}</p>
+        <div class="col-10 mt-4 alias">
+          <a href="#" class="nombre">{{ publicacion.id_usuario.alias }}</a>
           <p class="fecha">{{ publicacion.fecha_publicacion }}</p>
         </div>
         <div class="row contenidos">
           <div class="col-12">
-            <h3>{{ v.nombre_producto }}</h3>
+            <h3>{{ v.nombre_producto }}</h3>         
             <p class="titulo-publicacion">{{ publicacion.titulo }}</p>
             <p class="descripcion">{{ publicacion.descripcion }}</p>
           </div>
           <div class="col-12">
             {% if publicacion.foto and publicacion.foto.url %}
-            <img src="{{ publicacion.foto.url }}" width="700" class="imagen-publica">
+            <img src="{{ publicacion.foto.url }}" alt=""  width="700" class="imagen-publica">
             {% else %}
             <p>No image available</p>
-          {% endif %}
+          {% endif %} 
           </div>
             <form action="{% url 'like' tipo_entidad='publicacion' id_entidad=publicacion.id_publicacion %}" method="post" style="text-align: center; margin-top: 10px;">
             {% csrf_token %}
@@ -419,13 +390,13 @@ $(document).ready(function() {
     loadComments();  // CARGA LOS COMENTARIOS
 });
 
-$(document).on('submit', '.comment-form-inline', function(e) {
-    e.preventDefault();
+$(document).on('submit', '.comment-form-inline', function(e) {  
+    e.preventDefault(); 
     // Obtener el ID de la publicación y el texto del comentario
     const form = $(this);
     const publicacionId = form.data('publicacion-id');
     const comment = form.find('textarea[name="comment"]').val();
-    const username = window.currentUsername || 'Anónimo';
+    const username = window.currentUsername || 'Anónimo'; 
 
     //AGREGA Y GUARDA EL COMENTARIO EN EL LOCAL
     addComment(publicacionId, comment, username);
