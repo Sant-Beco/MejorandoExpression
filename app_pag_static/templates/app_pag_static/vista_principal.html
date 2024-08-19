@@ -1,0 +1,671 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cultural Expression</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link
+      href="{% static 'app_pag_static'%}/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="{% static 'app_funcionalidad/img/img_corporativa.png' %}"/>
+
+    <link href="{% static 'app_pag_static/css/base_pag_static.css' %}" rel="stylesheet" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Osmanya&family=Permanent+Marker&family=Pompiere&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'app_funcionalidad' %}/img/img_corporativa.png">
+  </head>
+
+
+  <style>
+
+    
+.contenedor-footer {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  font-family: 'Great Vibes';
+  font-family: pompiere;
+  font-size: 20px;
+}
+
+.text-reservado{
+  height: 35px;
+  background: #000;
+  color: #ffffff;
+  font-family: pompiere,sans-serif;
+  font-size: 19px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.footer-enlace{
+  color: #000;
+  text-decoration: none;
+}
+        
+.footer-enlace:hover{
+  color: #000000;
+  font-weight: 600;
+  text-decoration: none;
+}   
+
+.redes-sociales{
+  margin-bottom: 10px;
+}
+
+.Siguenos {
+  font-family: pompiere;
+  font-size: 14x;
+}
+
+.bi-envelope-at-fill{
+  color: #00c3ff;
+  width: 30px; 
+  height: 30px;
+}
+
+.bi-facebook{
+  color: #2430d3;
+  width: 30px; 
+  height: 30px;
+}
+
+.bi-instagram{
+  color: #f80f8f;
+  width: 30px; 
+  height: 30px;
+}
+
+.bi-facebook:hover, .bi-envelope-at-fill:hover, .bi-instagram:hover{
+  color: #000000;
+}
+
+@media (max-width: 576px) {
+
+  .caja-princi-header{
+    padding: 2px;
+  }
+
+  .caja-footer{
+  display: flex;
+  text-align: center;
+  height: 64px;
+}
+
+.icono{
+  width: 90px;
+  padding: 0 6px;
+}
+
+.cultural-expression{
+  width: 180px;
+  font-size: 0.8rem;
+  margin: 6px 10%;
+
+}
+
+.slogan{
+  font-size: 0.8rem;
+  margin: 2px 0;
+  text-align: center;
+}
+
+.desplegable{
+  display: block;
+}
+
+.letra-noso{
+  font-size: 0.8rem;
+}
+
+.iconos-principales{
+  width: 28px;
+  height: 28px;
+}
+
+.iconos-principales:hover{
+  width: 30px;
+  height: 30px;
+}
+
+}
+
+  </style>
+
+
+
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light caja-princi-header"
+      style="background-image: radial-gradient(circle at 50% -20.71%, #ffffff 0, #ffffff 12.5%, #f3ffff 25%, #e1faf9 37.5%, #cdf2f2 50%, #b9e9ed 62.5%, #a6e1e9 75%, #95d9e7 87.5%, #85d2e6 100%);
+            box-shadow: 0 0 10px rgba(149, 148, 148, 0.853)"
+    >
+    <div class="container-img-corpo-view-principal icono d-none d-md-flex">
+      <img src="{% static 'app_funcionalidad' %}/img/img_corporativa.png" alt="hola" class="icono" width="103">
+    </div>
+
+    <div class="col-md-7 d-none d-md-flex">
+      <h1 class="cultural-expression">Cultural Expression</h1>
+      <h6 class="slogan"> Haz que tus destrezas y tu disciplina aporten un cambio en tu vida </h6>
+    </div>
+
+    <div class="d-md-none caja-footer">
+      <img src="{% static 'app_funcionalidad' %}/img/img_corporativa.png" alt="hola" class="icono" width="103">
+      <div>
+        <h1 class="cultural-expression">Cultural Expression</h1>
+      <h6 class="slogan"> Haz que tus destrezas y tu disciplina aporten un cambio en tu vida </h6>
+      </div>
+    </div>
+
+    <div class="iconos-container d-md-none">
+    
+      <a class="nav-link" href="{% url 'login' %}">
+        <i title="Iniciar Sesion">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="color: white" fill="currentColor" class="bi bi-door-open-fill iconos-principales" viewBox="0 0 16 16">
+            <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15zM11 2h.5a.5.5 0 0 1 .5.5V15h-1zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1"/>
+          </svg>
+        </i>
+      </a>
+    
+      <a class="nav-link" href="{% url 'registrar' %}">
+        <i title="Registrarme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="color: white" fill="currentColor" class="bi bi-clipboard2-plus-fill iconos-principales" viewBox="0 0 16 16">
+            <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5"/>
+            <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585q.084.236.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5q.001-.264.085-.5M8.5 6.5V8H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V9H6a.5.5 0 0 1 0-1h1.5V6.5a.5.5 0 0 1 1 0"/>
+          </svg>
+        </i>
+      </a>
+    </div>
+
+    <ul class="navbar-nav desplegable d-md-none">
+      <li class="nav-item dropdown lista-desplagable">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          style="color: black"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <strong class="letra-noso"> NOSOTROS </strong>
+        </a>
+
+        <ul class="dropdown-menu menu-desplegable">
+          <li>
+            <a class="dropdown-item" href="{% url "terminos_condiciones" %}"
+              >Tèrminos y condiciones</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% url "reglas_negocio" %}"
+              >Reglas de negocio</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% url "acerca_nosotros" %}"
+              >¿Quienes somos?</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+
+    <div class="collapse navbar-collapse justify-content-around d-md-none" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown lista-desplagable">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              style="color: black"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <strong> NOSOTROS </strong>
+            </a>
+
+            <ul class="dropdown-menu menu-desplegable">
+              <li>
+                <a class="dropdown-item" href="{% url "terminos_condiciones" %}"
+                  >Tèrminos y condiciones</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url "reglas_negocio" %}"
+                  >Reglas de negocio</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url "acerca_nosotros" %}"
+                  >¿Quienes somos?</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="iconos-container d-none d-md-flex">
+    
+        <a class="nav-link" href="{% url 'login' %}">
+          <i title="Iniciar Sesion">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="color: white" fill="currentColor" class="bi bi-door-open-fill iconos-principales" viewBox="0 0 16 16">
+              <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15zM11 2h.5a.5.5 0 0 1 .5.5V15h-1zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1"/>
+            </svg>
+          </i>
+        </a>
+      
+        <a class="nav-link" href="{% url 'registrar' %}">
+          <i title="Registrarme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="color: white" fill="currentColor" class="bi bi-clipboard2-plus-fill iconos-principales" viewBox="0 0 16 16">
+              <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5"/>
+              <path d="M4.085 1H3.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1h-.585q.084.236.085.5V2a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 4 2v-.5q.001-.264.085-.5M8.5 6.5V8H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V9H6a.5.5 0 0 1 0-1h1.5V6.5a.5.5 0 0 1 1 0"/>
+            </svg>
+          </i>
+        </a>
+      </div>
+    </nav>
+
+    <div class="video-container">
+        <div class="row">
+            <div class="col-md-8 video-principal">
+                <video width="100%;" controls>
+                    <source src="{% static 'app_pag_static/video/video_principal.mp4' %}" type="video/mp4" />
+                    Este video no es compatible con tu navegador.
+                </video>
+            </div>
+
+            <div class="col-md-4" style="right: 20px; margin-top: 3px">
+                <video width="100%" controls>
+                    <source src="{% static 'app_pag_static/video/video_arte_cultura.mp4' %}" type="video/mp4" />
+                    Este video no es compatible con tu navegador.
+                </video>
+
+
+                <video width="100%" controls>
+                    <source src="{% static 'app_pag_static/video/video_deporte.mp4' %} " type="video/mp4" />
+                    Este video no es compatible con tu navegador.
+                </video>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <br />
+
+    <div class="separador" style="border-bottom: 1px solid #000; width: 90%; margin: auto; margin-top: 10px"></div>
+    
+    <br/>
+    <br/>
+
+    <h6 class="phrase-1" style="font-family: 'Great Vibes'; font-size: 25px; text-align: center;">
+        <em>¿Que nos quieres compartir el dia de hoy?</em>
+    </h6>
+
+
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="margin: 10px; padding: 20px;">
+      <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="8000">
+              <div class="d-none d-md-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_1.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+                  <img src="{% static 'app_pag_static/img/carrusel_2.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-none d-md-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_3.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+                  <img src="{% static 'app_pag_static/img/carrusel_4.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-none d-md-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_5.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+                  <img src="{% static 'app_pag_static/img/carrusel_7.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-none d-md-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_8.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+                  <img src="{% static 'app_pag_static/img/carrusel_9.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-none d-md-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_10.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+                  <img src="{% static 'app_pag_static/img/carrusel_11.jpg' %}" class="img-fluid" style="margin-right: 5px; width: 720px; height: 450px; border: 1px solid #000;">
+              </div>
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  
+
+
+
+
+
+  <div id="carouselExampleIntervalMobile" class="carousel slide d-md-none" data-bs-ride="carousel" style="margin: 5px">
+      <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_1.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_2.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_3.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_4.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_5.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_7.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_8.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_9.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_10.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="8000">
+              <div class="d-flex justify-content-center">
+                  <img src="{% static 'app_pag_static/img/carrusel_11.jpg' %}" class="img-fluid" style="width: 100%; max-width: 720px; height: 320px; border: 1px solid #000;">
+              </div>
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIntervalMobile" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIntervalMobile" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  
+  
+    <div class="separador" style="border-bottom: 1px solid #000; width: 90%; margin: auto; margin-top: 20px"></div>
+    <br>
+    <br>
+
+    <h6 class="phrase-2" style="font-family: 'Great Vibes'; font-size: 25px; text-align: center">
+      <em>
+        <b>Cultural Expression</b> tu acesso directo a servicios, eventos y oportunidades locales
+      </em>
+    </h6>
+
+    <br/>
+
+    <div class="contenido-cards">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem">
+              <img
+                src="{% static 'app_pag_static' %}/img/card_publicaciones.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="cards-principales-title" style="font-family: 'Great Vibes', cursive; font-size: 28px; text-align: center; margin-bottom: 25px">
+                  <em><b>Publicaciones</b></em>
+                </h5>
+                <p class="card-info" style="font-family: pompiere; font-size: 22px">
+                  Postea, publica y reacciona a tus mejores momentos casuales
+                  relacionados con la cultura, el arte y el deporte. Momentos
+                  que quieres compartir con tus amigos registrados en este sitio
+                  web.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem">
+              <img src="{% static 'app_pag_static' %}/img/card_convocatorias.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="cards-principales-title" style="font-family: 'Great Vibes', cursive; font-size: 28px; text-align: center; margin-bottom: 25px">
+                  <em><b>Convocatorias</b></em>
+                </h5>
+                <p class="card-info" style="font-family: pompiere; font-size: 22px">
+                  Informa y apoya los tuyos comportiendo información valiosa,
+                  actualizada y veraz para la comunidad Tamesina de
+                  convocatorias, inscripciónes o eventos artisticos, deportivos
+                  y culturales.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 18rem">
+              <img src="{% static 'app_pag_static' %}/img/card_productos.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="cards-principales-title" style="font-family: 'Great Vibes', cursive; font-size: 28px; text-align: center; margin-bottom: 25px">
+                  <em><b>Productos</b></em>
+                </h5>
+                <p class="card-info" style="font-family: pompiere; font-size: 22px">
+                  Crea anuncios de articulos artisticos y deportivos que un dia
+                  te apacionaron y que desees vender, tomales fotos y publicalos
+                  en Cultural Expression para que tus amigos se antojen de
+                  comparlos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+
+  <footer>
+    <div class="bienvenidos container-fluid mt-4 text-center contenedor-footer d-none d-md-flex" style="background-image: radial-gradient(circle at 50% -20.71%, #ffffff 0, #ffffff 12.5%, #f3ffff 25%, #e1faf9 37.5%, #cdf2f2 50%, #b9e9ed 62.5%, #a6e1e9 75%, #95d9e7 87.5%, #85d2e6 100%);
+            box-shadow: 0 0 10px rgba(149, 148, 148, 0.853)">
+      <div class="row">
+        <div class="col-4 mt-3">
+          <img src="{% static 'app_funcionalidad' %}/img/img_corporativa.png" alt="hola" class="icono" width="150">
+        </div>
+
+        <div class="col-4 mt-4 mb-3 info">
+          <p class="texto-footer">¡Bienvenid@ a <b>Cultural Expression</b>!</p>
+          <p>
+            Nos emociona tenerte ¡AQUI! esperamos que nuestra informacion sea de
+            gran beneficio para ti
+          </p>
+          <a href="{% url "reglas_negocio" %}" class="footer-enlace">Reglas de negocio</a>
+        </div>
+
+        <div class="col-4 redes-sociales mt-5">
+          <p class="Siguenos">SIGUENOS Y CONTÁCTANOS</p>
+
+          <div class="redes">
+            <a href="https://www.facebook.com/profile.php?id=61561632659716&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-facebook ms-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                />
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/invites/contact/?i=s1zq6zkl6fl1&utm_content=tmdu85u" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-instagram ms-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                />
+              </svg>
+            </a>
+
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQlqwbnDVvJHgTdPSPgWnWmHGTNXfTgkbpSmdxDDRnsspwtWvmxxcmhthKRjrCHnzhJB" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-envelope-at-fill ms-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"
+                />
+                <path
+                  d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="col text-reservado">
+          <p class="mt-2 derechos">
+            &copy; 2024 Cultural Expression - Todos los derechos reservados
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <footer>
+    <div class="bienvenidos container-fluid mt-4 text-center contenedor-footer d-md-none" style="background-image: radial-gradient(circle at 50% -20.71%, #ffffff 0, #ffffff 12.5%, #f3ffff 25%, #e1faf9 37.5%, #cdf2f2 50%, #b9e9ed 62.5%, #a6e1e9 75%, #95d9e7 87.5%, #85d2e6 100%);
+            box-shadow: 0 0 10px rgba(149, 148, 148, 0.853)">
+      <div class="row">
+        <div class="col-6 mt-3 display: flex">
+          <img src="{% static 'app_funcionalidad' %}/img/img_corporativa.png" class="icono" width="100">
+          <p class="texto-footer">¡Bienvenid@ a <b>Cultural Expression</b>!</p>
+        </div>
+        <div class="col-6 mt-4 info">
+          <p class="">
+            Esperamos que nuestra informacion sea de
+            gran beneficio para ti
+          </p>
+
+          <p class="Siguenos" style="margin-top: 37px;" >SIGUENOS Y CONTÁCTANOS</p>
+        </div>
+
+        <div class="col-6 mt-2">
+          <a  href="{% url "reglas_negocio" %}" class="footer-enlace" style=" margin: 0%; padding: 0%; font-size: 19px; display: flex; justify-content: center; align-items: center; text-decoration: none;">Reglas de negocio</a>
+        </div>
+
+        <div class="col-6 redes-sociales">
+          <div class="redes">
+            <a href="https://www.facebook.com/profile.php?id=61561632659716&viewas=&show_switched_toast=false&show_switched_tooltip=false&is_tour_dismissed=false&is_tour_completed=false&show_podcast_settings=false&show_community_review_changes=false&should_open_composer=false&badge_type=NEW_MEMBER&show_community_rollback_toast=false&show_community_rollback=false&show_follower_visibility_disclosure=false&bypass_exit_warning=true" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-facebook ms-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"
+                />
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/invites/contact/?i=s1zq6zkl6fl1&utm_content=tmdu85u" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-instagram ms-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"
+                />
+              </svg>
+            </a>
+
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZZQlqwbnDVvJHgTdPSPgWnWmHGTNXfTgkbpSmdxDDRnsspwtWvmxxcmhthKRjrCHnzhJB" target="_blank">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-envelope-at-fill ms-2"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"
+                />
+                <path
+                  d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="col text-reservado">
+          <p class="mt-2 derechos">
+            &copy; 2024 Cultural Expression - Todos los derechos reservados
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" ></script>
+
+</html>

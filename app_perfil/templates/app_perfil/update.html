@@ -1,0 +1,301 @@
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link
+    rel="icon"
+    href="{% static 'app_funcionalidad/img/img_corporativa.png' %}"
+  />
+</head>
+
+
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+    /*CAMPOS DE EL INPUT Y LABEL*/
+    .campos2 {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 5%;
+        margin-bottom: 10px;
+    }
+    .campos2 > div {
+        flex: 1; /* Cada div ocupa el mismo espacio dentro de .campos2 */
+        margin-right: 10px; /* Espacio entre cada campo dentro de un conjunto */
+    }
+    .campos2 label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+    /*FOTO DE PERFIL*/
+    .foto{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .fotos{
+        width: 140px;
+        border-radius: 150px;
+        height: 140px;
+        margin-top: -19px;
+        margin-bottom: 10px;
+    }
+
+    /*SALIR DEL UPDATE*/
+    .x-olvi-registro {
+        margin-left: 95%;
+        width: 30px;
+        height: 30px;
+        color: #000;
+    }
+
+    /*ESTE ES EL RECUADRO DEL FORMULARIO*/
+    form{
+        background-color: #F5F5F5; 
+        padding: 30px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+        border: 5px solid;
+        border-image: linear-gradient(to bottom left, #FF1500, #BB21D3, #F1172A, #BF21C6, #F0182F) 1; /* Imagen de borde */
+        width: 500px;
+        padding: 20px;
+        box-shadow: 8px 5px 1px rgba(205, 203, 203, 0.75);
+    }
+
+    .custom-file-input {
+        display: none;
+    }
+    
+    /*BOTON DE SUBIR LA FOTO*/
+    .custom-file-label {
+        display: inline-block;
+        border: 1px solid black;
+        background-color: #ffffff;
+        color: rgb(32, 30, 30);
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        font-family: Arial, sans-serif;
+        box-shadow: 1px 2px 5px rgba(26, 26, 26, 0.43);
+        margin-bottom: 20px;
+    }
+
+    .custom-file-label:hover {
+        height: 20px;
+        background-color: #bb53d4;
+    }
+
+    .custom-file-label:active {
+        background-color: #aa54dc;
+    }
+
+    .person{
+        margin-bottom: 10px;
+        width: 130px;
+        margin-top: -25px;
+        height: 130px;
+    }
+
+    .input{
+        display: none;
+    }
+
+    /*SON LOS INPUTS Y LA CLASE ESTA EN LOS FORMS.PY*/
+    .campos{
+        background: #fbfafa;
+        width: 200px;
+        height: 30px;
+        color: gray;
+        border-radius: 5px;
+        border: 1px solid rgba(202, 199, 199, 0.615);
+
+    }
+
+    .campos:hover{
+        color: rgb(19, 18, 18);
+        
+        border: 1px solid rgb(10, 10, 10);
+    }
+    
+    /*ESTE ES DE EL TEXTO DE DATOS PERSONALES*/
+    .datos{
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 50%;
+        margin-top: -1px;
+
+
+    }
+
+    /*BOTON DE ACTUALIZAR*/
+    .boton-agregar {   
+        background-color: #e45ae9;
+        box-shadow: 3px 3px 4px rgba(26, 26, 26, 0.813);
+        color: #000000;
+        border: 1px, solid #000000;
+        padding: 8px 20px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-family: pompiere;
+        margin-top: 26px;
+      }
+      
+      .boton-agregar:hover {
+        background-color: #bb53d4;
+        color: #000000;
+        border: 2px, solid #000000;
+      }
+
+
+    .update{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media (max-width: 576px) {
+        .boton-agregar {
+            padding: 8px 15px;
+            font-size: 18px;
+        }
+
+        .campos2{
+            margin-top: 0;
+            margin-bottom: 10px;
+
+        }
+
+        .x-olvi-registro {
+           
+            width: 30px;
+            height: 30px;
+            color: #000;
+        }
+
+        .campos2 > div {
+            flex-basis: 100%; /* En pantallas más pequeñas, cada div ocupa el 100% del ancho para que los campos estén en una sola línea */
+        margin-right: 0; /* Eliminar el margen entre los campos para que se ajusten mejor */
+        margin-bottom: 10px;  /* Espacio entre cada campo dentro de un conjunto */
+        }
+        form{
+            background-color: #F5F5F5; 
+            padding: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+            border: 5px solid;
+            border-image: linear-gradient(to bottom left, #FF1500, #BB21D3, #F1172A, #BF21C6, #F0182F) 1; /* Imagen de borde */
+            width: 320px;
+            padding: 20px;
+            box-shadow: 8px 5px 1px rgba(205, 203, 203, 0.75);
+        }
+
+        .campos{
+            background: #fbfafa;
+            margin-left: 22px;
+            width: 250px;
+            height: 30px;
+            color: gray;
+            border-radius: 5px;
+            border: 1px solid rgba(202, 199, 199, 0.615);
+    
+        }
+
+        .datos{
+            font-size: 18px;
+            font-weight: 600;
+            margin-right: 50%;
+            margin-top: 10px;
+    
+    
+        }
+
+        .labe{
+            margin-left: 22px;
+        }
+
+        .campos2 label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+
+
+    }
+</style>
+<body>
+    <form method="post" class="contenido-formulario container" enctype="multipart/form-data">
+        <div class="contenedor-x row">
+            <a href="{% url 'perfil' %}" class="x-registro">
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-x-circle x-olvi-registro" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                </svg>  
+            </a>
+        </div>
+
+        {% csrf_token %}
+
+        <!--ESTE ES LA FOTO QUE SE TIENE ACTUALMENTE DE PERFIL MAS EL BOTON DE CAMBIAR LA FOTO-->
+        <div class="foto">
+            {% if usuario.foto_perfil and usuario.foto_perfil.url %}
+                  <img class="fotos" src="{{ usuario.foto_perfil.url }}" alt="Foto de Perfil">
+                  {% else %}
+                  <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="person bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>
+                </i>
+                {% endif %}
+        </div>
+        <div class="foto">
+            <label class="custom-file-label" for="id_foto_perfil">Cambiar foto</label>
+            <p class="input">
+                {{ formulario.foto_perfil }}
+            </p>
+        </div>
+        <!--TEXTO DE DATOS PERSONALES-->
+        <p class="datos">Datos personales</p>
+
+        <!--LOS INPUTS Y ESTAN EL EL FORMS.PY -->
+        <div class="campos2">
+            <div class="">
+                <label  class="labe"  for="id_nombres" >Alias</label>   
+                {{ formulario.alias }}
+            </div>
+            <div class="">
+                <label  class="labe"  for="id_apellidos" >Email</label> 
+                {{ formulario.gmail }}
+            </div>
+        </div>
+        <div class="campos2">
+            
+            <div class="">
+                <label class="labe"   for="id_apellidos">Telefono</label> 
+                {{ formulario.telefono }}
+            </div>
+            <div class="">
+                <label  class="labe"  for="id_nombres" >fecha naciemiento</label>   
+                {{ formulario.fecha_nacimiento }}
+            </div>
+        </div>
+        <br>
+
+        <!--BOTON PARA ACTUALIZAR LOS DATOS-->
+        <div class="update">
+            <button type="submit" class="btn boton-agregar">Actualizar</button>
+        </div>
+    </form>
+</body>

@@ -1,0 +1,178 @@
+/* Estilos generales */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-olvide {
+  background-color: #F5F5F5; 
+  padding: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+  border: 8px solid;
+  border-image: linear-gradient(to bottom left, #FF1500, #BB21D3, #F1172A, #BF21C6, #F0182F) 1; /* Imagen de borde */
+  border-radius: 10px; /* Borde redondeado */
+}
+
+.logo-registro {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.titulo-from-publi {
+  font-size: 35px;
+  font-family: jokerman;
+  color: #333;
+}
+
+.x-registro {
+  position: absolute;
+  top: 40px;
+  right: 70px;
+  cursor: pointer;
+  color: #333;
+}
+
+.x-olvi-registro {
+  width: 25px;
+  height: 25px;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.formulario_input {
+  border: 1px solid #c4c1c1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.upload-container {
+  position: relative;
+  display: inline-block;
+  margin: 20px 0;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-container input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-container label {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.upload-container label:hover {
+  color: #8d1010;
+}
+
+.preview-container {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.preview-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-container .remove-preview {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #007bff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.boton-agregar {
+  background-color: #e45ae9;
+  color: #000000;
+  border: 2px, solid #000000;
+  padding: 3px 50px;
+  border-radius: 5px;
+  font-size: 25px;
+  font-family: pompiere;
+}
+
+.boton-agregar:hover {
+  background-color: #bb53d4;
+  color: #000000;
+  border: 2px, solid #000000;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .form-olvide {
+      padding: 20px;
+  }
+
+  .logo-registro {
+      width: 80px;
+      height: 80px;
+  }
+
+  .titulo-from-publi {
+      font-size: 30px;
+  }
+
+  .form-label {
+      font-size: 14px;
+  }
+
+  .formulario_input {
+      padding: 8px;
+  }
+
+  .upload-container {
+      height: 120px;
+  }
+
+  .upload-container label {
+      font-size: 14px;
+  }
+
+  .preview-container {
+      height: 120px;
+  }
+
+  .boton-agregar {
+      padding: 10px 20px;
+      font-size: 20px;
+  }
+}

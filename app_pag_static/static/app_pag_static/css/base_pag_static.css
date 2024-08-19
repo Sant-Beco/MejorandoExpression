@@ -1,0 +1,379 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-position: center center;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+/* Estilos header*/
+
+.contenido-header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.titulo{
+  margin-right: 5px;
+  font-family: jokerman;
+  font-size: 28px;
+}
+
+.img-corporativa{
+  width: 115px;
+  height: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.icono-x{
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 28px;
+  height: 28px;
+  color: black;
+}
+
+
+
+
+
+/*Estilos body --------- VISTA PRINCIPAL --------- */
+
+body{
+  margin: 0;
+  padding: 0;
+  background-image: url(img/Fondo_Cultural_Expression.jpeg);
+  background-position: center center;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container-img-corpo-view-principal{
+  margin-left: 1%;
+}
+
+.cultural{
+  width: 140px;
+  height: auto;
+}
+
+.cultural-expression {
+  font-size: 35px;
+  font-family: 'Jokerman';
+}
+
+.slogan{
+  font-size: 25px;
+  font-family: 'pompiere', cursive;
+}
+
+.lista-desplagable{
+  font-family: pompiere; 
+  font-size: 20px;
+  margin-right: 30px;
+}
+
+.menu-desplegable{
+  font-family: 'Great Vibes', cursive;
+  font-size: 15px;
+}
+
+.dropdown-item:hover{
+  color: #901aad;
+}
+
+.iconos-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.iconos-principales {
+  margin: 0 1px; /* juntar más o separar los íconos */
+}
+
+.iconos-principales:hover{
+  width: 40px;
+  height: 40px;
+}
+
+
+.video-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4px;
+  margin-left: 10px;
+}
+
+.video-principal{
+  width: 400px;
+  height: 220px;
+}
+
+.carousel{
+  margin-left: 20px;
+}
+
+
+/*Estilos body --------- ACERCA DE NOSOTROS --------- */
+
+
+.contenido-mision-vision{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido-title{
+  font-family: jokerman;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.text:hover{
+  transform: translateY(-10px);
+}
+
+.text{
+  font-family: pompiere;
+  font-size: 25px;
+  margin-right: 20px;
+  margin-left: 20px;
+  color: rgb(12, 12, 12);
+}
+
+.icon-mision{
+  width: 160px;
+  height: auto;
+}
+
+.icon-vision{
+  width: 105px;
+  height: auto;
+}
+
+.tarjetas{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-tarjeta{
+  border-radius: 15px;
+  box-shadow: 15px 10px 15px rgb(153, 51, 51);
+  transition: transform 0.3s ease;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: auto;
+  height: auto;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.body-tarjeta:hover{
+  transform: translateY(-10px);
+  background-color: #d4caca;
+}
+
+.title-tarjeta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Great Vibes', cursive;
+  color: #901aad;
+}
+
+
+
+
+/*Estilos body --------- REGLAS DE NEGOCIO --------- */
+
+
+.container-reglas{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+
+.card{
+  border-radius: 15px;
+  box-shadow: 15px 10px 15px rebeccapurple;
+  background-color: white;
+  transition: transform 0.3s ease;
+  margin: 20px;
+  margin-bottom: 100px;
+}
+
+.card:hover{
+  transform: translateY(-10px);
+}
+
+.card-title{
+  font-family: 'Great Vibes', cursive;
+  color: #cc2df4;
+  font-size: 28px;
+  padding: 30px;
+  text-align: center;
+}
+
+.card-body{
+  padding: 20px;
+}
+
+.card-text{
+  font-family: pompiere;
+  font-size: 25px;
+  padding: 5px;
+}
+
+
+
+/*Estilos body --------- TERMINOS Y CONDICIONES --------- */
+
+
+.fecha-terminos{
+  font-size: 35px;
+  font-family: pompiere;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 30px;
+  color: #000000;
+}
+
+.fecha-terminos:hover{
+  transform: translateY(-10px);
+}
+
+.contenedor-terminos{
+  font-family: pompiere;
+  font-size: 32px;
+  color: #000000;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.numero-termino{
+  display: inline;
+  color: #cc2df4;
+}
+
+.numero-termino:hover{
+  width: 20px;
+}
+
+
+/*Estilos body --------- HISTORIA --------- */
+
+
+.container-historia{
+margin: 50px;
+}
+
+.historia-cultural-expression{
+color: rgb(8, 8, 8);
+font-family: pompiere;
+font-size: 30px;
+display: flex;
+}
+
+.imagen{
+  border-radius: 2%;
+  width: 350px;
+  height: 400px;
+  float: right;
+  margin-left: 10px;
+}
+
+
+
+        /* Estilos Footer */
+        .contenedor-footer {
+          text-align: center;
+          width: 100%;
+          position: relative;
+          background-color: #929292;
+      }
+
+      .text-reservado{
+        height: 35px;
+          background: #000;
+          color: #ffffff;
+          font-family: pompiere,sans-serif;
+          font-size: 14px;
+        }
+
+
+      .Info{
+          font-size: 16px;
+          font-family: pompiere;
+      }
+        
+      .footer-enlace{
+          color: #000;
+          text-decoration: none;
+      }
+        
+      .footer-enlace:hover{
+          color: #001679;
+          text-decoration: none;
+      }
+         
+      
+     .icono-footer{
+          width: 70px;
+          margin-top: 30px;
+      }
+
+
+
+    .Siguenos {
+      margin-bottom: 0%;
+      font-family: pompiere;
+      font-size: 11px;
+    }
+
+.bi-facebook{
+  color: #2430d3;
+  width: 30px; 
+  height: 30px;
+}
+
+.bi-facebook:hover{
+  color: #cc2df4;
+  width: 30px; 
+}
+
+
+.bi-instagram{
+  color: #f80f8f;
+  width: 10%; 
+  height: 30px;
+}
+
+.bi-instagram:hover{
+  color: #cc2df4;
+  width: 30px;
+}
+
+.bi-envelope-at-fill{
+  color: #00c3ff;
+  width: 30px; 
+  height: 30px;
+}
+
+.bi-envelope-at-fill:hover{
+  color: #cc2df4;
+  width: 30px;
+
+}

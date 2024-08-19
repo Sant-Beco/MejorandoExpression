@@ -1,0 +1,123 @@
+body{
+    background: #fff;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size:cover;
+
+}
+
+body img{
+    width: 700px;
+    height: 100%;
+    margin-top: 30px;
+    margin-left:-200px;
+
+}
+
+body h1{
+    font-family: jokerman;
+}
+
+body  .recuadro{
+    border: 4px solid #000;
+    background: #F5F5F5;
+    width: 100%;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+body .login{
+    border: 3px solid;
+    border-radius: 8px;
+    background: #fff;
+}
+
+body .login:hover{
+    background: #bcb7b7;
+}
+
+
+body .redes{
+    font-family: "Pompiere", sans-serif;
+    font-size: 35px;
+    color: #000;
+    text-decoration: none;
+    
+}
+
+
+body a i{
+    margin-right: 30px;
+}
+
+body .enlaces{
+    text-decoration: none;
+    font-family: pompiere;
+    font-size: 25px;
+}
+
+body  .btn{
+    border: 5px outset #000;
+    font-size: 25px;
+    font-family: pompiere;
+    width: 200px;
+}
+
+
+.formulario_input{
+    width: 676px;
+    height: 50px;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #000;
+}
+
+
+.formulario_input:focus{
+    outline: none;
+    box-shadow:  1px 3px  1px 3px purple;
+}
+
+.error{
+    font-size: 12px;
+    display: none;
+}
+
+.error-activo{
+    display: block;
+    color: red;
+}
+
+
+.swal-button-custom {
+    padding: 10px 24px; /* Ajusta el padding según sea necesario */
+    font-size: 16px; /* Ajusta el tamaño de la fuente según sea necesario */
+    width: 100px;
+}
+
+.custom-swal{
+    margin-left: 1000px;
+    height: 1px;
+    background: #dadbdc;
+}
+
+.my-custom-modal{
+    margin-left: 650px;
+    background: #e2e0e0;
+    color: red;
+    font-weight: 800;
+    border: 3px solid red;
+
+}
+
+.custom-modal{
+    margin-left: 650px;
+    background: #e2e0e0;
+    color: rgb(43, 181, 43);
+    font-weight: 800;
+    border: 3px solid rgb(43, 181, 43);
+
+}

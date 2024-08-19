@@ -1,0 +1,310 @@
+/*base*/
+
+.primero{
+    background:linear-gradient(to right,#933E2B,8%,#FF1500, #933E2B);
+}
+
+.titulo{
+    font-family: Jokerman;
+    font-family: 28px;
+}
+.icono{
+    background-color: #fff;
+}
+
+.tex2{
+    font-family: pompiere;
+    font-size: 30px;
+}
+
+.img-center{
+    width: 130px;
+    height: 130px;
+}
+
+.bi{
+    width: 120px;
+    height: 120px;
+    color: #000;
+}
+
+.nombre{
+    font-weight: 900;
+    font-family: pompiere;
+    font-size: 20px;
+}
+
+
+.buscar{
+    width: 30px;
+    height: 30px;
+}
+
+
+/*BARRA DE BUSQUEDAD*/
+.busca{
+    width: 100%;
+    background: #fff;
+    border: none;
+    font-size: 25px;
+    font-family: pompiere;
+    padding: 0 10px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px 0 0 3px ;
+}
+
+button{
+    width: 4%;
+    background: #fff;
+    border: none;
+    font-family: pompiere;
+    font-size: 25px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    color: black;
+}
+
+button:hover{
+    background: #f7f3f7;
+    color: #fff;
+}
+                    
+
+/*BARRA DE ICONOS*/
+main .barra-lateral-izquierda nav a{
+    font-family: pompiere;
+    color: #000;
+}
+
+
+main .barra-lateral-izquierda nav a .ico{
+    width:50px;
+    height: 50px;
+}
+
+
+
+main .barra-lateral-izquierda nav a .ico:hover{
+    color: #d7d4d7;
+    
+}
+
+
+main .barra-texto-izquierdo nav .list-group-item{
+    font-size: 25px;
+    font-family: Pompiere;
+    background:linear-gradient(to right,#933E2B,8%,#FF1500, #933E2B);
+    width: 80%;
+    right: 30px;
+    border: 2px solid black;
+
+}
+
+
+main .barra-texto-izquierdo nav a{
+    font-family: pompiere;
+    color: #fff;
+}
+
+
+main .barra-texto-izquierdo nav .list-group-item:hover{
+    background: #f8f6f8;
+    color: #000;
+}
+
+
+/* Estilos footer*/
+.bienvenidos{
+    background: linear-gradient(to right,#933E2B,8%,#FF1500, #933E2B);
+}
+
+.icono-footer{
+    width: 130px;
+}
+
+.cultural{
+    width: 170px;
+    height: 170px;
+}
+.Info{
+    font-size: 20px;
+    font-family: pompiere;
+}
+  
+.footer-enlace{
+    color: #000;
+    text-decoration: none;
+}
+  
+.footer-enlace:hover{
+    color: #fff;
+    text-decoration: none;
+}
+  
+
+    
+.Siguenos{
+    margin-bottom: 0%;
+    font-family: pompiere;
+    font-size: 25px;
+}
+
+  
+.text-reservado{
+    background: #000;
+    color: #fff;
+    font-family: pompiere,sans-serif;
+    font-size: 20px;
+}
+
+
+.btn-menu{
+   text-decoration: none;
+    border: 1px solid;
+    padding: 5px 10px;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    color: #000;
+    align-items: center;
+
+}
+
+.btn-menu i .lista{
+    width: 30px;
+    height: 30px;
+    margin-left: 80px;
+}
+
+
+
+
+.bi-facebook{
+  color: #2430d3;
+  width: 40px; 
+  height: 40px;
+}
+
+.bi-facebook:hover{
+  color: #cc2df4;
+  width: 40px; 
+}
+
+
+.bi-instagram{
+  color: #f80f8f;
+  width: 40px; 
+  height: 40px;
+}
+
+.bi-instagram:hover{
+  color: #cc2df4;
+  width: 40px;
+}
+
+.bi-envelope-at-fill{
+  color: #00c3ff;
+  width: 40px; 
+  height: 40px;
+}
+
+.bi-envelope-at-fill:hover{
+  color: #cc2df4;
+  width: 40px;
+}
+
+
+
+/*publi*/
+.swal-button-custom {
+    padding: 10px 24px; /* Ajusta el padding según sea necesario */
+    font-size: 16px; /* Ajusta el tamaño de la fuente según sea necesario */
+    width: 100px;
+}
+
+.my-custom-modal{
+    margin-left: 100x;
+    background: #dadbdc;
+}
+
+
+.textito{
+    border: 3px solid #000;
+}
+
+
+main .imagen-usuario img{
+    width: 100px;
+    height: 100px;
+}
+
+main .contenido .Publicaciones a i .ico{
+    width:90px;
+    height: 90px;
+    color: #000;
+}
+
+main .contenido .Publicaciones a {
+    color: #000;
+    text-decoration: none;
+    font-family: Pompiere;
+    font-size: 25px;
+}
+
+main .contenido .Publicaciones p{
+    font-family: pompiere;
+    font-size: 30px;
+    color: #000;
+}
+
+main  .convo {
+    width: 900px;
+    height: 600px;
+}
+
+
+main   .infromacion {
+    border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+}
+
+main .inhabilitar .form-check-input{
+    width: 80PX; 
+    height: 40PX;
+
+}
+
+main .inhabilitar .form-check-label{
+    font-size: 25px;
+    font-family: pompiere;
+    
+
+}
+
+/*configuracion*/
+
+
+.cuadro{
+    border: 2px solid black;
+    width: 600px;
+    background: gainsboro;
+}
+
+.person{
+    width: 40px;
+    height: 40px;
+    color: #000;
+}
+  
+.texto{
+    border: 2px solid black;
+    padding: auto;
+}
+
+.letras{
+    font-size: 20px;
+    font-family: pompiere;
+}

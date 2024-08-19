@@ -1,0 +1,52 @@
+{% extends "app_funcionalidad/base.html" %} 
+
+{% block title %} categoria {% endblock %}
+{% load static %} 
+{% block content %}
+
+
+<head>
+  <style>
+    .contenido-dele{
+      font-family: pompiere;
+      font-size: 26px;
+} 
+    .titulo-principal{
+      font-size: 46px;
+      margin: 22px 0;
+      font-weight: 900;
+}
+
+    .cancelar{
+      font-size: 34px;
+      color: #000;
+}
+    .cancelar:hover{
+      color: #ff1500;
+}
+
+    .eliminar{
+      background: #cc2df4;
+      font-family: pompiere;
+      font-size: 26px;
+      width: 190px;
+      height: 56px;
+      margin: 10px 0;
+}
+
+    .eliminar:hover{
+      background: #420751;
+}
+    </style>
+</head>
+
+<div class="contenido-dele">
+    <h2 class="titulo-principal">¿Estás seguro que deseas eliminar esta categoría?</h2>
+    <form method="POST">
+        {% csrf_token %}  
+        <button type="submit" class="eliminar">Eliminar</button>
+    </form>
+    <a href="{% url 'categoria_list' %}" class="cancelar">Cancelar</a>
+</div>
+
+{% endblock %}

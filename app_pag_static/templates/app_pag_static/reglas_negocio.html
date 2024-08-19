@@ -1,0 +1,153 @@
+{% extends "app_pag_static/base_pag_static.html" %}
+
+{% load static %}
+
+<!-- TITULO -->
+{% block content_titulo %}
+
+Reglas de Negocio
+
+{% endblock %}
+
+
+
+<!-- CONTENIDO CAMBIANTE -->
+{% block content %}
+
+<div class="container-reglas">
+    <div class="row-2">
+
+
+      <div class="col">
+        <div class="card">
+         
+          <div class="card-body">
+            <h5 class="card-title"> <em><b>Usuario</b></em></h5>
+            <p class="card-text">💎 Señor usuario debes estar registrado para acceder a los servicios de Cultural Expression. </p>
+            <p class="card-text">💎 Al momento de crear una contraseña, esta misma debe cumplir con los siguientes criterios: Contener mínimo 8 caracteres, puede contener letras, números, mayúsculas, minúsculas y no puede contener espacios y ni caracteres especiales. </p>
+            <p class="card-text">💎 Usted como usuario de Cultural Expression puede crear y eliminar las publicaciones, convocatorias y productos de tu autoría posteados en tu perfil.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title"><em><b>Publicaciones</b></em></h5>
+            <p class="card-text">🎬 Las publicaciones solo pueden ser realizadas y publicadas por el usuario. </p>
+            <p class="card-text">🎬 Las publicaciones pueden ser creadas cada que el usuario lo requiera, es decir, no habrá ningún límite para postear publicaciones en Cultural Expression.</p>
+            <p class="card-text">🎬 Todas las publicaciones creadas por los usuarios podrán ser eliminadas por el mismo perfil que las publico, esto desde su perfil.</p>
+            <p class="card-text">🎬 Las publicaciones que incumplan las condiciones de uso de Cultural Expression serán inhabilitadas por el administrador.</p>
+            <p class="card-text">🎬 Todos los archivos multimedia de las publicaciones deben tener las siguientes especificaciones; el tamaño máximo de 100 MB y un formato: JPG.</p>
+            <p class="card-text">🎬 Las publicaciones que superen los 15 días, además que no tengan que ver con arte, cultura y deporte, serán inhabilitadas. </p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title"><em><b>Convocatorias</b></em></h5>
+            <p class="card-text">📢 Las convocatorias solo pueden ser realizadas y publicadas por el usuario. </p>
+            <p class="card-text">📢 Las convocatorias pueden ser creadas cada que el usuario lo requiera, es decir, no habrá ningún límite para postear convocatorias en Cultural Expression. </p>
+            <p class="card-text">📢 Todas las convocatorias creadas por los usuarios podrán ser eliminadas por el mismo perfil que las publico, esto desde su perfil.</p>
+            <p class="card-text">📢 Las convocatorias que incumplan las condiciones de uso de Cultural Expression serán inhabilitadas por el administrador.</p>
+            <p class="card-text">📢 Todos los archivos multimedia de las convocatorias deben tener las siguientes especificaciones; el tamaño máximo de 100 MB y un formato: JPG.</p>
+            <p class="card-text">📢 Las convocatorias que superen los 15 días, además que no tengan que ver con arte, cultura y deporte, serán inhabilitadas.</p>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+      <div class="col">
+        <div class="card">
+          
+          <div class="card-body">
+            <h5 class="card-title"><em><b>Anuncios de productos</b></em></h5>
+            <p class="card-text">🛒 Los anuncios de los productos solo pueden ser realizados y posteados por el usuario. </p>
+            <p class="card-text">🛒 Los anuncios de los productos pueden ser creados cada que el usuario lo requiera, es decir, no habrá ningún límite para postear productos en Cultural Expression.</p>
+            <p class="card-text">🛒 Todos los anuncios de productos creados por los usuarios podrán ser eliminadas por el mismo perfil que las publico, esto desde su perfil. </p>
+            <p class="card-text">🛒 Todos los anuncios de los productos que incumplan las condiciones de uso de Cultural Expression serán inhabilitados por el administrador. </p>
+            <p class="card-text">🛒 Para postear un anuncio de un producto es obligatorio anexar una imagen del mismo producto, así mismo el archivo  multimedia del producto debe tener las siguientes especificaciones; el tamaño máximo de 100 MB y un formato: JPG. </p>
+            <p class="card-text">🛒 El anuncio podrá ser eliminado por el perfil que lo publico, al cabo de pasar 4 meses de que el producto esté  posteado será eliminado de forma automática por el sistema, así que si el usuario no vendió el artículo puede volver a publicarlo. </p>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="card">
+
+          <div class="card-body">
+            <h5 class="card-title"><em><b>Categoría</b></em></h5>
+            <p class="card-text">❤ Al postear una publicación, convocatoria y producto solo pueden tener una categoría, ya sea arte, cultura o deporte </p>
+            <p class="card-text">❤ De ser necesario se podrá crear más categorías. </p>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+         
+          <div class="card-body">
+            <h5 class="card-title"> <em><b>Administrador</b></em></h5>
+            <p class="card-text">📌 El administrador puede gestionar los roles y permisos que están dentro de configuración. </p>
+            <p class="card-text">📌 El administrador puede inhabilitar publicaciones, convocatorias y productos a cualquier usuario de ser necesario bajo el siguiente criterio: Que estos no cumplan con las categorías  permitidas.</p>
+            <p class="card-text">📌 El máster administrador puede asignar a un usuario el rol de administrador.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+         
+          <div class="card-body">
+            <h5 class="card-title"> <em><b>Configuración</b></em></h5>
+            <p class="card-text">⚙ La configuración solo puede ser visualizada por el administrador. </p>
+            <p class="card-text">⚙ El administrador puede habilitar o inhabilitar los permisos al usuario según el siguiente criterio: Incumplimiento de las condiciones y/o políticas de Cultural Expression.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col">
+        <div class="card">
+
+         
+          <div class="card-body">
+            <h5 class="card-title"> <em><b>Roles</b></em></h5>
+            <p class="card-text">🎓 Los roles solo pueden ser visualizados por los administradores.</p>
+            <p class="card-text">🎓 Los roles de los administradores van a ser gestionar por un administrador máster, el cual puede crear otro administrador que ayude a gestionar el sitio web.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col">
+        <div class="card">
+
+         
+          <div class="card-body">
+            <h5 class="card-title"> <em><b>Permisos</b></em></h5>
+            <p class="card-text">🔥 Los permisos son otorgados de acuerdo al rol. </p>
+            <p class="card-text">🔥 Los permisos otorgados al usuario son: Crear, Publicar y Eliminar publicaciones, convocatorias o anuncios de productos, Ingresar al chat privado, Enviar mensajes, Recibir notificaciones.</p>
+            <p class="card-text">🔥 Los permisos otorgados al administrador son: Inhabilitar, Visualizar y Actualizar publicaciones de los usuarios de Cultural Expression. </p>
+            <p class="card-text">🔥 Un administrador puede deshabilitar o inhabilitar permisos a un usuario bajo el siguiente criterio: Incumplimiento de las condiciones y/o políticas de Cultural Expression.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+{% endblock %}

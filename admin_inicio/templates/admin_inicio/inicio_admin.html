@@ -1,0 +1,48 @@
+{% extends 'app_funcionalidad/base.html' %}
+
+{% block title %} inicio {% endblock %}
+{% load static %} 
+{% block content %}
+
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio Admin</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<div class="col contenido">
+  <div>
+    <h2 style="text-align: center;  font-family: pompiere; font-size: 40px;">Publicaciones</h2>
+        <div id="graph_publicaciones"></div>
+        <script>
+            var graph_publicaciones = {{ graph_publicaciones_json|safe }};
+            Plotly.react('graph_publicaciones', graph_publicaciones.data, graph_publicaciones.layout);
+        </script>
+  </div>
+  <div>
+    <h2 style="text-align: center;  font-family: pompiere; font-size: 40px;">Convocatorias</h2>
+        <div id="graph_convocatorias"></div>
+        <script>
+            var graph_convocatorias = {{ graph_convocatorias_json|safe }};
+            Plotly.react('graph_convocatorias', graph_convocatorias.data, graph_convocatorias.layout);
+        </script>
+  </div>
+  <div>
+    <h2 style="text-align: center;  font-family: pompiere; font-size: 40px;">Productos</h2>
+        <div id="graph_productos"></div>
+        <script>
+            var graph_productos = {{ graph_productos_json|safe }};
+            Plotly.react('graph_productos', graph_productos.data, graph_productos.layout);
+        </script>
+  </div>
+<div>
+
+  </div>
+</div>
+
+    <script src="{% static 'chart.js/dist/Chart.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+{% endblock %}

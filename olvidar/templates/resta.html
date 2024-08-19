@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reestablecer Contraseña</title>
+  
+  <link rel="icon" href="{% static 'app_funcionalidad/img/img_corporativa.png' %}"/>
+
+</head>
+
+
+
+<body>
+
+  <style>
+
+    /* ESTILOS */
+
+    body {
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  
+
+    .text-instrucciones {
+        font-size: 20px;
+        margin-bottom: 50px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-family: pompiere;
+    }
+  
+
+    .form-container {
+        background: #d9d9d9;
+        width: 90%;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 5px solid;
+        border-image: linear-gradient(to bottom left, #FF1500, #BB21D3, #F1172A, #BF21C6, #F0182F) 1;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: auto;
+    }
+  
+
+    .titulo-recuperar {
+        font-family: jokerman;
+        font-size: 30px;
+        text-align: center;
+        margin-bottom: 2.3rem;
+    }
+
+  
+    .boton-enviar-olvidar {
+        font-family: 'Pompiere', cursive;
+        font-size: 20px;
+        background-color: #DD68C3;
+        color: #000;
+        padding: 8px 8px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 20px;
+        transition: background-color 0.3s;
+    }
+  
+    .boton-enviar-olvidar:hover {
+        background-color: #C80A9D;
+    }
+  
+    .error {
+        display: none;
+        color: red;
+        font-size: 0.875rem;
+    }
+  
+    .nav-buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
+  
+
+  /* Estilos para el campo de entrada */
+  input[type="password"] {
+      height: 40px;
+      width: 80%;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      font-size: 16px;
+      font-family: 'Pompiere', cursive;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contenedor-input{
+        margin-left: 20%;
+        margin-right: 5%;
+
+    }
+
+
+  input[type="password"]:focus {
+      border-color: #BB21D3;
+      outline: none;
+      box-shadow: 0 0 5px rgba(187, 33, 211, 0.5);
+    }
+
+
+  input[type="password"] {
+      height: 40px;
+      width: 80%;
+      padding: 10px;
+      border-radius: 5px;
+      border-color: #000000;
+      margin-bottom: 1rem;
+      font-size: 16px;
+      font-family: 'Pompiere', cursive;
+      box-sizing: border-box;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .contenedor-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+        .titulo-recuperar {
+            font-size: 1.25rem;
+        }
+  
+        .icono {
+            width: 60px;
+            height: 60px;
+        }
+  
+        .btn-primary {
+            font-size: 1.25rem;
+            padding: 8px 16px;
+        }
+    }
+
+  </style>
+
+
+
+
+  {% if messages %}
+    <div class="alert alert-info text-center">
+      {% for message in messages %}
+        <div>{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="form-container">
+    <h1 class="titulo-recuperar">Restablecer contraseña</h1>
+    <p class="text-instrucciones">¡Bien Hecho! Solo debes colocar tu nueva contraseña y confirmarla, darle en restablecer e iniciar sesion nuevamente con tu nueva contraseña</p>
+
+    <form method="post">
+      <div class="contenedor-input">
+
+        {% csrf_token %}
+        <input type="hidden" name="uid" value="{{ id_usuario }}">
+        <input type="hidden" name="token" value="{{ token }}">
+
+        <div class="form-group">
+          <label for="password">Nueva contraseña:</label>
+          <input type="password" name="password" id="password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm_password">Confirmar contraseña:</label>
+          <input type="password" name="confirm_password" id="confirm_password" required>
+        </div>
+
+      </div>
+
+      <div class=" mb-4 contenedor-btn">
+        <button type="submit" class="btn btn-custom boton-enviar-olvidar">Restablecer contraseña</button>
+      </div>
+
+    </form>
+    
+  </div>
+
+  
+</body>
+</html>

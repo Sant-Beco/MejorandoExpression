@@ -1,0 +1,67 @@
+{% extends "app_pag_static/base_pag_static.html" %}
+
+{% load static %}
+
+<!-- TITULO -->
+{% block content_titulo %}
+
+Acerca de Nosotros
+
+{% endblock %}
+
+
+
+<!-- CONTENIDO CAMBIANTE -->
+{% block content %}
+<div class="container row-2">
+    <div class="contenido-mision-vision">
+  
+      <div>
+        <div class="contenido-title">
+          <img src="{% static 'app_pag_static/img/icon_mision.png' %}" alt="Imagen Misión" class="icon-mision">
+        </div>
+        <p class="text">Buscamos promocionar el arte y el deporte del municipio de Támesis por medio de contenido centrado en las atracciones más turísticas de la región y emprendimientos locales, entre otros... donde nuestros usuarios puedan mostrar toda la cultura que los rodea.</p>
+      </div>
+  
+      <div>
+        <div class="contenido-title">
+          <img src="{% static 'app_pag_static/img/icon_vision.png' %}" alt="Imagen Visión" class="icon-vision">
+        </div>
+        <p class="text">En el 2026 seremos una red social reconocida a nivel regional al promover su cultura y buscaremos hacernos conocer a nivel departamental para finales del 2080 donde nos conocerán en todo Antioquia.</p>
+      </div>
+  
+    </div>
+  
+    <div class="row row-cols-1 row-cols-md-1 g-4 mt-4 tarjetas">
+      
+      <div class="body-tarjeta">
+        <div class="title-tarjeta">
+          <h4><strong><em>Objetivos</em></strong></h4>
+        </div>
+        <div class="text">
+          <p>💥 Impactar la cultura del municipio de Támesis buscando la divulgación de todo los lugares turísticos, artesanías, petroglifos entre otras atracciones y atractivos del municipio.</p>
+          <p>💥 Permitir a las personas publicar contenido sobre la cultura, arte y deporte.</p>
+          <p>💥 Promover productos que pueden ofrecer los diferentes habitantes además de enriquecer e impulsar la economía del mismo.</p>
+          <p>💥 Dar a conocer Cultural Expression a toda la población tamesina y de municipios aledaños.</p>
+          <p>💥 Ofrecer un sitio web de buena calidad, con nuevos servicios y funcionalidades útiles para nuestros usuarios.</p>
+          <p>💥 Consolidar una comunidad de internautas con conocimientos más centrados en sus municipios y raíces culturales.</p>
+        </div>
+      </div>
+  
+      <div class="body-tarjeta">
+        <div class="title-tarjeta">
+          <h4><strong><em>Servicios</em></strong></h4>
+        </div>
+        <div class="text">
+          <p>💖 Postear una publicación información sobre Cultura, Deporte y Arte además de Convocatorias.</p>
+          <p>💖 Publicar un producto para ofrecerlo por medio Cultural Expression.</p>
+          <p>💖 Contenido entretenido enfocado en los temas culturales, turísticos, artesanos, pinturas, deportivos.</p>
+          <p>💖 Poder interactuar con personas con intereses parecidos en tus hobbies sobre el arte y deporte.</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+
+{% endblock %}

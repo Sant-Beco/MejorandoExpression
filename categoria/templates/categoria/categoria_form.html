@@ -1,0 +1,83 @@
+{% extends "app_funcionalidad/base.html" %} 
+
+{% block title %} categoria {% endblock %}
+{% load static %} 
+{% block content %}
+
+<head>
+  <style>
+    .contenido{
+      font-family: pompiere;
+      font-size: 26px;
+    }
+
+    .form-cate{
+      background: #d9d9d9;
+      width: 600px;
+      height: 420px;
+      padding: 18px;
+      border: solid 6px;
+      border-image: linear-gradient(to bottom left, #FF1500, #BB21D3, #F1172A, #BF21C6,#F0182F) 1;
+      text-align: center;
+      margin: 36px 0;
+    }
+
+    .form-icono{
+      display: flex;
+      justify-content: center;
+    }
+
+    .icono-cultu{
+      width: 103px;
+    }
+
+    .h3-padding{
+      padding: 28px 0;
+    }
+
+    .boton-categoria{
+      background: #cc2df4;
+      font-family: pompiere;
+      font-size: 25px;
+      width: 190px;
+      height: 56px;
+      margin: 10px 0;
+}
+
+    .boton-categoria:hover{
+      background: #420751;
+      font-family: pompiere;
+      font-size: 25px;
+}
+
+    .campos{
+      margin: 28px;
+}
+    .categorias_exis{
+      font-size: 34px;
+      color: #000;
+}
+    .categorias_exis:hover{
+      color: #ff1500;
+}
+  </style>
+</head>
+
+<div class="contenido">
+  <form method="POST" class="form-cate">
+    <section class="form-icono">
+      <img src="{% static 'categoria'%}/img/icono.png" class="icono-cultu text-center">
+      <h4 class="h3-padding">
+        Nueva Categoria
+      </h4>
+    </section>
+    <section class="campos">
+      {% csrf_token %} 
+      {{ form.as_p }}
+    </section>
+    <button type="submit" class="boton-categoria">Agregar categoria</button>
+  </form>
+  <a href="{% url 'categoria_list' %}" class="categorias_exis">Categorias existentes</a>
+</div>
+
+{% endblock %}

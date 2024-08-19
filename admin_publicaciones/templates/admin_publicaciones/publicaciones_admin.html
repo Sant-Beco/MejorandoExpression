@@ -1,0 +1,63 @@
+{% load static %} 
+
+{% block title %} convocatoria {% endblock %}
+
+{% block content %}
+<div class="col contenido">
+  <div class="Publicaciones">
+    <div class="row">
+      <div class="col-2 col-lg-auto foto mt-4">
+        <a href="#">
+          <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ico bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg></i>
+        </a>
+      </div>
+      <div class="col-sm-10 col-lg-9 infromacion">
+        <div class="post mt-4">
+          <a href="#" class="nombre">Santiago Bedoya</a>
+          <p class="fecha">09/02/2027</p>
+          <p class="Descripcion">Disfrutando con los mios, parchados en el barrio</p>
+          <img src="{% static 'aplicacion'%}/img/Gym.jpg" class="convo" alt="">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-1 inhabilitar my-auto mx-5 p-1">
+        <div class="form-check form-switch boton-inhabilitar">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">inhabilitar </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="Publicaciones">
+    <div class="row">
+      <div class="col-2 col-lg-auto foto mt-4">
+        <a href="#">
+          <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ico bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg></i>
+        </a>
+      </div>
+      <div class="col-sm-10 col-lg-9 infromacion">
+        <div class="post mt-4">
+          <a href="#" class="nombre">Frank</a>
+          <p class="fecha">09/02/2027</p>
+          <p class="Descripcion">Pintando con el pana @Papo</p>
+          <img src="{% static 'aplicacion'%}/img/Arte-gallo.jpg" class="convo" alt="">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-1 inhabilitar my-auto mx-5 p-1">
+        <div class="form-check form-switch boton-inhabilitar">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label class="form-check-label" for="flexSwitchCheckDefault">inhabilitar </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

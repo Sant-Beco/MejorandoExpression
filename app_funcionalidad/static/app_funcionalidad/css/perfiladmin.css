@@ -1,0 +1,204 @@
+
+.fondo{
+    background-image: url(Imagenes/fondo.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size:cover;
+    font-family: pompiere;
+}
+
+.sebas{
+    font-size: 25px;
+    margin-top: 100px;
+}
+
+
+.user{
+    width: 170px;
+    height: 170px;
+    margin-left: -70px;
+}
+
+.h3{
+    margin-left: -50px;
+}
+
+
+
+main .contenido_general{
+    border: 3px solid #fff;
+}
+
+main .contenido{
+    border: 2px solid #000;
+    background-color: #fff;
+}
+
+/* Estilos footer*/
+.bienvenidos{
+    background: linear-gradient(to right,#933E2B,8%,#FF1500, #933E2B);
+}
+
+.icono-footer{
+    width: 130px;
+}
+
+.cultural{
+    width: 170px;
+    height: 170px;
+}
+.Info{
+    font-size: 20px;
+    font-family: pompiere;
+}
+  
+.footer-enlace{
+    color: #000;
+    text-decoration: none;
+}
+  
+.footer-enlace:hover{
+    color: #fff;
+    text-decoration: none;
+}
+  
+
+    
+.Siguenos{
+    margin-bottom: 0%;
+    font-family: pompiere;
+    font-size: 25px;
+}
+
+  
+.text-reservado{
+    background: #000;
+    color: #fff;
+    font-family: pompiere,sans-serif;
+    font-size: 20px;
+}
+
+
+.btn-menu{
+   text-decoration: none;
+    border: 1px solid;
+    padding: 5px 10px;
+    font-size: 14px;
+    background: #fff;
+    cursor: pointer;
+    color: #000;
+    align-items: center;
+
+}
+
+.btn-menu i .lista{
+    width: 30px;
+    height: 30px;
+    margin-left: 80px;
+}
+/*
+main .barra-lateral-izquierda{
+    width: 85%;
+    position: fixed;
+}
+
+main .barra-texto-izquierdo{
+    width: 85%;
+    position: fixed;
+}
+*/
+
+
+
+.bi-facebook{
+  color: #2430d3;
+  width: 40px; 
+  height: 40px;
+}
+
+.bi-facebook:hover{
+  color: #cc2df4;
+  width: 40px; 
+}
+
+
+.bi-instagram{
+  color: #f80f8f;
+  width: 40px; 
+  height: 40px;
+}
+
+.bi-instagram:hover{
+  color: #cc2df4;
+  width: 40px;
+}
+
+.bi-envelope-at-fill{
+  color: #00c3ff;
+  width: 40px; 
+  height: 40px;
+}
+
+.bi-envelope-at-fill:hover{
+  color: #cc2df4;
+  width: 40px;
+}
+
+
+.linea-vertical{
+    border-left: 1px solid #000;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+
+.contenido-P{
+    background-color: #00c3ff;
+    width: 950px;
+    height: 250PX;
+    margin-left: 160px;
+    border: 2px solid #000;
+    background: #fff;
+    
+}
+  
+.detalles{
+    font-weight: 900;
+    font-size: 35px;
+}
+
+
+header p{
+    font-size: 25px;
+}
+
+.salir{
+    font-size: 34px;
+}
+
+.publicaciones{
+    background-color: #fff;
+    border: 2px solid #000;
+}
+
+.texto4{
+    font-size: 25px;
+
+}
+
+.secundario{
+    border: 2px solid #000;
+}
+
+.colunma{
+    background: #F0DAFB;
+}
+
+main p{
+    font-size: 21px;
+    font-weight: 600;
+
+}

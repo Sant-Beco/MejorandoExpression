@@ -1,0 +1,382 @@
+/*Encabezado*/
+
+body{
+    margin: 0;
+    padding: 0;
+    background-position: center center;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.contenedor-encabezado{
+    margin-left: 40px;
+}
+
+.primero{
+    background:linear-gradient(to right,#933E2B,8%,#FF1500, #933E2B);
+}
+
+.titulo {
+    font-family: Jokerman;
+    font-family: 28px;
+}
+
+.img-center{
+    width: 130px;
+    height: 130px;
+}
+
+.tex2{
+    font-family: pompiere;
+    font-size: 28px;
+} 
+
+.contenedor-icono-alias{
+    position: absolute;
+    top: 10px;
+    left: 1100px;
+}
+
+.icono-perfil{
+    color: #000;
+}
+
+.nombre{
+    font-family: pompiere;
+}
+
+/*Estilos la barra y el booton de crear publicacion*/
+
+.container-barra-busqueda{
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#que-quieres-buscar{
+    font-size: 20px;
+}
+
+.icono-lupa{
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+}
+
+.contenedor-boton{
+    margin-right: 30px;
+}
+
+.btn-crear{
+    width: 200px;
+    height: 40px;
+    margin-left: 30px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid black;
+    color: rgb(0, 0, 0);
+    background-color: #e45ae9;
+    font-family: pompiere;
+    font-size: 20px;
+}
+
+.btn-crear:hover{
+    background-color: #bb53d4;
+}
+
+.buscar{
+    width: 30px;
+    height: 30px;
+}
+
+.busca{
+    width: 100%;
+    height: 40px;
+    background: #e7050507;
+    border: none;
+    font-size: 25px;
+    font-family: pompiere;
+    padding: 0 10px;
+    line-height: 40px;
+    border-radius: 3px 0 0 3px ;
+}
+
+
+/*Barra de DE ICONOS*/
+
+.contenedor-iconos-nav{
+    display: flex;
+    background: #fff;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 90px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.barra-lateral-izquierda nav a{
+    font-family: pompiere;
+    color: #000000;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+
+.barra-lateral-izquierda nav a .ico{
+    width: 45px;
+    height: 45px;
+}
+
+.barra-lateral-izquierda nav a .ico:hover{
+    color: #d918eb;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.barra-texto-izquierdo nav .list-group-item{
+    font-size: 25px;
+    font-family: Pompiere;
+    background:linear-gradient(to right,#933E2B,8%,#FF1500, #933E2B);
+    width: 80%;
+}
+
+.barra-texto-izquierdo nav a{
+    font-family: pompiere;
+    color: #fff;
+}
+
+.barra-texto-izquierdo nav .list-group-item:hover{
+    background: #d918eb;
+    color: #000;
+}
+
+.imagen-usuario img{
+    width: 100px;
+    height: 100px;
+}
+
+/*Estilos de contenido posteado*/
+
+.bi-person-circle{
+    width: 60px;
+    height: 60px;
+    color: #000000;
+}
+
+.nombre{
+    font-size: 30px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.fecha{
+    font-size: 18px;
+}
+
+.container-fluid{
+    justify-content: center;
+}
+
+.contenido-post{
+    font-size: 28px;
+    font-family: pompiere;
+    color:#000000;
+    text-decoration: none;
+    margin-left: 5%;
+    justify-content: center;
+}
+
+
+/*Estilos para informaciòn publicaciones*/
+
+.border-info-publicacion{
+    border: 2px solid #000000;
+    padding: 5px;
+}
+
+
+/*Estilos para informaciòn de convocatorias*/
+
+.border-info-convocatoria{
+    border: 2px solid #000000;
+    padding: 5px;
+}
+
+
+
+/*Estilos para informaciòn de productos*/
+
+.border-info-producto{
+    border: 2px solid #000000;
+    padding: 5px;
+}
+
+/*Coloco estilos a los items de reacciòn comentario - corazon para dar like*/
+
+
+.comentario{
+    margin-left: 50px;
+    width: 30px;
+    height: 30px;
+    color: #000;
+    margin-top: 15px;
+}
+
+.heart-btn{
+    position: relative;
+    margin-right: 30px;
+    left: 50%;
+    top: 30px;
+    transform: translate(-50%,-50%);
+}
+
+.heart{
+    position: absolute;
+    background: url("img.png") no-repeat;
+    background-size: 2900%;
+    height: 100px;
+    width: 100px;
+    transform: translate(-50%,-50%);
+}
+
+.heart.heart-active{
+    animation: animate .8s steps(28) 1;
+    background-position: right;
+}
+
+
+@keyframes animate {
+    0%{
+      background-position: left;
+    }
+    100%{
+      background-position: right;
+    }
+}
+
+/*Linea separadora*/
+
+.separador-contenido-postea{
+    border-bottom: 1px solid #000000;
+    padding-bottom: 20px;
+}
+
+
+/* Estilos footer*/
+
+.bienvenidos{
+    background: linear-gradient(to right,#933E2B,8%,#FF1500, #933E2B);
+}
+  
+.icono-footer{
+    width: 130px;
+}
+  
+.cultural{
+    width: 170px;
+    height: 170px;
+}
+  
+.info{
+    font-size: 26px;
+    font-family: pompiere;
+}
+  
+.footer-enlace{
+    color: #000;
+    text-decoration: none;
+}
+  
+.footer-enlace:hover{
+    color: #fff;
+    text-decoration: none;
+}
+    
+.Siguenos{
+    margin-bottom: 0%;
+    font-family: pompiere;
+    font-size: 26px;
+}
+  
+.text-reservado{
+    background: #000;
+    color: #fff;
+    font-family: pompiere,sans-serif;
+    font-size: 24px;
+}
+  
+.bi-facebook{
+    color: #2430d3;
+    width: 40px; 
+    height: 40px;
+}
+  
+.bi-facebook:hover{
+    color: #cc2df4;
+    width: 50px;
+}
+  
+.bi-instagram{
+    color: #f80f8f;
+    width: 40px; 
+    height: 40px;
+}
+  
+.bi-instagram:hover{
+    color: #cc2df4;
+    width: 50px;
+}
+  
+.bi-envelope-at-fill{
+    color: #00c3ff;
+    width: 40px; 
+    height: 40px;
+}
+  
+.bi-envelope-at-fill:hover{
+    color: #cc2df4;
+    width: 50px;
+}
+  
+
+/* Estilo nav movil */
+  
+.menu-movil{
+    display: flex;
+    background: #fff;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 120px;
+}
+
+.nav-movil{
+    height: 50px;
+}
+
+.nav-i{
+    height: 37px;
+}
+
+.menu-movil li{
+    list-style-type: none;
+}
+
+.menu-movil a{
+    display: flex;
+    text-decoration: none;
+    color: #000;
+    width: 50px;
+    height: 50px;
+}
+
+.menu-movil a:hover{
+    color:#cc2df4;
+}

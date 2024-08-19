@@ -1,0 +1,68 @@
+{% extends "app_funcionalidad/base.html" %} 
+
+{% block title %} categoria {% endblock %}
+{% load static %} 
+{% block content %}
+
+<head>
+  <style>
+    .contenido-cate-exis{
+      font-family: pompiere;
+      font-size: 26px;
+}
+    .titulo-principal{
+      font-size: 46px;
+      margin: 22px 0;
+      font-weight: 900;
+}
+
+    .table{
+      background: #d7d4d7;
+      color: #000;
+}
+    .acciones{
+      color: #ff1500;
+    } 
+    .acciones:hover{
+      color: #000;
+}      
+    .new_cate{
+      font-size: 34px;
+      color: #000;
+}
+    .new_cate:hover{
+      color: #ff1500;
+}
+  </style>
+</head>
+
+<div class="col contenido-cate-exis">
+    <h2 class="titulo-principal">Categorias que existen</h2>
+    <table class="table">
+      <thead>
+          <tr>
+              <th>id_categoría</th>
+              <th>nombre_categoría</th>
+              <th>acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for categoria in categorias %}
+          <tr>
+              <td>{{ categoria.id_categoria }}</td>
+              <td>{{ categoria.nombre_categoria }}</td>
+              <td>
+                  <a href="{% url 'categoria_update' categoria.pk %}" class="acciones">Editar</a> -
+                  <a href="{% url 'categoria_delete' categoria.pk %}" class="acciones">Eliminar</a>
+              </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+  <a href="{% url 'categoria_create' %}" class="new_cate">Nueva categoria</a>
+  <p>
+    En este apartado aparecen todas las categorias existentes en Cultural Expression, las categorias influyen el contenido de la red social y por lo mismo son de gran importancia.
+  </p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,512 @@
+{% extends "app_funcionalidad/base.html" %}
+
+{% load static %}
+
+{% block title %} Publicaciones {% endblock %}
+
+{% block crear %}
+<!-- se agrega d-none d-lg-block -->
+<div class="mt-2 d-none d-lg-block">
+  <a href="{% url 'formulario_publicacion' %}">
+      <button class="btncrear"><strong> Crear Publicaciòn</strong></button>
+  </a>
+</div>
+{% endblock %}
+
+<!-- boton movile -->
+{% block crear-moviles %}
+  <div class="d-flex d-lg-none">
+    <a href="{% url 'formulario_publicacion' %}">
+      <!-- clase boton-crear -->
+        <button class="btncrear buton-crear"><strong> Crear
+        </strong></button>
+    </a>
+  </div>
+{% endblock %}
+
+
+{% block filtro %}
+<form class="d-flex contenedor-filtro mt-1" method="GET" action="{% url 'publicaciones' %}">
+  <select class="form-control me-2 mt-1 selecciona-categoria" name="categoria">
+      <option value="">Filtro por Categoria</option>
+      {% for categoria in categorias %}
+          <option value="{{ categoria.id_categoria }}" {% if selected_categoria == categoria.id_categoria %} selected{% endif %}>{{ categoria.nombre_categoria }}</option>
+      {% endfor %}
+  </select>
+
+  <button class="mt-1 btne" type="submit">
+    <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+      <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z"/>
+    </svg>
+  </button>
+
+</form>
+{% endblock %}
+
+{% block content %}
+<style>
+  /*BOTON DEL FORMULARIO*/
+  /*BOTON DEL FORMULARIO*/
+  .btncrear{
+    background: #b9b4b9bd;
+    padding: 5px;
+    cursor: pointer;
+    color: rgb(10, 10, 10);
+    font-family: pompiere;
+    box-shadow:  1px 1px 4px rgb(7, 7, 7);
+    border: none;
+    font-size: 17px;
+
+  }
+
+
+  /*ESTILOS contenido*/
+  .nombre{
+    font-size: 20px;
+    color: #0c0c0c;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0%;
+  }
+
+  .fecha{
+    font-size: 13px;
+    color: #858585;
+    text-decoration: none;
+    font-family: 'pompiere';
+  }
+
+  .titulo-publicacion{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  .descripcion{
+    font-size: 20px;
+    font-family: 'pompiere';
+  }
+
+
+
+  /*ESTILOS FILTRO*/
+  .contenedor-filtro{
+    position: absolute;
+    right: 0;
+  }
+
+  .selecciona-catgoria{
+    width: 250px;
+    height: auto;
+  }
+
+  .icon-filtro{
+    width: 20px;
+    height: 20px;
+  }
+
+  /*ESTILOS DE LOS COMENTARIOS*/
+  .comment {
+      border-radius: 5px;
+      padding: 5px;
+      margin-bottom: 10px;
+      margin-left: 30px;
+      max-width: 600px;
+      word-wrap: break-word;
+  }
+
+  .comment-author {
+      font-weight: bold;
+      margin-bottom: 5px;
+  }
+
+  .comment-text {
+      margin-top: 5px;
+      max-width: 500PX;
+  }
+
+  .comment-section {
+    position: relative;
+    max-width: 600px;
+    margin-left: 100px;
+    display: none;
+  }
+
+  .comment-form {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+
+  /* Estilos del textarea */
+ .comment-form textarea {
+  width: calc(100% - 40px);
+  height: 40px;
+  resize: vertical;
+  box-sizing: border-box;
+  padding-right: 50px;
+}
+
+  .envia{
+    color: black;
+  }
+
+  .envia:hover{
+    color: #cc0000;
+  }
+  .comment-form .enviar {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    bottom: 25px;
+    height: 40px;
+    background: #c2abd1;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+
+  .comment-form .enviar:hover{
+    background: #f7f4f4;
+  }
+  .delete-comment{
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno */
+    top: -10px;
+    background: none;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .eliminar{
+    color: #ff0000;
+    cursor: pointer;
+  }
+
+  .eliminar:hover {
+    color: #cc0000; /* Color más oscuro al pasar el mouse */
+  }
+
+  .comentario{
+    margin-top: 2px;
+    margin-left: 4px;
+  }
+
+  .comment-row {
+    display: flex; /* Usamos flexbox para alinear los elementos del comentario */
+    align-items: center; /* Alineamos verticalmente al centro */
+    justify-content: space-between; /* Separar el texto del botón de eliminar */
+  }
+
+  .likes{
+    margin-left: 125px;
+    cursor: pointer;
+  }
+
+  .like{
+    margin-left: 125px;
+    background: none;
+    margin-top: -10PX;
+    border: none;
+  }
+
+  .bi-heart{
+    font-size: 35px;
+    color: red;
+  }
+  .fotos{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    margin-left: 20px;
+  }
+
+  .person{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+  }
+  /* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
+  .bi-heart:active {
+    background: none;
+    outline: none;
+  }
+
+  .imagen-publica{
+    margin: 10px 110px
+  }
+
+  .contenidos{
+    border: 2px solid #000;
+    margin-left: 110px;
+  }
+
+/* Estilos para pantallas pequeñas (movile) */
+@media (max-width: 576px) {
+
+    .nombre{
+        color: #0c0c0c;
+
+    }
+
+
+  .fotos{
+      width: 42px;
+      height: 42px;
+      margin-left: -20px;
+  }
+
+  .like {
+      margin-left: -70px;
+    font-size: 1.2em;
+  }
+
+  .comentario{
+       margin-left: -70px;
+  }
+
+  .publicaciones {
+    padding: 10px;
+  }
+
+
+
+  .col-1 {
+    margin-bottom: 10px;
+  }
+
+
+
+  .imagen-publica{
+    width: 100%;
+    margin: 2px;
+  }
+
+  .titulo-publicacion {
+    font-size: 1em;
+  }
+
+  .descripcion {
+    font-size: 0.8em;
+  }
+
+  .comment-form .form {
+    width: calc(100% - 40px);
+  }
+
+  .enviar {
+    font-size: 0.9em;
+  }
+
+  .contenidos{
+    border: 2px solid #000;
+    margin-left: 10px;
+  }
+
+  /* espacio */
+  .caja-cultura{
+    left: -36px;
+  }
+
+/* botones moviles */
+
+.buton-crear{
+    position: relative;
+    top: -50px;
+    left: 260px;
+    width: 90px;
+    background: #b9b4b9;
+    margin: 6px;
+  }
+}
+
+</style>
+
+<!--ESTE ES EL CONTENIDO DE PUBLICACIONES CON LOS DATOS DE LA BD-->
+{% for publicacion in publicaciones %}
+<div class="contenedor">
+  <div class="col">
+    <div class="publicaciones">
+      <div class="row">
+        <div class="col-1 text-center mt-4">
+          <a href="">
+            <i>
+              {% if publicacion.id_usuario.foto_perfil and publicacion.id_usuario.foto_perfil.url %}
+              <img class="fotos" src="{{ publicacion.id_usuario.foto_perfil.url }}" alt="" >
+              {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="person bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+              {% endif %}
+
+            </i>
+
+          </a>
+        </div>
+        <div class="col-10 mt-4">
+          <p class="nombre">{{ publicacion.id_usuario.alias }}</p>
+          <p class="fecha">{{ publicacion.fecha_publicacion }}</p>
+        </div>
+        <div class="row contenidos">
+          <div class="col-12">
+            <h3>{{ v.nombre_producto }}</h3>
+            <p class="titulo-publicacion">{{ publicacion.titulo }}</p>
+            <p class="descripcion">{{ publicacion.descripcion }}</p>
+          </div>
+          <div class="col-12">
+            {% if publicacion.foto and publicacion.foto.url %}
+            <img src="{{ publicacion.foto.url }}" width="700" class="imagen-publica">
+            {% else %}
+            <p>No image available</p>
+          {% endif %}
+          </div>
+            <form action="{% url 'like' tipo_entidad='publicacion' id_entidad=publicacion.id_publicacion %}" method="post" style="text-align: center; margin-top: 10px;">
+            {% csrf_token %}
+            <button class="like " type="submit"><i class="bi bi-heart"></i></button>
+            <p class="likes"> {{ publicacion.get_likes_count }}</p>
+            </form>
+            <!-- Icono de mensaje para desplegar comentarios -->
+            <a href="#" class="toggle-comments" data-publicacion-id="{{ publicacion.id_publicacion }}" >
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="comentario bi-chat-right" viewBox="0 0 16 16">
+                  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+              </svg>
+            </a>
+          <div class="col-11 ">
+            <div class="comment-section" id="comment-section-{{ publicacion.id_publicacion }}">
+              <div class="comments-list" id="comments-list-{{ publicacion.id_publicacion }}"></div>
+                <div class="comment-form">
+                    <form class="comment-form-inline" data-publicacion-id="{{ publicacion.id_publicacion }}">
+                        <div class="">
+                            <textarea class="form" name="comment" rows="3" placeholder="Escribe tu comentario" required></textarea>
+                            <button type="submit" class="enviar"><i class="bi bi-cursor-fill envia"></i></button>
+                        </div>
+                    </form>
+                </div>
+          </div>
+        </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+<!-- Incluye jQuery, Popper.js y Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% if usuario %}
+<script>
+    window.currentUsername = "{{ usuario.nombres|escapejs }}"; // Establece una variable global de JavaScript para el nombre de usuario actual
+</script>
+{% else %}
+<script>
+    window.currentUsername = "Anónimo";
+</script>
+{% endif %}
+
+<script>
+$(document).ready(function() {
+    loadComments();  // CARGA LOS COMENTARIOS
+});
+
+$(document).on('submit', '.comment-form-inline', function(e) {
+    e.preventDefault();
+    // Obtener el ID de la publicación y el texto del comentario
+    const form = $(this);
+    const publicacionId = form.data('publicacion-id');
+    const comment = form.find('textarea[name="comment"]').val();
+    const username = window.currentUsername || 'Anónimo';
+
+    //AGREGA Y GUARDA EL COMENTARIO EN EL LOCAL
+    addComment(publicacionId, comment, username);
+    saveComment(publicacionId, comment, username);
+    form[0].reset();
+});
+
+// Función para agregar un comentario al DOM
+function addComment(publicacionId, comment, username) {
+    const commentElement = `
+    <div class="comment">
+        <div class="comment-author">${username}</div>
+        <div class="comment-row">
+            <div class="comment-text">${comment}</div>
+            <button class="btn btn-sm delete-comment" data-publicacion-id="${publicacionId}" data-comment="${comment}" data-username="${username}">
+                <i class="bi bi-trash-fill eliminar"></i>
+            </button>
+        </div>
+    </div>
+    `;
+    $(`#comments-list-${publicacionId}`).append(commentElement);
+}
+// Guardar el comentario en localStorage
+function saveComment(publicacionId, comment, username) {
+    let comments = JSON.parse(localStorage.getItem('comments')) || {};
+    if (!comments[publicacionId]) {
+        comments[publicacionId] = [];
+    }
+    comments[publicacionId].push({ comment, username });
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+// Cargar comentarios desde localStorage
+function loadComments() {
+    const comments = JSON.parse(localStorage.getItem('comments')) || {};
+    for (const [publicacionId, comentarioList] of Object.entries(comments)) {
+        comentarioList.forEach(({ comment, username }) => {
+            addComment(publicacionId, comment, username);
+        });
+    }
+}
+
+// Alternar la visibilidad de la sección de comentarios
+$(document).on('click', '.toggle-comments', function(e) {
+    e.preventDefault(); // Evita que el enlace sea seguido
+
+    const publicacionId = $(this).data('publicacion-id');
+    const commentSection = $(`#comment-section-${publicacionId}`);
+
+    // Alternar visibilidad
+    commentSection.toggle();
+});
+
+// Manejar el clic en el botón de eliminar comentario
+$(document).on('click', '.delete-comment', function() {
+    const publicacionId = $(this).data('publicacion-id');
+    const comment = $(this).data('comment');
+    const username = $(this).data('username');
+
+    if (window.currentUsername === username) {
+        // Eliminar el comentario del DOM
+        $(this).closest('.comment').remove();
+
+        // Eliminar el comentario de localStorage
+        deleteComment(publicacionId, comment);
+    } else {
+        alert("No puedes eliminar comentarios de otros usuarios.");
+    }
+});
+
+// Función para eliminar un comentario de localStorage
+function deleteComment(publicacionId, comment) {
+    let comments = JSON.parse(localStorage.getItem('comments')) || {};
+    if (comments[publicacionId]) {
+        comments[publicacionId] = comments[publicacionId].filter(c => c.comment !== comment);
+        if (comments[publicacionId].length === 0) {
+            delete comments[publicacionId];
+        }
+        localStorage.setItem('comments', JSON.stringify(comments));
+    }
+}
+</script>
+
+{% endblock %}

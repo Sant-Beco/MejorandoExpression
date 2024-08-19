@@ -1,0 +1,453 @@
+<html lang="en">
+
+  {% load static %}
+  <head>
+    <title>{% block title %}Cultural Expression{%endblock %}</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{% static 'app_funcionalidad/img/img_corporativa.png' %}"/>
+    <link
+      href="{% static 'app_funcionalidad' %}/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body{
+        background-repeat: no-repeat;
+        background-size: 100vh;
+        background-position: center center;
+        min-height: 100vh;
+        background-attachment: fixed;
+        background-size:cover;
+      }
+
+      .btn-menu{
+        text-decoration: none;
+        border: 1px solid;
+        font-size: 14px;
+        padding: 20px 0;
+        background: #fff;
+        cursor: pointer;
+        color: #000;
+        width: 100%;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0px; /* Adjusts the distance from the bottom of the viewport */
+        left: 50%; /* Centers the button horizontally */
+        transform: translateX(-50%); /* Centers the button horizontally */
+        z-index: 1040; /* Ensures it stays on top of other elements */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for visibility */
+        border-radius: 1px; /* Optional: Adds rounded corners */
+        }
+
+    .btn-menu i .lista{
+      width: 30px;
+      height: 30px;
+      margin: 0 18px;
+      color: #000;
+    }
+
+    .btn-menu i .lista:hover{
+      width: 30px;
+      height: 30px;
+      margin: 0 18px;
+      color: #565656;
+    }
+
+    .fixed-top-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background:  linear-gradient(to right, rgb(255, 255, 255),transparent, rgb(255, 255, 255)),url("{% static 'app_funcionalidad' %}/img/fondo1.jpg");
+        z-index: 1030; /* Para asegurarse de que esté encima de otros elementos */
+        border: 1px solid whitesmoke;
+          
+        
+    }
+    /* Estilo para la barra lateral */
+
+    .sidebar {
+        height: 100vh;
+        position: fixed;
+        width: 130px;
+        right: 0;
+        bottom: 0;  
+        top: 0;
+        overflow-y: auto;
+        background-image: radial-gradient(circle at 50% -20.71%, #ffffff 0, #ffffff 12.5%, #f3ffff 25%, #e1faf9 37.5%, #cdf2f2 50%, #b9e9ed 62.5%, #a6e1e9 75%, #95d9e7 87.5%, #85d2e6 100%);
+        box-shadow: 0 0 10px rgba(149, 148, 148, 0.853);
+        z-index: 1055
+    }
+
+    .sidebar .nav-link {
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    .sidebar .nav-link svg {
+        margin-left: 10px;
+    }
+
+    .bi{
+      color: #121111;
+      width: 20px;
+      height: 20px;
+      background: transparent;
+      
+    }
+
+    .btne{
+    padding: 5px 13px;
+    background: rgb(176, 132, 239);
+    border-radius:1px 3px  3px 1px;
+    border: 1px solid rgb(134, 134, 134)
+
+    
+    }
+  .titulo {
+    font-family: Jokerman, cursive;
+    font-size: 30px;
+  }
+
+  .icono {
+    width: 80px;
+    height: 80px;
+  }
+
+    .barra{
+        width: 35px;
+        height: 35px;
+        color: #040404;
+    }
+
+    .barra:hover{
+      width: 45px;
+      height: 40px;
+      color: #565656;
+    }
+
+    .bip{
+        width: 40px;
+        height: 40px;
+        color: #080808;
+        margin-top: 30px;
+    }
+
+
+    .footer {
+        background-color: #f8f9fa;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        background: whitesmoke;
+    }
+
+    .text-reservado{
+        margin-bottom: 0;
+        background: #000;
+        color: #fff;
+        font-family: pompiere,sans-serif;
+        font-size: 10px;
+        height: 20px;
+    }
+
+
+    .Info{
+        font-size: 14px;
+        font-family: pompiere;
+    }
+      
+    .footer-enlace{
+        color: #000;
+        text-decoration: none;
+    }
+      
+    .footer-enlace:hover{
+        color: #fff;
+        text-decoration: none;
+    }
+        
+    
+    .icono-footer{
+        width: 70px;
+        margin-top: 30px;
+    }
+
+
+
+  .Siguenos {
+    margin-bottom: 0%;
+    font-family: pompiere;
+    font-size: 10px;
+  }
+
+  .bi-facebook{
+      color: #2430d3;
+      width: 30px; 
+      height: 30px;
+    }
+  
+  .bi-facebook:hover{
+    color: #cc2df4;
+    width: 30px; 
+  }
+  
+  
+  .bi-instagram{
+    color: #f80f8f;
+    width: 10%; 
+    height: 30px;
+  }
+  
+  .bi-instagram:hover{
+    color: #cc2df4;
+    width: 30px;
+  }
+  
+  .bi-envelope-at-fill{
+    color: #00c3ff;
+    width: 30px; 
+    height: 30px;
+  }
+  
+  .bi-envelope-at-fill:hover{
+    color: #cc2df4;
+    width: 30px;
+
+  }
+
+  .icono-option {
+    text-align: center;
+}
+.custom-select {
+  appearance: none; /* Elimina la flecha predeterminada en navegadores modernos */
+  -webkit-appearance: none; /* Safari y Chrome */
+  -moz-appearance: none; /* Firefox */
+  background-color: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  outline: none; /* Sin contorno */
+  width: 50px; /* Ajusta el ancho del icono */
+  padding: 0; /* Sin relleno */
+  cursor: pointer;
+}
+.custom-select::-ms-expand {
+  display: none; /* IE11 y Edge */
+}
+.custom-select option {
+  text-indent: -9999px; 
+}
+
+/* movile */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .titulo {
+    font-family: luminari(fantasia);
+    font-size: 30px;
+    margin-left: -16px;
+  }
+
+  /* boton */
+  .crear1{
+    width: 0;
+  height: 0;
+  }
+
+}
+
+    </style>
+
+</head>
+<body>
+     <!-- Encabezado fijo -->
+     <div class="container-fluid fixed-top-bar">
+        <div class="row">
+            <div class="col-10 col-sm-7 col-lg-5 me-5 caja-cultura">
+                <h1 class="titulo mt-2">Cultural Expression</h1>
+            </div>
+            <div class="d-none d-sm-block col-sm-1 col-lg-4 crear text-end ">
+                {% block filtro %}
+                
+                {% endblock %}
+            </div>
+            
+            <div class="d-sm-block  col-sm-4 col-lg-2 ">
+
+              {% block crear %}
+          
+              {% endblock %}
+
+              <!-- boton movile -->
+            <div class="crear1">
+              {% block crear-moviles %}
+          
+              {% endblock %}
+            </div>
+              
+          </div>
+<div class="d-sm-block  col-sm-4 col-lg-2 ">
+        </div>
+    </div>
+            
+
+     <!-- CONTENIDO CAMBIANTE -->      
+    <main role="main" class="col-12 col-md-9 col-lg-10 mt-5 px-md-4">
+                
+    {% block content %}
+
+    {% endblock %}
+
+    </main>
+            
+
+
+ <!-- Barra lateral derecha -->
+   <nav class="col-md-3 col-lg-2 d-none d-lg-block  sidebar">
+        <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <div class="text-center MT-2">
+                        <img src="{% static 'app_funcionalidad' %}/img/img_corporativa.png" alt="hola" class="icono">
+
+                        </div>
+
+                        <li class="nav-item mt-5">
+                            <a href="{% url 'inicio' %}" class="nav-link text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-house-door-fill barra" viewBox="0 0 16 16" width="24" height="24">
+                                    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25 .5 .5v3.5a.5 .5 0 0 0 .5 .5h4a.5 .5 0 0 0 .5-.5v-7a.5 .5 0 0 0-.146-.354L13 5.793V2.5a.5 .5 0 0 0-.5-.5h-1a.5 .5 0 0 0-.5 .5v1.293L8.354 1.146a.5 .5 0 0 0-.708 0l-6 6A.5 .5 0 0 0 1.5 7.5v7a.5 .5 0 0 0 .5 .5h4a.5 .5 0 0 0 .5-.5"/>
+                                </svg>
+                            </a>
+                        </li>
+
+                        <li class="nav-item mt-4 text-center">
+                            <a href="{% url 'publicaciones' %}" class="nav-link text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-square-fill barra" viewBox="0 0 16 16">
+                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5 .5 0 0 1 0 1h-3v3a.5 .5 0 0 1-1 0v-3h-3a.5 .5 0 0 1 0-1h3v-3a.5 .5 0 0 1 1 0"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <a href="{% url 'convocatorias' %}" class="nav-link text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-megaphone-fill barra" viewBox="0 0 16 16">
+                                    <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067 .95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088 .085c2.053 .204 4.038 .668 5.912 1.56zm-8 7.841V4.934c-.68 .027-1.399 .043-2.008 .053A2.02 2.02 0 0 0 0 7v2c0 1.106 .896 1.996 1.994 2.009l .496 .008a64 64 0 0 1 1.51 .048m1.39 1.081q.428 .032 .85 .078l .253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692 .064q.491 .026 .966 .06"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <a href="{% url 'producto' %}" class="nav-link text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart-fill barra" viewBox="0 0 16 16">
+                                    <path d="M0 1.5A.5 .5 0 0 1 .5 1H2a.5 .5 0 0 1 .485 .379L2.89 3H14.5a.5 .5 0 0 1 .491 .592l-1.5 8A.5 .5 0 0 1 13 12H4a.5 .5 0 0 1-.491-.408L1.01 3H.5a.5 .5 0 0 1-.5-.5zM5 .5a.5 .5 0 0 1 1 0V1H3v-.5a.5 .5 0 0 1 1 0v1zM6 12a.5 .5 0 0 1 .5-.5h6a.5 .5 0 0 1 0 1h-6a.5 .5 0 0 1-.5-.5z"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-5 mb-5">
+                            <a href="{% url 'perfil' %}" class="nav-link text-center" >
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bip bi-person-fill barra" viewBox="0 0 16 16" width="100" height="100">
+                                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    <footer class="footer ">
+        <div class="container-fluid text-center">
+            <div class="row">
+                <div class="col-12  col-sm-4 col-lg-4 ">
+                    <img src="{% static 'app_funcionalidad' %}/img/img_corporativa.png" class="icono-footer text-center" alt="icono">
+                </div>
+
+                <div class="col-12   col-sm-4 col-lg-4 Info mt-3">
+                    <p class="texto-footer ">
+                        ¡Bienvenid@ a <b>Cultural Expression</b>!
+                      </p>
+                      <p>
+                        Nos emociona tenerte !AQUI¡ esperamos que nuestra informacion sea de gran beneficio para ti
+                      </p>
+                      <a href="#" class="footer-enlace">Reglas de negocio</a>
+                    </div>
+
+                    <div class="col-12   col-sm-4 col-lg-4 redes-sociales  ">
+                      <p class="Siguenos ">
+                        SIGUENOS Y CONTÁCTANOS
+                      </p>
+
+                      <div class="redes">
+                        <a href="#" target="_blank">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-facebook ms-2" viewBox="0 0 16 16">
+                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
+                          </svg>
+                        </a>
+
+                        <a href="#" target="_blank">
+                          <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-instagram ms-2" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/>
+                          </svg>
+                        </a>
+                        
+                        <a href="#" target="_blank">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-envelope-at-fill ms-2" viewBox="0 0 16 16">
+                            <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671"/>
+                            <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791"/>
+                          </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-reservado">
+        <p>&copy;2024 Cultural Expression. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+    <nav class="barra-movil">
+      <div class="row ">
+          <div class="col text-center d-block d-lg-none mt-5 btn-menu">
+            <a href="{% url 'inicio' %}" class="p-3 " id="btn-menu">
+              <i><svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" class=" lista bi bi-house-door-fill" viewBox="0 0 16 16">
+                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0
+                0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+              </svg></i>
+            </a>
+            <a href="{% url 'publicaciones' %}">
+              <i><svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="lista bi bi-plus-square-fill" viewBox="0 0 16 16">
+                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
+              </svg></i>
+            </a>
+            <a href="{% url 'convocatorias' %}">
+              <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="lista bi bi-megaphone-fill" viewBox="0 0 16 16">
+                <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06"/>
+              </svg></i>
+            </a>         
+            <a href="{% url 'producto' %}">
+              <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="lista bi bi-cart-fill" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+              </svg></i>
+            </a>
+            <a href="{% url 'perfil' %}">
+              <i>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="lista bi bi-cart-fill" viewBox="0 0 16 16">
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                </svg>
+              </i>
+            </a>
+        </div>
+      </div>
+  </nav>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

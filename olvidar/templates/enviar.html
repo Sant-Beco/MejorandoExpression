@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña</title>
+    <link rel="icon" href="{% static 'app_funcionalidad/img/img_corporativa.png' %}"/>
+
+</head>
+<body>
+
+    <style>
+        /* ESTILOS */
+      
+    
+        body {
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+      
+    
+        .text-instrucciones {
+            font-size: 20px;
+            margin-bottom: 50px;
+            font-family: pompiere;
+        }
+      
+    
+        .form-container {
+            background: #d9d9d9;
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 5px solid;
+            border-image: linear-gradient(to bottom left, #FF1500, #BB21D3, #F1172A, #BF21C6, #F0182F) 1;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: auto;
+        }
+      
+    
+        .titulo-recuperar {
+            font-family: jokerman;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 2.3rem;
+        }
+      
+        .formulario_input {
+            height: 50px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            margin-bottom: 1rem;
+            font-size: 16px;
+            font-family: 'Pompiere', cursive;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+      
+        .formulario_input:focus {
+            border-color: #BB21D3;
+            outline: none;
+            box-shadow: 0 0 5px rgba(187, 33, 211, 0.5);
+        }
+      
+        .boton-enviar-olvidar {
+            font-family: 'Pompiere', cursive;
+            font-size: 20px;
+            background-color: #DD68C3;
+            color: #000;
+            padding: 8px 8px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px;
+            transition: background-color 0.3s;
+        }
+      
+        .boton-enviar-olvidar:hover {
+            background-color: #C80A9D;
+        }
+      
+        .error {
+            display: none;
+            color: red;
+            font-size: 0.875rem;
+        }
+      
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+      
+        .x-olvi-registro {
+            margin-left: 90%;
+            width: 40px;
+            height: 40px;
+            color: #000;
+        }
+    
+        
+      /* Estilos para el campo de entrada */
+      input[type="email"] {
+          height: 40px;
+          width: 80%;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #ced4da;
+          margin-bottom: 1rem;
+          font-size: 16px;
+          font-family: 'Pompiere', cursive;
+          box-sizing: border-box;
+          transition: border-color 0.3s, box-shadow 0.3s;
+        }
+    
+        .contenedor-input{
+            margin-left: 20%;
+            margin-right: 5%;
+    
+        }
+    
+    
+      input[type="email"]:focus {
+          border-color: #BB21D3;
+          outline: none;
+          box-shadow: 0 0 5px rgba(187, 33, 211, 0.5);
+        }
+    
+    
+      input[type="email"] {
+          height: 40px;
+          width: 80%;
+          padding: 10px;
+          border-radius: 5px;
+          border: 1px solid #ced4da;
+          margin-bottom: 1rem;
+          font-size: 16px;
+          font-family: 'Pompiere', cursive;
+          box-sizing: border-box;
+          transition: border-color 0.3s, box-shadow 0.3s;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-color: #000000;
+        }
+    
+        .contenedor-btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+    
+    
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            .titulo-recuperar {
+                font-size: 1.25rem;
+            }
+      
+            .icono {
+                width: 60px;
+                height: 60px;
+            }
+      
+            .btn-primary {
+                font-size: 1.25rem;
+                padding: 8px 16px;
+            }
+        }
+    
+      </style>
+    
+
+    <div class="form-container">
+        <a href="{% url "login" %}" class="x-registro">
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" class="bi bi-x-circle x-olvi-registro" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            </svg>  
+        </a>
+        <h1 class="titulo-recuperar">Restablecer Contraseña</h1>
+    
+        
+        <p class="text-instrucciones">¿Olvidastes tu contraseña? No te preocupes coloca tu correo con el que te registrastes y revisa tu correo en el te enviaremos un link en el que podras restablecer tu contraseña de manera segura</p>
+    
+        <form id="reset-form" method="post">
+            <div class=" mb-4 contenedor-input">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
+          
+          
+          <div class=" mb-4 contenedor-btn">
+            <button type="submit" class="btn btn-custom boton-enviar-olvidar">Enviar correo</button>
+          </div>
+    
+    
+        </form>
+      </div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script>
+        document.getElementById('reset-form').onsubmit = function(event) {
+          var email = document.querySelector('input[name="gmail"]').value;
+          var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+          if (!emailPattern.test(email)) {
+            event.preventDefault();
+            Swal.fire('Error', 'Por favor, ingrese un correo electrónico válido', 'error');
+          }
+        };
+    </script>
+    
+    
+</body>
+</html>

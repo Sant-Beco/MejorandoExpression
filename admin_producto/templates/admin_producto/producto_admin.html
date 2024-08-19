@@ -1,0 +1,84 @@
+{% extends 'app_funcionalidad/base.html' %}
+
+{% block title %} producto {% endblock %}
+{% load static %} 
+{% block content %}
+
+<div class="col contenido">
+  <div class="Publicaciones">
+    <div class="row">
+      <div class="col-2 col-lg-auto foto mt-4">
+        <a href="#">
+          <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ico bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg></i>
+        </a>
+      </div>
+      <div class="col-sm-10 col-lg-9 infromacion">
+        <div class="post mt-4">
+          <a href="#" class="nombre">Fredy cardona</a>
+          <p class="fecha">
+            06/01/2027
+          </p>
+          <p class="lead">
+            Moto kawasaki
+          </p>
+          <p class="lead">
+            Gente vendo hermosa moto Kawasaki ninja modelo 2023 con 1.590 de kilometraje, los papeles al día hasta el 1 de 
+            diciembre del 2024, esta en excelente estado. Interesados escribir al privado. $35.990.000
+          </p>
+          <p class="lead">
+            Precio: $35.990.000
+          </p>
+          <img src="{% static 'img/moto.jpg' %}" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-1 inhabilitar my-auto mx-5 p-1">
+        <div class="form-check form-switch boton-inhabilitar">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label id="inhabilitarBoton" class="boton-style" class="form-check-label" for="flexSwitchCheckDefault">Inhabilitar</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="Publicaciones">
+    <div class="row">
+      <div class="col-2 col-lg-auto foto mt-4">
+        <a href="#">
+          <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ico bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg></i>
+        </a>
+      </div>
+      <div class="col-sm-10 col-lg-9 infromacion">
+        <div class="post mt-4">
+          <a href="#" class="nombre">
+            Frank
+          </a>
+          <p class="fecha load">
+            09/02/2027
+          </p>
+          <p class="load">
+            manillas
+          </p>
+          <p class="lead">
+            Vendo manilas en diferentes estilos y colores, estamos ubicados en el municipio de Tamesis</p>
+          <p class="load">
+            precio:10.000
+          </p>
+          <img src="{% static 'img/manillas.jpg' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-1 inhabilitar my-auto mx-5 p-1">
+        <div class="form-check form-switch boton-inhabilitar">
+          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+          <label id="habilitarBoton" class="boton-style" class="form-check-label" for="flexSwitchCheckDefault">inhabilitar</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

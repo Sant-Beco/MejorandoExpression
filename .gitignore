@@ -1,0 +1,33 @@
+# Entorno virtual
+venv/
+env/
+
+# Archivos de entorno local
+.env
+
+# Archivos de migraciones
+*/migrations/
+
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de caché de Django
+*.DS_Store
+
+# Archivos de configuración de IDEs
+.vscode/
+
+# Archivos de base de datos local
+db.sqlite3
+
+# Archivos de compilación estáticos
+staticfiles/
+
+# Archivos de medios cargados por el usuario
+media/
+
+# Archivos de logs
+*.log
