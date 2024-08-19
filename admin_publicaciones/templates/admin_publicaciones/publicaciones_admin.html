@@ -1,6 +1,7 @@
-{% load static %} 
+{% extends 'app_funcionalidad/base_admin.html' %}
 
-{% block title %} convocatoria {% endblock %}
+{% block title %} convocatoriaAdmin {% endblock %}
+{% load static %} 
 
 {% block content %}
 <div class="col contenido">
@@ -15,6 +16,19 @@
         </a>
       </div>
       <div class="col-sm-10 col-lg-9 infromacion">
+        <div class="post mt-4">
+          <a href="#" class="nombre">Santiago Bedoya</a>
+          <p class="fecha">09/02/2027</p>
+          <p class="Descripcion">Disfrutando con los mios, parchados en el barrio</p>
+          <img src="{% static 'aplicacion'%}/img/Gym.jpg" class="convo" alt="">
+        </div>
+
+        <div class="post mt-4">
+          <a href="#" class="nombre">Santiago Bedoya</a>
+          <p class="fecha">09/02/2027</p>
+          <p class="Descripcion">Disfrutando con los mios, parchados en el barrio</p>
+          <img src="{% static 'aplicacion'%}/img/Gym.jpg" class="convo" alt="">
+        </div>
         <div class="post mt-4">
           <a href="#" class="nombre">Santiago Bedoya</a>
           <p class="fecha">09/02/2027</p>

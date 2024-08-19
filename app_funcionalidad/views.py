@@ -5,3 +5,6 @@ from django.shortcuts import render
 
 def base(request):
   return render(request, 'app_funcionalidad/base.html')
+
+def base_admin(request):
+  return render(request, 'app_funcionalidad/base_admin.html')

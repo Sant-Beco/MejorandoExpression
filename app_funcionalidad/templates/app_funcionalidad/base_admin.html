@@ -2,7 +2,7 @@
 
   {% load static %}
   <head>
-    <title>{% block title %}base usu{%endblock %}</title>
+    <title>{% block title %}Base admin{%endblock %}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -320,7 +320,7 @@
                         </div>
 
                         <li class="nav-item mt-5">
-                            <a href="{% url 'inicio' %}" class="nav-link text-center">
+                            <a href="{% url 'dashboard' %}" class="nav-link text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-house-door-fill barra" viewBox="0 0 16 16" width="24" height="24">
                                     <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25 .5 .5v3.5a.5 .5 0 0 0 .5 .5h4a.5 .5 0 0 0 .5-.5v-7a.5 .5 0 0 0-.146-.354L13 5.793V2.5a.5 .5 0 0 0-.5-.5h-1a.5 .5 0 0 0-.5 .5v1.293L8.354 1.146a.5 .5 0 0 0-.708 0l-6 6A.5 .5 0 0 0 1.5 7.5v7a.5 .5 0 0 0 .5 .5h4a.5 .5 0 0 0 .5-.5"/>
                                 </svg>
@@ -328,34 +328,34 @@
                         </li>
 
                         <li class="nav-item mt-4 text-center">
-                            <a href="{% url 'publicaciones' %}" class="nav-link text-center">
+                            <a href="{% url 'publicacion_admin' %}" class="nav-link text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-square-fill barra" viewBox="0 0 16 16">
                                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5 .5 0 0 1 0 1h-3v3a.5 .5 0 0 1-1 0v-3h-3a.5 .5 0 0 1 0-1h3v-3a.5 .5 0 0 1 1 0"/>
                                 </svg>
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a href="{% url 'convocatorias' %}" class="nav-link text-center">
+                            <a href="{% url 'convocatoria_admin' %}" class="nav-link text-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-megaphone-fill barra" viewBox="0 0 16 16">
                                     <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067 .95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088 .085c2.053 .204 4.038 .668 5.912 1.56zm-8 7.841V4.934c-.68 .027-1.399 .043-2.008 .053A2.02 2.02 0 0 0 0 7v2c0 1.106 .896 1.996 1.994 2.009l .496 .008a64 64 0 0 1 1.51 .048m1.39 1.081q.428 .032 .85 .078l .253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692 .064q.491 .026 .966 .06"/>
                                 </svg>
                             </a>
                         </li>
                         <li class="nav-item mt-4">
-                            <a href="{% url 'producto' %}" class="nav-link text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart-fill barra" viewBox="0 0 16 16">
-                                    <path d="M0 1.5A.5 .5 0 0 1 .5 1H2a.5 .5 0 0 1 .485 .379L2.89 3H14.5a.5 .5 0 0 1 .491 .592l-1.5 8A.5 .5 0 0 1 13 12H4a.5 .5 0 0 1-.491-.408L1.01 3H.5a.5 .5 0 0 1-.5-.5zM5 .5a.5 .5 0 0 1 1 0V1H3v-.5a.5 .5 0 0 1 1 0v1zM6 12a.5 .5 0 0 1 .5-.5h6a.5 .5 0 0 1 0 1h-6a.5 .5 0 0 1-.5-.5z"/>
-                                </svg>
+                            <a href="{% url 'producto_admin' %}" class="nav-link text-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="barra bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                              </svg>
                             </a>
                         </li>
-                        <li class="nav-item mt-5 mb-5">
-                            <a href="{% url 'perfil' %}" class="nav-link text-center" >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bip bi-person-fill barra" viewBox="0 0 16 16" width="100" height="100">
-                                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                                </svg>
-                            </a>
-                        </li>
-                    </ul>
+                        <li class="nav-item mt-4">
+                          <a href="{% url 'categoria_create' %}" class="nav-link text-center" >
+                            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="ico bi bi-list barra" viewBox="0 0 16 16">
+                              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                              </svg>
+                          </a>
+                      </li>
+                  </ul>
                 </div>
             </nav>
     <footer class="footer ">
@@ -413,32 +413,34 @@
     <nav class="barra-movil">
       <div class="row ">
           <div class="col text-center d-block d-lg-none mt-5 btn-menu">
-            <a href="{% url 'inicio' %}" class="p-3 " id="btn-menu">
+            <a href="{% url 'dashboard' %}" class="p-3 " id="btn-menu">
               <i><svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" class=" lista bi bi-house-door-fill" viewBox="0 0 16 16">
                 <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0
                 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
               </svg></i>
             </a>
-            <a href="{% url 'publicaciones' %}">
+            <a href="{% url 'publicacion_admin' %}">
               <i><svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="lista bi bi-plus-square-fill" viewBox="0 0 16 16">
                 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0"/>
               </svg></i>
             </a>
-            <a href="{% url 'convocatorias' %}">
+            <a href="{% url 'convocatoria_admin' %}">
               <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="lista bi bi-megaphone-fill" viewBox="0 0 16 16">
                 <path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0zm-1 .724c-2.067.95-4.539 1.481-7 1.656v6.237a25 25 0 0 1 1.088.085c2.053.204 4.038.668 5.912 1.56zm-8 7.841V4.934c-.68.027-1.399.043-2.008.053A2.02 2.02 0 0 0 0 7v2c0 1.106.896 1.996 1.994 2.009l.496.008a64 64 0 0 1 1.51.048m1.39 1.081q.428.032.85.078l.253 1.69a1 1 0 0 1-.983 1.187h-.548a1 1 0 0 1-.916-.599l-1.314-2.48a66 66 0 0 1 1.692.064q.491.026.966.06"/>
               </svg></i>
             </a>         
-            <a href="{% url 'producto' %}">
-              <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="lista bi bi-cart-fill" viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-              </svg></i>
-            </a>
-            <a href="{% url 'perfil' %}">
+            <a href="{% url 'producto_admin' %}">
               <i>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="lista bi bi-cart-fill" viewBox="0 0 16 16">
-                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-                </svg>
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+              </svg>
+            </i>
+            </a>
+            <a href="{% url 'categoria_create' %}">
+              <i>
+                <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="lista bi bi-list" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5">
+                  </svg>
               </i>
             </a>
         </div>
