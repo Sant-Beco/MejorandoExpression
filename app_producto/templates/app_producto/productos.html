@@ -51,11 +51,12 @@
 <style>
   /*BOTON DEL FORMULARIO*/
   .btncrear{
-    background: #b9b4b9bd;
+    background: #b084ef;
     padding: 5px;
     cursor: pointer;
     color: rgb(10, 10, 10);
     font-family: pompiere;
+    font-size: 16px;
     box-shadow:  1px 1px 4px rgb(7, 7, 7);
     border: none;
 
@@ -209,6 +210,9 @@
 .comentario{
   margin-top: 2px;
   margin-left: 4px;
+  color: #139db8;
+  width: 35px;
+  height: 30px;
 }
 
 .comment-row {
@@ -229,10 +233,11 @@
   border: none;
 }
 
-.bi-heart{
+.bi-heart-fill{
   font-size: 35px;
-  color: red;
+  color: #cc0000;
 }
+
 .fotos{
   width: 50px;
   height: 50px;
@@ -246,7 +251,7 @@
   margin-left: 20px;
 }
 /* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
-.bi-heart:active {
+.bi-heart-fill:active {
   background: none;
   outline: none;
 }
@@ -380,7 +385,7 @@ img {
             <p class="descripcion">{{ producto.descripcion }}</p>
             <div class="contenedor-valor">
               <strong class="titulo-publicacion">$</strong> <p class="valor-articulo">{{ producto.precio }}</p>
-            </div>
+          </div>
           </div>
             <!--IMAGENES DE PRODUCTO-->
           <div class="col-12">
@@ -392,13 +397,13 @@ img {
           </div>
           <form action="{% url 'like' tipo_entidad='producto' id_entidad=producto.id_producto %}" method="post" style="text-align: center; margin-top: 10px;">
             {% csrf_token %}
-            <button class="like " type="submit"><i class="bi bi-heart"></i></button>
+            <button class="like " type="submit"><i class="bi bi-heart-fill"></i></button>
             <p class="likes"> {{ producto.get_likes_count }}</p>
             </form>
             <!-- Icono de mensaje para desplegar comentarios -->
             <a href="#" class="toggle-comments" data-producto-id="{{ producto.id_producto }}" >
-              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="comentario bi-chat-right" viewBox="0 0 16 16">
-                  <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-fill comentario" viewBox="0 0 16 16">
+                <path d="M14 0a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
               </svg>
             </a>
           <div class="col-11 ">

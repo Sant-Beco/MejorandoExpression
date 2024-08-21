@@ -13,7 +13,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
-    <style>
+<style>
       body{
         background-repeat: no-repeat;
         background-size: 100vh;
@@ -180,87 +180,87 @@
 
 
 
-  .Siguenos {
-    margin-bottom: 0%;
-    font-family: pompiere;
-    font-size: 10px;
-  }
+      .Siguenos {
+        margin-bottom: 0%;
+        font-family: pompiere;
+        font-size: 10px;
+      }
 
-  .bi-facebook{
-      color: #2430d3;
-      width: 30px; 
-      height: 30px;
+      .bi-facebook{
+          color: #2430d3;
+          width: 30px; 
+          height: 30px;
+        }
+      
+      .bi-facebook:hover{
+        color: #cc2df4;
+        width: 30px; 
+      }
+      
+      
+      .bi-instagram{
+        color: #f80f8f;
+        width: 10%; 
+        height: 30px;
+      }
+      
+      .bi-instagram:hover{
+        color: #cc2df4;
+        width: 30px;
+      }
+      
+      .bi-envelope-at-fill{
+        color: #00c3ff;
+        width: 30px; 
+        height: 30px;
+      }
+      
+      .bi-envelope-at-fill:hover{
+        color: #cc2df4;
+        width: 30px;
+
+      }
+
+      .icono-option {
+        text-align: center;
     }
-  
-  .bi-facebook:hover{
-    color: #cc2df4;
-    width: 30px; 
-  }
-  
-  
-  .bi-instagram{
-    color: #f80f8f;
-    width: 10%; 
-    height: 30px;
-  }
-  
-  .bi-instagram:hover{
-    color: #cc2df4;
-    width: 30px;
-  }
-  
-  .bi-envelope-at-fill{
-    color: #00c3ff;
-    width: 30px; 
-    height: 30px;
-  }
-  
-  .bi-envelope-at-fill:hover{
-    color: #cc2df4;
-    width: 30px;
+    .custom-select {
+      appearance: none; /* Elimina la flecha predeterminada en navegadores modernos */
+      -webkit-appearance: none; /* Safari y Chrome */
+      -moz-appearance: none; /* Firefox */
+      background-color: transparent; /* Fondo transparente */
+      border: none; /* Sin borde */
+      outline: none; /* Sin contorno */
+      width: 50px; /* Ajusta el ancho del icono */
+      padding: 0; /* Sin relleno */
+      cursor: pointer;
+    }
+    .custom-select::-ms-expand {
+      display: none; /* IE11 y Edge */
+    }
+    .custom-select option {
+      text-indent: -9999px; 
+    }
 
-  }
+    /* movile */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
 
-  .icono-option {
-    text-align: center;
-}
-.custom-select {
-  appearance: none; /* Elimina la flecha predeterminada en navegadores modernos */
-  -webkit-appearance: none; /* Safari y Chrome */
-  -moz-appearance: none; /* Firefox */
-  background-color: transparent; /* Fondo transparente */
-  border: none; /* Sin borde */
-  outline: none; /* Sin contorno */
-  width: 50px; /* Ajusta el ancho del icono */
-  padding: 0; /* Sin relleno */
-  cursor: pointer;
-}
-.custom-select::-ms-expand {
-  display: none; /* IE11 y Edge */
-}
-.custom-select option {
-  text-indent: -9999px; 
-}
+      .titulo {
+        font-family: luminari(fantasia);
+        font-size: 30px;
+        margin-left: -16px;
+      }
 
-/* movile */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
+      /* boton */
+      .crear1{
+        width: 0;
+      height: 0;
+      }
 
-  .titulo {
-    font-family: luminari(fantasia);
-    font-size: 30px;
-    margin-left: -16px;
-  }
-
-  /* boton */
-  .crear1{
-    width: 0;
-  height: 0;
-  }
-
-}
+    }
 
 </style>
 
@@ -279,19 +279,6 @@
                 
                 {% endblock %}
             </div>
-          
-            <div class="d-sm-block  col-sm-4 col-lg-2 ">
-
-                {% block crear %}
-            
-                {% endblock %}
-
-                <!-- boton movile -->
-              <div class="crear1">
-                {% block crear-moviles %}
-            
-                {% endblock %}
-              </div>
                 
             </div>
 

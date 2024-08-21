@@ -1,77 +1,325 @@
-{% extends 'app_funcionalidad/base_admin.html' %}
+{% extends "app_funcionalidad/base_admin.html" %}
 
-{% block title %} convocatoriaAdmin {% endblock %}
-{% load static %} 
+{% load static %}
+{% block title %} Publicaciones {% endblock %}
 
-{% block content %}
-<div class="col contenido">
-  <div class="Publicaciones">
-    <div class="row">
-      <div class="col-2 col-lg-auto foto mt-4">
-        <a href="#">
-          <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ico bi bi-person-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-          </svg></i>
-        </a>
-      </div>
-      <div class="col-sm-10 col-lg-9 infromacion">
-        <div class="post mt-4">
-          <a href="#" class="nombre">Santiago Bedoya</a>
-          <p class="fecha">09/02/2027</p>
-          <p class="Descripcion">Disfrutando con los mios, parchados en el barrio</p>
-          <img src="{% static 'aplicacion'%}/img/Gym.jpg" class="convo" alt="">
-        </div>
+          
+{% block filtro %}
+<form class="d-flex contenedor-filtro mt-1" method="GET" action="{% url 'publicacion_admin' %}">
+  <select class="form-control me-2 mt-1 selecciona-categoria" name="categoria">
+      <option value="">Filtro por Categoria</option>
+      {% for categoria in categorias %}
+          <option value="{{ categoria.id_categoria }}" {% if selected_categoria == categoria.id_categoria %} selected{% endif %}>{{ categoria.nombre_categoria }}</option>
+      {% endfor %}
+  </select>
 
-        <div class="post mt-4">
-          <a href="#" class="nombre">Santiago Bedoya</a>
-          <p class="fecha">09/02/2027</p>
-          <p class="Descripcion">Disfrutando con los mios, parchados en el barrio</p>
-          <img src="{% static 'aplicacion'%}/img/Gym.jpg" class="convo" alt="">
-        </div>
-        <div class="post mt-4">
-          <a href="#" class="nombre">Santiago Bedoya</a>
-          <p class="fecha">09/02/2027</p>
-          <p class="Descripcion">Disfrutando con los mios, parchados en el barrio</p>
-          <img src="{% static 'aplicacion'%}/img/Gym.jpg" class="convo" alt="">
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-1 inhabilitar my-auto mx-5 p-1">
-        <div class="form-check form-switch boton-inhabilitar">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">inhabilitar </label>
-        </div>
-      </div>
+  <button class="mt-1 btne" type="submit">
+    <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+      <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5z"/>
+    </svg>
+  </button>
 
-    </div>
-  </div>
-  <div class="Publicaciones">
-    <div class="row">
-      <div class="col-2 col-lg-auto foto mt-4">
-        <a href="#">
-          <i><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="ico bi bi-person-circle" viewBox="0 0 16 16">
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-          </svg></i>
-        </a>
-      </div>
-      <div class="col-sm-10 col-lg-9 infromacion">
-        <div class="post mt-4">
-          <a href="#" class="nombre">Frank</a>
-          <p class="fecha">09/02/2027</p>
-          <p class="Descripcion">Pintando con el pana @Papo</p>
-          <img src="{% static 'aplicacion'%}/img/Arte-gallo.jpg" class="convo" alt="">
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-6 col-lg-1 inhabilitar my-auto mx-5 p-1">
-        <div class="form-check form-switch boton-inhabilitar">
-          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-          <label class="form-check-label" for="flexSwitchCheckDefault">inhabilitar </label>
-        </div>
-      </div>
+</form>
+{% endblock %}
 
+{% block content %} 
+<style>
+  /*BOTON DEL FORMULARIO*/
+
+  .titulo-publicacion{
+    font-family: pompiere; 
+    font-size: 24px;
+
+  }
+
+  /*ESTILOS FILTRO*/
+  .contenedor-filtro{
+    position: absolute;
+    right: 0;
+  }
+  
+  .selecciona-catgoria{
+    width: 250px;
+    height: auto;
+  }
+
+  .icon-filtro{
+    width: 20px;
+    height: 20px;
+  }
+
+  /*ESTILOS DE LOS COMENTARIOS*/
+  .comment {
+      border-radius: 5px;
+      padding: 5px;
+      margin-bottom: 10px;
+      margin-left: 30px;
+      max-width: 600px;
+      word-wrap: break-word; 
+  }
+
+  .comment-author {
+      font-weight: bold;
+      margin-bottom: 5px;
+  }
+
+  .comment-text {
+      margin-top: 5px;
+      max-width: 500PX;
+  }
+
+  .comment-section {
+    position: relative; 
+    max-width: 600px;
+    margin-left: 100px;
+    display: none;
+  }
+
+  .comment-form {
+    position: sticky;
+    bottom: 0;
+    background: #fff; 
+    border-top: 1px solid #ccc; 
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+  }
+
+  /* Estilos del textarea */
+ .comment-form textarea {
+  width: calc(100% - 40px); 
+  height: 40px;
+  resize: vertical;
+  box-sizing: border-box;
+  padding-right: 50px; 
+}
+
+  .envia{
+    color: black;
+  }
+  
+  .envia:hover{
+    color: #cc0000;
+  }
+  .comment-form .enviar {
+    position: absolute;
+    font-size: 20px;
+    right: 15px; 
+    bottom: 25px;
+    height: 40px; 
+    background: #c2abd1; 
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  .comment-form .enviar:hover{
+    background: #f7f4f4;
+  }
+  .delete-comment{
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno */
+    top: -10px;
+    background: none;
+    text-decoration: none;
+    border-bottom: none;
+  }
+  
+  .eliminar{
+    color: #ff0000;
+    cursor: pointer;
+  }
+  
+  .eliminar:hover {
+    color: #cc0000; /* Color más oscuro al pasar el mouse */
+  }
+  
+  .comentario{
+    margin-top: 2px;
+    margin-left: 4px;
+  }
+  
+  .comment-row {
+    display: flex; /* Usamos flexbox para alinear los elementos del comentario */
+    align-items: center; /* Alineamos verticalmente al centro */
+    justify-content: space-between; /* Separar el texto del botón de eliminar */
+  }
+  
+  .bi-heart{
+    font-size: 35px;
+    color: red;
+  }
+  .fotos{
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    margin-left: 20px;
+  }
+  
+  .person{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+  }
+  /* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
+  .bi-heart:active {
+    background: none;
+    outline: none;
+  }
+
+  .imagen-publica{
+    margin: 10px 110px
+  }
+
+  .contenidos{
+    border: 2px solid #000;
+    margin-left: 110px;
+  }
+
+  .botom-eliminar{
+    background: #b084ef;
+    font-family: pompiere;
+    margin: 12px;
+  }
+ 
+/* Estilos para pantallas pequeñas (movile) */
+@media (max-width: 576px) {
+
+  .contenedor{
+    margin: 0;
+    padding: 0;
+  }
+
+  .publicaciones {
+    padding: 10px;
+  }
+
+  .col-1, .col-10 {
+    text-align: center;
+  }
+
+  .col-1 {
+    margin-bottom: 10px;
+  }
+
+  .fotos {
+    width: 42px;
+    height: 42px;
+  }
+
+  .imagen-publica{
+    width: 100%;
+    margin: 2px;
+  }
+
+  .alias {
+    font-size: 1em;
+  }
+
+  .fecha {
+    font-size: 0.9em;
+  }
+
+  .titulo-publicacion {
+    font-size: 1em;
+  }
+
+  .descripcion {
+    font-size: 0.8em;
+  }
+
+  .comment-form .form {
+    width: calc(100% - 40px);
+  }
+
+  .enviar {
+    font-size: 0.9em;
+  }
+
+  .contenidos{
+    border: 2px solid #000;
+    margin-left: 10px;
+  }
+
+   /* espacio */
+  .caja-cultura{
+    left: -36px;
+  }
+
+/* botones moviles */
+
+.buton-crear{
+    position: relative;
+    top: -50px;
+    left: 260px;
+    width: 90px;
+    background: #b9b4b9;
+    margin: 6px;
+  }
+
+}
+
+</style>
+
+<!--ESTE ES EL CONTENIDO DE PUBLICACIONES CON LOS DATOS DE LA BD--> 
+{% for publicacion in publicaciones %}
+<div class="contenedor">
+  <div class="col">
+    <div class="publicaciones">
+      <div class="row">
+        <div class="col-1 text-center mt-4">
+          <a href="">
+            <i>
+              {% if publicacion.id_usuario.foto_perfil and publicacion.id_usuario.foto_perfil.url %}
+              <img class="fotos" src="{{ publicacion.id_usuario.foto_perfil.url }}" alt="">
+              {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="person bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+              {% endif %} 
+              
+            </i>
+
+          </a>
+        </div>
+        <div class="col-10 mt-4 alias">
+          <a href="#" class="nombre">{{ publicacion.id_usuario.alias }}</a>
+          <p class="fecha">{{ publicacion.fecha_publicacion }}</p>
+        </div>
+        <div class="row contenidos">
+          <div class="col-12">
+            <h3>{{ v.nombre_producto }}</h3>         
+            <p class="titulo-publicacion">{{ publicacion.titulo }}</p>
+            <p class="descripcion">{{ publicacion.descripcion }}</p>
+          </div>
+          <div class="col-12">
+            {% if publicacion.foto and publicacion.foto.url %}
+            <img src="{{ publicacion.foto.url }}" alt=""  width="700" class="imagen-publica">
+            {% else %}
+            <p>No image available</p>
+          {% endif %} 
+            </div>
+            <!-- Añadir boton para eliminar -->
+            <form action="{% url 'eliminar_publi' publicacion.id_publicacion %}" method="post" style="display:inline;">
+              {% csrf_token %}
+              <button type="submit" class="botom-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar esta publicación?');">
+                  Eliminar
+              </button>
+          </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+{% endfor %}
+
+
+<!-- Incluye jQuery, Popper.js y Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 {% endblock %}
