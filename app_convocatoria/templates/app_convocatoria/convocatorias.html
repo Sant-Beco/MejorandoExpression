@@ -1,6 +1,7 @@
 {% extends "app_funcionalidad/base.html" %}
 
 {% load static %}
+{% block title %} Convocatoria {% endblock %}
 
 {% block filtro %}
 <form class="d-flex contenedor-filtro mt-1" method="GET" action="{% url 'convocatorias' %}">

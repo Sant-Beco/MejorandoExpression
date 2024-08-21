@@ -7,27 +7,47 @@ from app_funcionalidad.models import Usuario, Producto, Categoria,Likes
 # Create your views here.
 
 def productos(request):
-  usuario_id = request.session.get('id_usuario')  # Asume que tienes el ID del usuario en la sesión
-  usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
-  ver = Producto.objects.all().order_by('-id_producto')
-  return render(request, 'app_producto/productos.html', {'ver':ver , 'usuario':usuario})
-
-
-
-def productos(request):
-    id_categoria = request.GET.get('categoria', 'all')
+    usuario_id = request.session.get('id_usuario')  # Asume que tienes el ID del usuario en la sesión
+    usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
+    id_categoria = request.GET.get('categoria', '')
     categorias = Categoria.objects.all()
 
-    if id_categoria == 'all':
-        productos = Producto.objects.all()
+    # Verificar si id_categoria es una cadena que representa un entero válido
+    if id_categoria.isdigit():
+        categoria_id = int(id_categoria)
+        productos = Producto.objects.filter(id_categoria=categoria_id).order_by('-id_producto')
     else:
-        productos = Producto.objects.filter(id_categoria=int(id_categoria))
+        productos = Producto.objects.all().order_by('-id_producto')
 
     return render(request, 'app_producto/productos.html', {
         'productos': productos,
         'categorias': categorias,
-        'selected_categoria': int(id_categoria) if id_categoria != 'all' else ''
+        'selected_categoria': int(id_categoria) if id_categoria.isdigit() else '',
+        'usuario': usuario
     })
+
+# def productos(request):
+#   usuario_id = request.session.get('id_usuario')  # Asume que tienes el ID del usuario en la sesión
+#   usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
+#   ver = Producto.objects.all().order_by('-id_producto')
+#   return render(request, 'app_producto/productos.html', {'ver':ver , 'usuario':usuario})
+
+
+
+# def productos(request):
+#     id_categoria = request.GET.get('categoria', 'all')
+#     categorias = Categoria.objects.all()
+
+#     if id_categoria == 'all':
+#         productos = Producto.objects.all()
+#     else:
+#         productos = Producto.objects.filter(id_categoria=int(id_categoria))
+
+#     return render(request, 'app_producto/productos.html', {
+#         'productos': productos,
+#         'categorias': categorias,
+#         'selected_categoria': int(id_categoria) if id_categoria != 'all' else ''
+#     })
 
 
 
