@@ -1,45 +1,3 @@
-# from django.shortcuts import render, redirect
-# from django.contrib import messages
-# from .forms import RegistroUsuarioForm
-# from django.urls import reverse
-# from app_funcionalidad.models import Usuario
-# from django.db.models import Q
-
-# def registro(request):
-#     if request.method == 'POST':
-#         form = RegistroUsuarioForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             alias = form.cleaned_data.get('alias')
-#             messages.success(request, f'se registro {alias}')
-#             return redirect('login')
-#     else:
-#         form = RegistroUsuarioForm()
-#     return render(request, 'registrar/registrar.html', {'form': form})
-
-
-# def login(request):
-#     if request.method == 'POST':
-#         alias = request.POST.get('alias')
-#         contrasenia = request.POST.get('contraseña')
-#         ter_con = request.POST.get('ter_con') # obtener valor terminos
-        
-#         if not ter_con:
-#             messages.error(request, 'Debes aceptar los términos y condiciones.')
-#             return render(request, 'registrar/login.html')
-        
-#         try:
-#             usuario = Usuario.objects.get(Q(alias=alias) & Q(contrasenia=contrasenia))
-#             # Guardar el ID del usuario en la sesión
-#             request.session['id_usuario'] = usuario.id_usuario
-#             messages.success(request, 'Inicio de sesión exitoso.')
-#             return redirect('inicio')  # ruta despues de login exitoso
-        
-#         except Usuario.DoesNotExist:
-#             messages.error(request, 'Alias o contraseña incorrectos.')
-    
-#     return render(request, 'registrar/login.html')
-
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.urls import reverse
@@ -117,28 +75,3 @@ def login(request):
     
     return render(request, 'registrar/login.html')
 
-# def login(request):
-#     if request.method == 'POST':
-#         alias = request.POST.get('alias')
-#         contrasenia = request.POST.get('contraseña')
-#         ter_con = request.POST.get('ter_con')  # obtener valor terminos
-        
-#         if not ter_con:
-#             messages.error(request, 'Debes aceptar los términos y condiciones.')
-#             return render(request, 'registrar/login.html')
-        
-#         try:
-#             usuario = Usuario.objects.get(alias=alias)
-
-#             # Verificar la contraseña
-#             if check_password(contrasenia, usuario.contrasenia):
-#                 request.session['usuario_id'] = usuario.id_usuario
-#                 messages.success(request, 'Inicio de sesión exitoso.')
-#                 return redirect('publicaciones')  # Ruta después de login exitoso
-#             else:
-#                 messages.error(request, 'Alias o contraseña incorrectos.')
-
-#         except Usuario.DoesNotExist:
-#             messages.error(request, 'Alias o contraseña incorrectos.')
-        
-#     return render(request, 'registrar/login.html')

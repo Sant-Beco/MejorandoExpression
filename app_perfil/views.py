@@ -1,8 +1,7 @@
 from django.shortcuts import render, get_object_or_404,redirect
-
-from django.http import HttpResponse
 from app_perfil.forms import  UsuarioForm
 from app_funcionalidad.models import Usuario, Publicacion, Convocatoria,Producto
+from django.contrib.auth import logout
 
 
 def perfil(request):
@@ -55,3 +54,13 @@ def delete_producto(request, id_producto):
     produ = get_object_or_404(Producto, id_producto=id_producto)
     produ.delete()
     return redirect('perfil')
+
+
+def logout_usu(request):
+    logout(request)
+    response = redirect('login')
+    
+    for cookie in request.COOKIES:    # Limpiar todas las cookies del navegador
+        response.delete_cookie(cookie)
+    
+    return response

@@ -8,5 +8,6 @@ urlpatterns = [
     path('delete_convocatoria/<int:id_convocatoria>/',v.delete_convocatoria, name='delete_convocatoria'),
     path('delete_producto/<int:id_producto>/',v.delete_producto, name='delete_producto'),
     path('update/<id_usuario>', v.update, name='update'),
+    path('logout/', v.logout_usu, name='logout_usu'),
     
 ]
