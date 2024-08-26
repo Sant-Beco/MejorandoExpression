@@ -141,6 +141,12 @@
   height: 30px;
 }
 
+.video-principal{
+  padding: 0;
+  right: 0; 
+  margin-bottom: 20px
+}
+
 }
 
   </style>
@@ -282,7 +288,7 @@
 
     <div class="video-container">
         <div class="row">
-            <div class="col-md-8 video-principal">
+            <div class="col-md-8 col-11 video-principal" style="right: 0; margin: 0">
                 <video width="100%;" controls>
                     <source src="{% static 'app_pag_static/video/video_principal.mp4' %}" type="video/mp4" />
                     Este video no es compatible con tu navegador.

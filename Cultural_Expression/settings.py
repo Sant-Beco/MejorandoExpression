@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-#vc=uz%*q(t)(*-jrsd9yih@ul**ee#_e8dovt+_yaremmh@*n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.1.104']  # ip para ver celu
 
 
 # Application definition
