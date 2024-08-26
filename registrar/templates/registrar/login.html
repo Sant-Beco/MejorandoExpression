@@ -185,6 +185,18 @@
     border: 3px solid rgb(43, 181, 43);
   }
 
+  .info{
+    padding: 12px;
+    font-size: 60px;
+    opacity: 0;
+    font-family: pompiere ;
+  }
+
+  .info:hover{
+    padding: 12px;
+    opacity: 0;
+  }
+
 
   @media (max-width: 768px) {
   .recuadro {
@@ -209,6 +221,17 @@
   .login a {
     font-size: 1.4rem; 
   }
+
+  .info{
+    padding: 12px;
+    opacity: 0;
+  }
+
+  .info:hover{
+    padding: 12px;
+    opacity: 0;
+  }
+
 
 }
 
@@ -247,6 +270,10 @@
     </div>
   </div>
 </body>
+
+<h6>
+  <a href="{% url 'login_admin' %}" class="info" style="text-decoration: none;">info</a>
+</h6>
 
     <script>
 document.addEventListener('DOMContentLoaded', function () {
