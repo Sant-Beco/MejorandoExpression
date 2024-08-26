@@ -1,9 +1,8 @@
 from django.shortcuts import render,redirect
 from app_funcionalidad.models import Usuario, Publicacion, Convocatoria,Producto
+from registrar.decorators import login_required_custom
 
-
-# Create your views here.
-
+@login_required_custom
 def ini(request):
     lista_p = Publicacion.objects.all()
     lista_c = Convocatoria.objects.all()

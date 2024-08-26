@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404,redirect
 from app_perfil.forms import  UsuarioForm
 from app_funcionalidad.models import Usuario, Publicacion, Convocatoria,Producto
 from django.contrib.auth import logout
+from registrar.decorators import login_required_custom
 
-
+@login_required_custom
 def perfil(request):
     usuario_id = request.session.get('id_usuario')
     usuario = None

@@ -4,10 +4,9 @@ from django.shortcuts import render,redirect
 from django.views.decorators.http import require_POST
 from datetime import date
 from app_funcionalidad.models import Usuario,Categoria,Convocatoria,Likes
+from registrar.decorators import login_required_custom
 
-
-# Create your views here.
-
+@login_required_custom
 def convocatorias(request):
     usuario_id = request.session.get('id_usuario')  # Asume que tienes el ID del usuario en la sesión
     usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None

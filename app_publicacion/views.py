@@ -2,13 +2,10 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 from datetime import date
-
 from app_funcionalidad.models import Publicacion,Categoria,Usuario,Likes
+from registrar.decorators import login_required_custom
 
-
-# Create your views here.
-
-
+@login_required_custom
 def publicaciones(request):
     usuario_id = request.session.get('id_usuario')  # Asume que tienes el ID del usuario en la sesión
     usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
