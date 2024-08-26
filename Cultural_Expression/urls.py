@@ -29,7 +29,7 @@ urlpatterns = [
     path('olvidar/',  include('olvidar.urls')),
     path('verificar/',  include('verificar.urls')),
     
-    
+    path('accounts/', include('accounts.urls')),
     
     
     

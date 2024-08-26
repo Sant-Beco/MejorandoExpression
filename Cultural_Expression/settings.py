@@ -56,6 +56,9 @@ INSTALLED_APPS = [
     #APLICACIONES DE REQUERIMIENTO
     'olvidar',
     'verificar',
+    
+    #login admin
+    'accounts',
 ]
 
 MIDDLEWARE = [
