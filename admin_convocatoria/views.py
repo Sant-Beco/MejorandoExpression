@@ -1,9 +1,8 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from app_funcionalidad.models import Usuario,Categoria,Convocatoria
+from django.contrib.auth.decorators import login_required
 
-
-# Create your views here.
-
+@login_required(login_url='login_admin')
 def convocatoria_admin(request):
     usuario = Usuario.objects.all()
     id_categoria = request.GET.get('categoria', '')

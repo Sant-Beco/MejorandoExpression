@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect 
 from app_funcionalidad.models import Publicacion,Categoria,Usuario
- 
+from django.contrib.auth.decorators import login_required
+
+@login_required(login_url='login_admin')
 def publicaciones_admin(request):
     usuario = Usuario.objects.all()
     id_categoria = request.GET.get('categoria', '')

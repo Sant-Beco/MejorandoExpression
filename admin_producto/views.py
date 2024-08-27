@@ -1,14 +1,8 @@
-# from django.shortcuts import render
-
-# # Create your views here.
-# def producto_admin(request):
-#     return render(request, 'admin_producto/producto_admin.html')
-
 from django.shortcuts import render, get_object_or_404, redirect
 from app_funcionalidad.models import Usuario, Producto, Categoria
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
+@login_required(login_url='login_admin')
 def producto_admin(request):
     usuario = Usuario.objects.all()
     id_categoria = request.GET.get('categoria', '')

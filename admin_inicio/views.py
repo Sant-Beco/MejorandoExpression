@@ -3,7 +3,9 @@ from app_funcionalidad.models import Publicacion, Convocatoria, Categoria, Produ
 import plotly.express as px
 import plotly.io as pio
 import pandas as pd
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='login_admin')
 def inicio_admin(request):
     # Obtener datos de publicaciones, convocatorias, productos y categorías
     publicaciones = Publicacion.objects.all()

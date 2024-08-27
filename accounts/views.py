@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.contrib.auth import logout
 
 def login_view(request):
     if request.method == "POST":
@@ -13,3 +14,8 @@ def login_view(request):
         else:
             messages.error(request, "Username or password is incorrect")
     return render(request, 'accounts/login_admin.html')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login_admin')

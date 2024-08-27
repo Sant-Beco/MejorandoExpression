@@ -1,10 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from app_funcionalidad.models import Categoria
 from .forms import CategoriaForm
+from django.contrib.auth.decorators import login_required
 
-def base(request):
-    return render(request, 'categoria/base.html')
-
+@login_required(login_url='login_admin')
 def categoria_create(request):
     if request.method == 'POST':
         form = CategoriaForm(request.POST)
