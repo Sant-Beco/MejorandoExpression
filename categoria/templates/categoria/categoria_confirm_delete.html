@@ -41,12 +41,12 @@
 </head>
 
 <div class="contenido-dele">
-    <h2 class="titulo-principal">¿Estás seguro que deseas eliminar esta categoría?</h2>
+    <h2 class="titulo-principal" style="font-size: 30px; padding: 12px;"  >¿Estás seguro que deseas eliminar esta categoría?</h2>
     <form method="POST">
         {% csrf_token %}  
-        <button type="submit" class="eliminar">Eliminar</button>
+        <button type="submit" class="eliminar" style="font-size: 26px; padding: 12px;">Eliminar</button>
     </form>
-    <a href="{% url 'categoria_list' %}" class="cancelar">Cancelar</a>
+    <a href="{% url 'categoria_list' %}" class="cancelar" style="font-size: 26px; padding: 12px;">Cancelar</a>
 </div>
 
 {% endblock %}
