@@ -348,26 +348,26 @@
             <p class="likes"> {{ publicacion.get_likes_count }}</p>
             </form>
             <!-- Icono de mensaje para desplegar comentarios -->
-            <a href="#" class="toggle-comments" data-publicacion-id="{{ publicacion.id_publicacion }">
+            <a href="#" class="toggle-comments" data-convocatoria-id="{{ convo.id_convocatoria }}" >
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-fill comentario" viewBox="0 0 16 16">
                 <path d="M14 0a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
               </svg>
             </a>
           <div class="col-11 ">
-            <div class="comment-section" id="comment-section-{{ publicacion.id_publicacion }}">
-              <div class="comments-list" id="comments-list-{{ publicacion.id_publicacion }}"></div>
+            <div class="comment-section" id="comment-section-{{ convo.id_convocatoria }}">
+              <div class="comments-list" id="comments-list-{{ convo.id_convocatoria }}"></div>
                 <div class="comment-form">
-                    <form class="comment-form-inline" data-publicacion-id="{{ publicacion.id_publicacion }}">
-                        <div class="">
-                            <textarea class="form" name="comment" rows="3" placeholder="Escribe tu comentario" required></textarea>
-                            <button type="submit" class="enviar"><i class="bi bi-cursor-fill envia"></i></button>
-                        </div>
-                    </form>
+                  <form class="comment-form-inline" data-convocatoria-id="{{ convo.id_convocatoria }}">
+                    <div class="">
+                        <textarea class="form" name="comment" rows="3" placeholder="Escribe tu comentario" required></textarea>
+                        <button type="submit" class="enviar"><i class="bi bi-cursor-fill envia"></i></button>
+                    </div>
+                  </form>
                 </div>
+              </div>
+            </div>
           </div>
         </div>
-          </div>
-
       </div>
     </div>
   </div>
@@ -397,49 +397,49 @@ $(document).ready(function() {
 
 $(document).on('submit', '.comment-form-inline', function(e) {
     e.preventDefault();
-    // Obtener el ID de la publicación y el texto del comentario
+    // Obtener el ID de la convocatoria y el texto del comentario
     const form = $(this);
-    const publicacionId = form.data('publicacion-id');
+    const convocatoriaId = form.data('convocatoria-id');
     const comment = form.find('textarea[name="comment"]').val();
     const username = window.currentUsername || 'Anónimo';
 
     //AGREGA Y GUARDA EL COMENTARIO EN EL LOCAL
-    addComment(publicacionId, comment, username);
-    saveComment(publicacionId, comment, username);
+    addComment(convocatoriaId, comment, username);
+    saveComment(convocatoriaId, comment, username);
     form[0].reset();
 });
 
 // Función para agregar un comentario al DOM
-function addComment(publicacionId, comment, username) {
+function addComment(convocatoriaId, comment, username) {
     const commentElement = `
     <div class="comment">
         <div class="comment-author">${username}</div>
         <div class="comment-row">
             <div class="comment-text">${comment}</div>
-            <button class="btn btn-sm delete-comment" data-publicacion-id="${publicacionId}" data-comment="${comment}" data-username="${username}">
+            <button class="btn btn-sm delete-comment" data-convocatoria-id="${convocatoriaId}" data-comment="${comment}" data-username="${username}">
                 <i class="bi bi-trash-fill eliminar"></i>
             </button>
         </div>
     </div>
     `;
-    $(`#comments-list-${publicacionId}`).append(commentElement);
+    $(`#comments-list-${convocatoriaId}`).append(commentElement);
 }
 // Guardar el comentario en localStorage
-function saveComment(publicacionId, comment, username) {
+function saveComment(convocatoriaId, comment, username) {
     let comments = JSON.parse(localStorage.getItem('comments')) || {};
-    if (!comments[publicacionId]) {
-        comments[publicacionId] = [];
+    if (!comments[convocatoriaId]) {
+        comments[convocatoriaId] = [];
     }
-    comments[publicacionId].push({ comment, username });
+    comments[convocatoriaId].push({ comment, username });
     localStorage.setItem('comments', JSON.stringify(comments));
 }
 
 // Cargar comentarios desde localStorage
 function loadComments() {
     const comments = JSON.parse(localStorage.getItem('comments')) || {};
-    for (const [publicacionId, comentarioList] of Object.entries(comments)) {
+    for (const [convocatoriaId, comentarioList] of Object.entries(comments)) {
         comentarioList.forEach(({ comment, username }) => {
-            addComment(publicacionId, comment, username);
+            addComment(convocatoriaId, comment, username);
         });
     }
 }
@@ -448,8 +448,8 @@ function loadComments() {
 $(document).on('click', '.toggle-comments', function(e) {
     e.preventDefault(); // Evita que el enlace sea seguido
 
-    const publicacionId = $(this).data('publicacion-id');
-    const commentSection = $(`#comment-section-${publicacionId}`);
+    const convocatoriaId = $(this).data('convocatoria-id');
+    const commentSection = $(`#comment-section-${convocatoriaId}`);
 
     // Alternar visibilidad
     commentSection.toggle();
@@ -457,138 +457,32 @@ $(document).on('click', '.toggle-comments', function(e) {
 
 // Manejar el clic en el botón de eliminar comentario
 $(document).on('click', '.delete-comment', function() {
-    const publicacionId = $(this).data('publicacion-id');
+    const convocatoriaId = $(this).data('convocatoria-id');
     const comment = $(this).data('comment');
     const username = $(this).data('username');
 
     if (window.currentUsername === username) {
         // Eliminar el comentario del DOM
-        $(this).closest('.comment').remove();
+        $(this).closest('.comment').remove(); 
 
         // Eliminar el comentario de localStorage
-        deleteComment(publicacionId, comment);
+        deleteComment(convocatoriaId, comment);
     } else {
         alert("No puedes eliminar comentarios de otros usuarios.");
     }
 });
 
 // Función para eliminar un comentario de localStorage
-function deleteComment(publicacionId, comment) {
+function deleteComment(convocatoriaId, comment) {
     let comments = JSON.parse(localStorage.getItem('comments')) || {};
-    if (comments[publicacionId]) {
-        comments[publicacionId] = comments[publicacionId].filter(c => c.comment !== comment);
-        if (comments[publicacionId].length === 0) {
-            delete comments[publicacionId];
+    if (comments[convocatoriaId]) {
+        comments[convocatoriaId] = comments[convocatoriaId].filter(c => c.comment !== comment);
+        if (comments[convocatoriaId].length === 0) {
+            delete comments[convocatoriaId];
         }
         localStorage.setItem('comments', JSON.stringify(comments));
     }
 }
 </script>
-
-
-<!-- {% if usuario %}
-<script>
-    window.currentUsername = "{{ usuario.nombres|escapejs }}"; // Establece una variable global de JavaScript para el nombre de usuario actual
-</script>
-{% else %}
-<script>
-    window.currentUsername = "Anónimo";
-</script>
-{% endif %}
-
-<script>
-$(document).ready(function() {
-    loadComments();  // CARGA LOS COMENTARIOS
-});
-
-$(document).on('submit', '.comment-form-inline', function(e) {  
-    e.preventDefault(); 
-    // Obtener el ID de la publicación y el texto del comentario
-    const form = $(this);
-    const publicacionId = form.data('publicacion-id');
-    const comment = form.find('textarea[name="comment"]').val();
-    const username = window.currentUsername || 'Anónimo'; 
-
-    //AGREGA Y GUARDA EL COMENTARIO EN EL LOCAL
-    addComment(publicacionId, comment, username);
-    saveComment(publicacionId, comment, username);
-    form[0].reset();
-});
-
-// Función para agregar un comentario al DOM
-function addComment(publicacionId, comment, username) {
-    const commentElement = `
-    <div class="comment">
-        <div class="comment-author">${username}</div>
-        <div class="comment-row">
-            <div class="comment-text">${comment}</div>
-            <button class="btn btn-sm delete-comment" data-publicacion-id="${publicacionId}" data-comment="${comment}" data-username="${username}">
-                <i class="bi bi-trash-fill eliminar"></i>
-            </button>
-        </div>
-    </div>
-    `;
-    $(`#comments-list-${publicacionId}`).append(commentElement);
-}
-// Guardar el comentario en localStorage
-function saveComment(publicacionId, comment, username) {
-    let comments = JSON.parse(localStorage.getItem('comments')) || {};
-    if (!comments[publicacionId]) {
-        comments[publicacionId] = [];
-    }
-    comments[publicacionId].push({ comment, username });
-    localStorage.setItem('comments', JSON.stringify(comments));
-}
-
-// Cargar comentarios desde localStorage
-function loadComments() {
-    const comments = JSON.parse(localStorage.getItem('comments')) || {};
-    for (const [publicacionId, comentarioList] of Object.entries(comments)) {
-        comentarioList.forEach(({ comment, username }) => {
-            addComment(publicacionId, comment, username);
-        });
-    }
-}
-
-// Alternar la visibilidad de la sección de comentarios
-$(document).on('click', '.toggle-comments', function(e) {
-    e.preventDefault(); // Evita que el enlace sea seguido
-
-    const publicacionId = $(this).data('publicacion-id');
-    const commentSection = $(`#comment-section-${publicacionId}`);
-
-    // Alternar visibilidad
-    commentSection.toggle();
-});
-
-// Manejar el clic en el botón de eliminar comentario
-$(document).on('click', '.delete-comment', function() {
-    const publicacionId = $(this).data('publicacion-id');
-    const comment = $(this).data('comment');
-    const username = $(this).data('username');
-
-    if (window.currentUsername === username) {
-        // Eliminar el comentario del DOM
-        $(this).closest('.comment').remove();
-
-        // Eliminar el comentario de localStorage
-        deleteComment(publicacionId, comment);
-    } else {
-        alert("No puedes eliminar comentarios de otros usuarios.");
-    }
-});
-
-// Función para eliminar un comentario de localStorage
-function deleteComment(publicacionId, comment) {
-    let comments = JSON.parse(localStorage.getItem('comments')) || {};
-    if (comments[publicacionId]) {
-        comments[publicacionId] = comments[publicacionId].filter(c => c.comment !== comment);
-        if (comments[publicacionId].length === 0) {
-            delete comments[publicacionId];
-        }
-        localStorage.setItem('comments', JSON.stringify(comments));
-    }
-}
-</script> -->
 
 {% endblock %}

@@ -44,324 +44,324 @@
 {% block content %}
 
 <style>
-  /*BOTON DEL FORMULARIO*/
-  .btncrear{
-    background: #b084ef;
-    padding: 5px;
-    cursor: pointer;
-    color: rgb(10, 10, 10);
-    font-family: pompiere;
-    font-size: 16px;
-    box-shadow:  1px 1px 4px rgb(7, 7, 7);
-    border: none;
-  }
-
-
-  /*ESTILOS FILTRO*/
-  .contenedor-filtro{
-    position: absolute;
-    right: 0;
-  }
-
-  .selecciona-catgoria{
-    width: 250px;
-    height: auto;
-  }
-
-
-  /*ESTILOS DEL CONTENIDO*/
-  .nombre{
-    font-size: 20px;
-    color: #0c0c0c;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 0%;
-    display: flex;
-  }
-
-  .fecha{
-    font-size: 13px;
-    color: #858585;
-    text-decoration: none;
-    font-family: 'pompiere';
-    display: flex;
-  }
-
-  .titulo-fechas{
-    font-size: 20px;
-    font-weight: bold;
-    font-family: pompiere;
-    margin: 0%;
-  }
-
-  .titulo-publicacion{
-    font-size: 22px;
-    margin-bottom: 4px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-
-  .enunciado{
-    font-size: 20px;
-    font-family: 'pompiere';
-  }
-
-
-
-  /*ESTILOS DE LOS COMENTARIOS*/
-  .comment {
-      border-radius: 5px;
-      padding: 5px;
-      margin-bottom: 10px;
-      margin-left: 30px;
-      max-width: 600px;
-      word-wrap: break-word;
-  }
-
-  .comment-author {
-      font-weight: bold;
-      margin-bottom: 5px;
-  }
-
-  .comment-text {
-      margin-top: 5px;
-      max-width: 500PX;
-  }
-
-  .comment-section {
-    position: relative;
-    max-width: 600px;
-    margin-left: 100px;
-    display: none;
-  }
-
-  .comment-form {
-    position: sticky;
-    bottom: 0;
-    background: #fff;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    z-index: 1000;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  }
-
-
-/* Estilos del textarea */
- .comment-form textarea {
-  width: calc(100% - 40px);
-  height: 40px;
-  resize: vertical;
-  box-sizing: border-box;
-  padding-right: 50px;
-}
-
-.envia{
-  color: black;
-}
-
-.envia:hover{
-  color: #cc0000;
-}
-
-.comment-form .enviar {
-  position: absolute;
-  font-size: 20px;
-  right: 15px;
-  bottom: 25px;
-  height: 40px;
-  background: #c2abd1;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-}
-
-.comment-form .enviar:hover{
-  background: #f7f4f4;
-}
-
-.delete-comment{
-  border: none; /* Sin borde */
-  outline: none; /* Sin contorno */
-  top: -10px;
-  background: none;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-.eliminar{
-  color: #ff0000;
-  cursor: pointer;
-}
-
-.eliminar:hover {
-  color: #cc0000; /* Color más oscuro al pasar el mouse */
-}
-
-.comentario{
-  margin-top: 2px;
-  margin-left: 4px;
-  color: #139db8;
-  width: 35px;
-  height: 30px;
-}
-
-.comment-row {
-  display: flex; /* Usamos flexbox para alinear los elementos del comentario */
-  align-items: center; /* Alineamos verticalmente al centro */
-  justify-content: space-between; /* Separar el texto del botón de eliminar */
-}
-
-.likes{
-  margin-left: 125px;
-  cursor: pointer;
-}
-
-.like{
-  margin-left: 125px;
-  background: none;
-  margin-top: -10PX;
-  border: none;
-}
-
-.bi-heart-fill{
-  font-size: 35px;
-  color: #cc0000;
-}
-
-
-.fotos{
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-    border-radius: 30px;
-}
-
-.person{
-  width: 50px;
-  height: 50px;
-  margin-left: 20px;
-}
-/* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
-.bi-heart-fill:active {
-  background: none;
-  outline: none;
-}
-
-.imagen-publica{
-    margin: 10px 110px
-  }
-
-  .contenidos{
-    border: 2px solid #000;
-    margin-left: 110px;
-  }
-
-/* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 576px) {
-
-    .content-foto{
-    padding: 0;
-  }
-
-  .alias {
-    font-size: 1em;
-
-  }
-
-  .nombre{
-    position: relative;
-    right: 80px;
-    top: 12px;
-  }
-
-  .fecha {
-    font-size: 0.9em;
-    position: relative;
-    right: 50px;
-  top:12px;
-}
-
-  .contenedor {
-    margin: 0;
-    padding: 0;
-  }
-
-  .contenidos{
-      border: 2px solid #000;
-      margin-left: 10px;
-  }
-
-  }
-
-  .convocatoria {
-    padding: 10px;
-  }
-
-  .col-1, .col-10 {
-    text-align: center;
-  }
-
-  .col-1 {
-    margin-bottom: 10px;
-  }
-
-
-
-  .imagen-publica {
-    width: 100%;
-    margin: 2px;
-  }
-
-
-
-
-  .titulo-convocatoria {
-    font-size: 1em;
-  }
-
-  .descripcion {
-    font-size: 0.8em;
-  }
-
-  .comment-form .form {
-    width: calc(100% - 40px);
-  }
-
-  .enviar {
-    font-size: 0.9em;
-  }
-
-  .col-6 {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .img {
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
-  }
-
-  .like {
-    font-size: 1.2em;
-  }
-
-  /* espacio */
-  .caja-cultura{
-    left: -36px;
-  }
-
-  /* botones moviles */
-
-.buton-crear{
-    position: relative;
-    top: -50px;
-    left: 260px;
-    width: 90px;
-    background: #b9b4b9;
-    margin: 6px;
-  }
-
-
-}
+      /*BOTON DEL FORMULARIO*/
+      .btncrear{
+        background: #b084ef;
+        padding: 5px;
+        cursor: pointer;
+        color: rgb(10, 10, 10);
+        font-family: pompiere;
+        font-size: 16px;
+        box-shadow:  1px 1px 4px rgb(7, 7, 7);
+        border: none;
+      }
+
+
+      /*ESTILOS FILTRO*/
+      .contenedor-filtro{
+        position: absolute;
+        right: 0;
+      }
+
+      .selecciona-catgoria{
+        width: 250px;
+        height: auto;
+      }
+
+
+      /*ESTILOS DEL CONTENIDO*/
+      .nombre{
+        font-size: 20px;
+        color: #0c0c0c;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 0%;
+        display: flex;
+      }
+
+      .fecha{
+        font-size: 13px;
+        color: #858585;
+        text-decoration: none;
+        font-family: 'pompiere';
+        display: flex;
+      }
+
+      .titulo-fechas{
+        font-size: 20px;
+        font-weight: bold;
+        font-family: pompiere;
+        margin: 0%;
+      }
+
+      .titulo-publicacion{
+        font-size: 22px;
+        margin-bottom: 4px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+
+      .enunciado{
+        font-size: 20px;
+        font-family: 'pompiere';
+      }
+
+
+
+      /*ESTILOS DE LOS COMENTARIOS*/
+      .comment {
+          border-radius: 5px;
+          padding: 5px;
+          margin-bottom: 10px;
+          margin-left: 30px;
+          max-width: 600px;
+          word-wrap: break-word;
+      }
+
+      .comment-author {
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+
+      .comment-text {
+          margin-top: 5px;
+          max-width: 500PX;
+      }
+
+      .comment-section {
+        position: relative;
+        max-width: 600px;
+        margin-left: 100px;
+        display: none;
+      }
+
+      .comment-form {
+        position: sticky;
+        bottom: 0;
+        background: #fff;
+        border-top: 1px solid #ccc;
+        padding: 10px;
+        z-index: 1000;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+
+    /* Estilos del textarea */
+    .comment-form textarea {
+      width: calc(100% - 40px);
+      height: 40px;
+      resize: vertical;
+      box-sizing: border-box;
+      padding-right: 50px;
+    }
+
+    .envia{
+      color: black;
+    }
+
+    .envia:hover{
+      color: #cc0000;
+    }
+
+    .comment-form .enviar {
+      position: absolute;
+      font-size: 20px;
+      right: 15px;
+      bottom: 25px;
+      height: 40px;
+      background: #c2abd1;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+
+    .comment-form .enviar:hover{
+      background: #f7f4f4;
+    }
+
+    .delete-comment{
+      border: none; /* Sin borde */
+      outline: none; /* Sin contorno */
+      top: -10px;
+      background: none;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .eliminar{
+      color: #ff0000;
+      cursor: pointer;
+    }
+
+    .eliminar:hover {
+      color: #cc0000; /* Color más oscuro al pasar el mouse */
+    }
+
+    .comentario{
+      margin-top: 2px;
+      margin-left: 4px;
+      color: #139db8;
+      width: 35px;
+      height: 30px;
+    }
+
+    .comment-row {
+      display: flex; /* Usamos flexbox para alinear los elementos del comentario */
+      align-items: center; /* Alineamos verticalmente al centro */
+      justify-content: space-between; /* Separar el texto del botón de eliminar */
+    }
+
+    .likes{
+      margin-left: 125px;
+      cursor: pointer;
+    }
+
+    .like{
+      margin-left: 125px;
+      background: none;
+      margin-top: -10PX;
+      border: none;
+    }
+
+    .bi-heart-fill{
+      font-size: 35px;
+      color: #cc0000;
+    }
+
+
+    .fotos{
+        width: 50px;
+        height: 50px;
+        margin-left: 20px;
+        border-radius: 30px;
+    }
+
+    .person{
+      width: 50px;
+      height: 50px;
+      margin-left: 20px;
+    }
+    /* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
+    .bi-heart-fill:active {
+      background: none;
+      outline: none;
+    }
+
+    .imagen-publica{
+        margin: 10px 110px
+      }
+
+      .contenidos{
+        border: 2px solid #000;
+        margin-left: 110px;
+      }
+
+    /* Estilos para pantallas pequeñas (móviles) */
+    @media (max-width: 576px) {
+
+        .content-foto{
+        padding: 0;
+      }
+
+      .alias {
+        font-size: 1em;
+
+      }
+
+      .nombre{
+        position: relative;
+        right: 80px;
+        top: 12px;
+      }
+
+      .fecha {
+        font-size: 0.9em;
+        position: relative;
+        right: 50px;
+      top:12px;
+    }
+
+      .contenedor {
+        margin: 0;
+        padding: 0;
+      }
+
+      .contenidos{
+          border: 2px solid #000;
+          margin-left: 10px;
+      }
+
+      }
+
+      .convocatoria {
+        padding: 10px;
+      }
+
+      .col-1, .col-10 {
+        text-align: center;
+      }
+
+      .col-1 {
+        margin-bottom: 10px;
+      }
+
+
+
+      .imagen-publica {
+        width: 100%;
+        margin: 2px;
+      }
+
+
+
+
+      .titulo-convocatoria {
+        font-size: 1em;
+      }
+
+      .descripcion {
+        font-size: 0.8em;
+      }
+
+      .comment-form .form {
+        width: calc(100% - 40px);
+      }
+
+      .enviar {
+        font-size: 0.9em;
+      }
+
+      .col-6 {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .img {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+      }
+
+      .like {
+        font-size: 1.2em;
+      }
+
+      /* espacio */
+      .caja-cultura{
+        left: -36px;
+      }
+
+      /* botones moviles */
+
+    .buton-crear{
+        position: relative;
+        top: -50px;
+        left: 260px;
+        width: 90px;
+        background: #b9b4b9;
+        margin: 6px;
+      }
+
+
+    }
 
 
 </style>
