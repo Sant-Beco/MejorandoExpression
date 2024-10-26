@@ -223,8 +223,6 @@ class Likes(models.Model):
     def __str__(self):
         return f"Like by {self.id_usuario} on {self.tipo_entidad} {self.id_entidad}"
 
-
-
     class Meta:
         managed = False
         db_table = 'likes'
