@@ -226,3 +226,19 @@ class Likes(models.Model):
     class Meta:
         managed = False
         db_table = 'likes'
+
+class Comentario(models.Model):
+    id_comentario = models.AutoField(primary_key=True)
+    id_usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE, db_column='id_usuario')
+    tipo_entidad = models.CharField(max_length=12)  # Ej: 'convocatoria', 'producto', 'publicacion'
+    id_entidad = models.IntegerField()  # ID de la entidad relacionada (Convocatoria, Producto, o Publicacion)
+    texto = models.TextField(max_length=800)  # Contenido del comentario
+    fecha_comentario = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('id_usuario', 'tipo_entidad', 'id_entidad', 'fecha_comentario')  # Unicidad por usuario y entidad
+        managed = True
+        db_table = 'comentario'
+
+    def __str__(self):
+        return f"Comentario de {self.id_usuario} en {self.tipo_entidad} {self.id_entidad}"

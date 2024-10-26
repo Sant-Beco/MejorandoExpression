@@ -3,12 +3,12 @@ from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from django.views.decorators.http import require_POST
 from datetime import date
-from app_funcionalidad.models import Usuario,Categoria,Convocatoria,Likes
+from app_funcionalidad.models import Usuario,Categoria,Convocatoria,Likes,Comentario,Producto,Publicacion
 from registrar.decorators import login_required_custom
-
 
 def convocatorias(request):
     # Obtener el usuario de la sesión
+    convocatorias = Convocatoria.objects.all()
     usuario_id = request.session.get('id_usuario')
     usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
 
@@ -16,23 +16,60 @@ def convocatorias(request):
     id_categoria = request.GET.get('categoria', '')
     categorias = Categoria.objects.all()
 
-    # Verificar si id_categoria es un número válido
     if id_categoria.isdigit():
         categoria_id = int(id_categoria)
         convocatorias = Convocatoria.objects.filter(id_categoria=categoria_id).order_by('-id_convocatoria')
     else:
         convocatorias = Convocatoria.objects.all().order_by('-id_convocatoria')
-    
-    # Preparar el contexto para pasar a la plantilla
+
+    # Obtener comentarios para cada convocatoria y añadirlos directamente a la convocatoria
+    for convo in convocatorias:
+        convo.comentarios = Comentario.objects.filter(id_entidad=convo.id_convocatoria, tipo_entidad='convocatoria')
+
     context = {
         'convocatorias': convocatorias,
         'categorias': categorias,
         'selected_categoria': int(id_categoria) if id_categoria.isdigit() else '',
         'usuario': usuario,
+        'tipo_entidad': 'convocatoria',
     }
 
-    # Renderizar la plantilla con el contexto
     return render(request, 'app_convocatoria/convocatorias.html', context)
+
+
+# def convocatorias(request):
+#     # Obtener el usuario de la sesión
+#     convocatorias = Convocatoria.objects.all()
+#     usuario_id = request.session.get('id_usuario')
+#     usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
+
+#     # Filtrado por categoría
+#     id_categoria = request.GET.get('categoria', '')
+#     categorias = Categoria.objects.all()
+
+#     # Verificar si id_categoria es un número válido
+#     if id_categoria.isdigit():
+#         categoria_id = int(id_categoria)
+#         convocatorias = Convocatoria.objects.filter(id_categoria=categoria_id).order_by('-id_convocatoria')
+#     else:
+#         convocatorias = Convocatoria.objects.all().order_by('-id_convocatoria')
+        
+#      # Obtener comentarios para cada convocatoria
+#     comentarios = {convo.id_convocatoria: Comentario.objects.filter(id_entidad=convo.id_convocatoria, tipo_entidad='convocatoria') for convo in convocatorias}
+
+    
+#     # Preparar el contexto para pasar a la plantilla
+#     context = {
+#         'convocatorias': convocatorias,
+#         'categorias': categorias,
+#         'selected_categoria': int(id_categoria) if id_categoria.isdigit() else '',
+#         'usuario': usuario,
+#         'tipo_entidad': 'convocatoria',
+#         'comentarios': comentarios, 
+#     }
+
+#     # Renderizar la plantilla con el contexto
+#     return render(request, 'app_convocatoria/convocatorias.html', context)
 
 def formulario_convocatoria(request):
     if request.method == 'POST':
@@ -82,3 +119,38 @@ def like(request, tipo_entidad, id_entidad):
 
     # Redireccionar a la página anterior
     return redirect(request.META.get('HTTP_REFERER', 'convocatorias'))
+
+# comentarios
+
+def crear_comentario(request, tipo_entidad, id_entidad):
+    usuario_id = request.session.get('id_usuario')  # Obtenemos el ID del usuario desde la sesión
+    usuario = Usuario.objects.get(id_usuario=usuario_id)
+    
+    # Obtener la entidad dependiendo del tipo
+    if tipo_entidad == 'convocatoria':
+        entidad = get_object_or_404(Convocatoria, pk=id_entidad)
+    elif tipo_entidad == 'producto':
+        entidad = get_object_or_404(Producto, pk=id_entidad)
+    elif tipo_entidad == 'publicacion':
+        entidad = get_object_or_404(Publicacion, pk=id_entidad)
+    else:
+        return HttpResponse("Tipo de entidad no válido.", status=400)
+
+    # Procesar el formulario de comentario
+    if request.method == 'POST':
+        texto = request.POST.get('texto')
+        
+        # Crear el comentario
+        Comentario.objects.create(
+            id_usuario=usuario,
+            tipo_entidad=tipo_entidad,
+            id_entidad=id_entidad,
+            texto=texto
+        )
+        
+        # Redireccionar a la página anterior
+        return redirect(request.META.get('HTTP_REFERER', 'convocatorias'))
+
+    return HttpResponse("Método no permitido", status=405)
+
+

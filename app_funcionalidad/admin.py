@@ -4,6 +4,7 @@ from .models import Convocatoria
 from .models import Producto
 from .models import Publicacion
 from .models import Usuario
+from .models import Comentario
 
 # Register your models here.
 admin.site.register(Categoria)
@@ -11,3 +12,4 @@ admin.site.register(Convocatoria)
 admin.site.register(Producto)
 admin.site.register(Publicacion)
 admin.site.register(Usuario)
+admin.site.register(Comentario)

@@ -424,6 +424,35 @@
             </form>
 
             <!-- comentario now -->
+
+          <!-- comentario_form.html -->
+          <!-- Otras informaciones de la convocatoria -->
+      
+          <!-- Formulario de comentario -->
+          <form method="post" action="{% url 'crear_comentario' tipo_entidad=tipo_entidad id_entidad=convo.id_convocatoria %}">
+            {% csrf_token %}
+            
+            <div>
+                <label for="texto">Comentario:</label>
+                <textarea name="texto" id="texto" rows="4" required></textarea>
+            </div>
+        
+            <button type="submit">Enviar Comentario</button>
+        </form>
+
+        <!-- Mostrar comentarios -->
+        <ul>
+          {% for comentario in convo.comentarios %}
+              <li>{{ comentario.id_usuario }} - {{ comentario.fecha_comentario }}</li>
+              <li>{{ comentario.texto }}</li>
+          {% empty %}
+              <li>No hay comentarios aún.</li>
+          {% endfor %}
+      </ul>
+      
+        
+      
+
           
             <!-- Icono de mensaje para desplegar comentarios -->
             <a href="#" class="toggle-comments" data-convocatoria-id="{{ convo.id_convocatoria }}" >
