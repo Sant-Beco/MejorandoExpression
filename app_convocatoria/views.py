@@ -37,40 +37,6 @@ def convocatorias(request):
     return render(request, 'app_convocatoria/convocatorias.html', context)
 
 
-# def convocatorias(request):
-#     # Obtener el usuario de la sesión
-#     convocatorias = Convocatoria.objects.all()
-#     usuario_id = request.session.get('id_usuario')
-#     usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
-
-#     # Filtrado por categoría
-#     id_categoria = request.GET.get('categoria', '')
-#     categorias = Categoria.objects.all()
-
-#     # Verificar si id_categoria es un número válido
-#     if id_categoria.isdigit():
-#         categoria_id = int(id_categoria)
-#         convocatorias = Convocatoria.objects.filter(id_categoria=categoria_id).order_by('-id_convocatoria')
-#     else:
-#         convocatorias = Convocatoria.objects.all().order_by('-id_convocatoria')
-        
-#      # Obtener comentarios para cada convocatoria
-#     comentarios = {convo.id_convocatoria: Comentario.objects.filter(id_entidad=convo.id_convocatoria, tipo_entidad='convocatoria') for convo in convocatorias}
-
-    
-#     # Preparar el contexto para pasar a la plantilla
-#     context = {
-#         'convocatorias': convocatorias,
-#         'categorias': categorias,
-#         'selected_categoria': int(id_categoria) if id_categoria.isdigit() else '',
-#         'usuario': usuario,
-#         'tipo_entidad': 'convocatoria',
-#         'comentarios': comentarios, 
-#     }
-
-#     # Renderizar la plantilla con el contexto
-#     return render(request, 'app_convocatoria/convocatorias.html', context)
-
 def formulario_convocatoria(request):
     if request.method == 'POST':
         titulo = request.POST['titulo']

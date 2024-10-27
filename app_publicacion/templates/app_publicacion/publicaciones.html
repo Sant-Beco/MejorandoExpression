@@ -347,142 +347,70 @@
             <button class="like" type="submit"><i class="bi bi-heart-fill"></i></button>
             <p class="likes"> {{ publicacion.get_likes_count }}</p>
             </form>
-            <!-- Icono de mensaje para desplegar comentarios -->
-            <a href="#" class="toggle-comments" data-convocatoria-id="{{ convo.id_convocatoria }}" >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-fill comentario" viewBox="0 0 16 16">
-                <path d="M14 0a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
-              </svg>
-            </a>
-          <div class="col-11 ">
-            <div class="comment-section" id="comment-section-{{ convo.id_convocatoria }}">
-              <div class="comments-list" id="comments-list-{{ convo.id_convocatoria }}"></div>
-                <div class="comment-form">
-                  <form class="comment-form-inline" data-convocatoria-id="{{ convo.id_convocatoria }}">
-                    <div class="">
-                        <textarea class="form" name="comment" rows="3" placeholder="Escribe tu comentario" required></textarea>
-                        <button type="submit" class="enviar"><i class="bi bi-cursor-fill envia"></i></button>
-                    </div>
-                  </form>
+
+
+             <!-- comentarios -->
+
+    <!-- Botón para mostrar/ocultar el formulario de comentario y la lista de comentarios -->
+    <a href="#" class="toggle-comments" data-publicacion-id="{{ publicacion.id_publicacion }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-fill comentario" viewBox="0 0 16 16">
+            <path d="M14 0a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+        </svg>
+    </a>
+
+    <!-- Lista de Comentarios (inicialmente oculta) -->
+    <div class="comentarios-container">
+        <ul class="comentarios-list" id="comments-list-{{ publicacion.id_publicacion }}" style="display: none;">
+            {% for comentario in publicacion.comentarios %}
+                <div class="comentario-item" style="padding: 0 20%;">
+                    <strong>{{ comentario.id_usuario }}</strong> - {{ comentario.fecha_comentario }}
+                    <p><em>{{ comentario.texto }}</em></p>
                 </div>
+            {% empty %}
+                <li>No hay comentarios aún.</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Formulario para agregar nuevo comentario (inicialmente oculto) -->
+        <div class="col-11 comment-section" id="comment-section-{{ publicacion.id_publicacion }}" style="display: none;">
+          <div class="comment-form">
+            <form method="post" action="{% url 'crear_comentario' tipo_entidad=tipo_entidad id_entidad=publicacion.id_publicacion %}">
+              {% csrf_token %}
+              <div>
+                  <label for="texto">Comentario:</label>
+                  <textarea name="texto" id="texto" rows="4" placeholder="Escribe tu comentario" required></textarea>
               </div>
-            </div>
+              <button type="submit" class="enviar"> <i class="bi bi-cursor-fill envia"></i></button>
+          </form>
           </div>
         </div>
-      </div>
+        
+        
     </div>
-  </div>
 </div>
-{% endfor %}
 
+{% endfor %}
 
 <!-- Incluye jQuery, Popper.js y Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-{% if usuario %}
 <script>
-    window.currentUsername = "{{ usuario.nombres|escapejs }}"; // Establece una variable global de JavaScript para el nombre de usuario actual
-</script>
-{% else %}
-<script>
-    window.currentUsername = "Anónimo";
-</script>
-{% endif %}
-
-<script>
-$(document).ready(function() {
-    loadComments();  // CARGA LOS COMENTARIOS
-});
-
-$(document).on('submit', '.comment-form-inline', function(e) {
-    e.preventDefault();
-    // Obtener el ID de la convocatoria y el texto del comentario
-    const form = $(this);
-    const convocatoriaId = form.data('convocatoria-id');
-    const comment = form.find('textarea[name="comment"]').val();
-    const username = window.currentUsername || 'Anónimo';
-
-    //AGREGA Y GUARDA EL COMENTARIO EN EL LOCAL
-    addComment(convocatoriaId, comment, username);
-    saveComment(convocatoriaId, comment, username);
-    form[0].reset();
-});
-
-// Función para agregar un comentario al DOM
-function addComment(convocatoriaId, comment, username) {
-    const commentElement = `
-    <div class="comment">
-        <div class="comment-author">${username}</div>
-        <div class="comment-row">
-            <div class="comment-text">${comment}</div>
-            <button class="btn btn-sm delete-comment" data-convocatoria-id="${convocatoriaId}" data-comment="${comment}" data-username="${username}">
-                <i class="bi bi-trash-fill eliminar"></i>
-            </button>
-        </div>
-    </div>
-    `;
-    $(`#comments-list-${convocatoriaId}`).append(commentElement);
-}
-// Guardar el comentario en localStorage
-function saveComment(convocatoriaId, comment, username) {
-    let comments = JSON.parse(localStorage.getItem('comments')) || {};
-    if (!comments[convocatoriaId]) {
-        comments[convocatoriaId] = [];
-    }
-    comments[convocatoriaId].push({ comment, username });
-    localStorage.setItem('comments', JSON.stringify(comments));
-}
-
-// Cargar comentarios desde localStorage
-function loadComments() {
-    const comments = JSON.parse(localStorage.getItem('comments')) || {};
-    for (const [convocatoriaId, comentarioList] of Object.entries(comments)) {
-        comentarioList.forEach(({ comment, username }) => {
-            addComment(convocatoriaId, comment, username);
-        });
-    }
-}
-
-// Alternar la visibilidad de la sección de comentarios
-$(document).on('click', '.toggle-comments', function(e) {
-    e.preventDefault(); // Evita que el enlace sea seguido
-
-    const convocatoriaId = $(this).data('convocatoria-id');
-    const commentSection = $(`#comment-section-${convocatoriaId}`);
-
-    // Alternar visibilidad
-    commentSection.toggle();
-});
-
-// Manejar el clic en el botón de eliminar comentario
-$(document).on('click', '.delete-comment', function() {
-    const convocatoriaId = $(this).data('convocatoria-id');
-    const comment = $(this).data('comment');
-    const username = $(this).data('username');
-
-    if (window.currentUsername === username) {
-        // Eliminar el comentario del DOM
-        $(this).closest('.comment').remove(); 
-
-        // Eliminar el comentario de localStorage
-        deleteComment(convocatoriaId, comment);
-    } else {
-        alert("No puedes eliminar comentarios de otros usuarios.");
-    }
-});
-
-// Función para eliminar un comentario de localStorage
-function deleteComment(convocatoriaId, comment) {
-    let comments = JSON.parse(localStorage.getItem('comments')) || {};
-    if (comments[convocatoriaId]) {
-        comments[convocatoriaId] = comments[convocatoriaId].filter(c => c.comment !== comment);
-        if (comments[convocatoriaId].length === 0) {
-            delete comments[convocatoriaId];
-        }
-        localStorage.setItem('comments', JSON.stringify(comments));
-    }
-}
-</script>
+  $(document).ready(function() {
+      // Manejar el clic en el botón de mostrar/ocultar comentarios
+      $(document).on('click', '.toggle-comments', function(e) {
+          e.preventDefault();
+  
+          const publicacionId = $(this).data('publicacion-id');
+          const commentSection = $(`#comment-section-${publicacionId}`);
+          const commentsList = $(`#comments-list-${publicacionId}`);
+          
+          // Alternar visibilidad de comentarios y formulario
+          commentSection.toggle();
+          commentsList.toggle();
+      });
+  });
+  </script>
 
 {% endblock %}
