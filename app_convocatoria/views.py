@@ -6,6 +6,7 @@ from datetime import date
 from app_funcionalidad.models import Usuario,Categoria,Convocatoria,Likes,Comentario,Producto,Publicacion
 from registrar.decorators import login_required_custom
 
+@login_required_custom
 def convocatorias(request):
     # Obtener el usuario de la sesión
     convocatorias = Convocatoria.objects.all()

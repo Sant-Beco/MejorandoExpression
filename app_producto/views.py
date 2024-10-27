@@ -2,29 +2,45 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse
 from datetime import date
 from django.views.decorators.http import require_POST
-from app_funcionalidad.models import Usuario, Producto, Categoria,Likes
+from app_funcionalidad.models import Usuario, Producto, Categoria,Likes,Comentario,Convocatoria,Publicacion
 from registrar.decorators import login_required_custom
 
 @login_required_custom
 def productos(request):
-    usuario_id = request.session.get('id_usuario')  # Asume que tienes el ID del usuario en la sesión
+    productos = Producto.objects.all()
+    usuario_id = request.session.get('id_usuario')
     usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
     id_categoria = request.GET.get('categoria', '')
     categorias = Categoria.objects.all()
 
-    # Verificar si id_categoria es una cadena que representa un entero válido
+    # Filtrado de productos por categoría
     if id_categoria.isdigit():
-        categoria_id = int(id_categoria)
-        productos = Producto.objects.filter(id_categoria=categoria_id).order_by('-id_producto')
+        productos = Producto.objects.filter(id_categoria=int(id_categoria)).order_by('-id_producto')
     else:
         productos = Producto.objects.all().order_by('-id_producto')
 
-    return render(request, 'app_producto/productos.html', {
+    # Agregar comentarios para cada producto
+    for producto in productos:
+        producto.comentarios = Comentario.objects.filter(id_entidad=producto.id_producto, tipo_entidad='producto')
+
+    context = {
         'productos': productos,
         'categorias': categorias,
         'selected_categoria': int(id_categoria) if id_categoria.isdigit() else '',
-        'usuario': usuario
-    })
+        'usuario': usuario,
+        'tipo_entidad': 'producto',
+    }
+    
+    return render(request, 'app_producto/productos.html', context)
+
+
+
+    # return render(request, 'app_producto/productos.html', {
+    #     'productos': productos,
+    #     'categorias': categorias,
+    #     'selected_categoria': int(id_categoria) if id_categoria.isdigit() else '',
+    #     'usuario': usuario
+    # })
 
 # def productos(request):
 #   usuario_id = request.session.get('id_usuario')  # Asume que tienes el ID del usuario en la sesión
@@ -97,3 +113,64 @@ def likeproducto(request, tipo_entidad, id_entidad):
 
     # Redireccionar a la página anterior
     return redirect(request.META.get('HTTP_REFERER', 'producto'))
+
+
+# comentarios
+
+def crear_comentario(request, tipo_entidad, id_entidad):
+    usuario_id = request.session.get('id_usuario')
+    usuario = Usuario.objects.get(id_usuario=usuario_id)
+
+    if tipo_entidad == 'convocatoria':
+        entidad = get_object_or_404(Convocatoria, pk=id_entidad)
+    elif tipo_entidad == 'producto':
+        entidad = get_object_or_404(Producto, pk=id_entidad)
+    elif tipo_entidad == 'publicacion':
+        entidad = get_object_or_404(Publicacion, pk=id_entidad)
+    else:
+        return HttpResponse("Tipo de entidad no válido.", status=400)
+
+    if request.method == 'POST':
+        texto = request.POST.get('texto')
+        Comentario.objects.create(
+            id_usuario=usuario,
+            tipo_entidad=tipo_entidad,
+            id_entidad=id_entidad,
+            texto=texto
+        )
+        return redirect(request.META.get('HTTP_REFERER', 'producto'))
+
+    return HttpResponse("Método no permitido", status=405)
+
+
+
+# def crear_comentario(request, tipo_entidad, id_entidad):
+#     usuario_id = request.session.get('id_usuario')  # Obtenemos el ID del usuario desde la sesión
+#     usuario = Usuario.objects.get(id_usuario=usuario_id)
+    
+#     # Obtener la entidad dependiendo del tipo
+#     if tipo_entidad == 'convocatoria':
+#         entidad = get_object_or_404(Convocatoria, pk=id_entidad)
+#     elif tipo_entidad == 'producto':
+#         entidad = get_object_or_404(Producto, pk=id_entidad)
+#     elif tipo_entidad == 'publicacion':
+#         entidad = get_object_or_404(Publicacion, pk=id_entidad)
+#     else:
+#         return HttpResponse("Tipo de entidad no válido.", status=400)
+
+#     # Procesar el formulario de comentario
+#     if request.method == 'POST':
+#         texto = request.POST.get('texto')
+        
+#         # Crear el comentario
+#         Comentario.objects.create(
+#             id_usuario=usuario,
+#             tipo_entidad=tipo_entidad,
+#             id_entidad=id_entidad,
+#             texto=texto
+#         )
+        
+#         # Redireccionar a la página anterior
+#         return redirect(request.META.get('HTTP_REFERER', 'producto'))
+
+#     return HttpResponse("Método no permitido", status=405)
