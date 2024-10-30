@@ -78,23 +78,11 @@
     margin: 0%;
   }
 
-  .fecha{
-    font-size: 13px;
-    color: #858585;
-    text-decoration: none;
-    font-family: 'pompiere';
-  }
-
   .titulo-publicacion{
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 4px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
-
-  .descripcion{
-    font-size: 20px;
-    font-family: 'pompiere';
   }
 
   .contenedor-valor{
@@ -291,10 +279,6 @@
   height: 42px;
 }
 
-.titulo-convocatoria {
-  font-size: 1em;
-}
-
 .descripcion {
   font-size: 0.8em;
 }
@@ -376,15 +360,15 @@ img {
             </i>
         </div>
         <div class="col-10 mt-4 alias">
-          <p class="nombre">{{ producto.id_usuario.alias }}</p>
-          <p class="fecha">{{ producto.fecha_producto }}</p>
+          <p class="nombre" style="color: #000; font-family: pompiere; font-size: 20px; text-decoration: none;"><em>{{ producto.id_usuario.alias }}</em></p>
+          <p class="fecha" style="font-size: 12px;"><strong>{{ producto.fecha_producto }}</strong></p>
         </div>
         <div class="row contenidos ">
           <div class="col-12">
-            <p class="titulo-convocatoria">{{ producto.titulo }}</p>
-            <p class="descripcion">{{ producto.descripcion }}</p>
+            <p ></p>
+            <p class="descripcion" style="font-size: 1.4em; font-family: cursive;"><b><em>{{ producto.descripcion }}</em></b></p>
             <div class="contenedor-valor">
-              <strong class="titulo-publicacion">$</strong> <p class="valor-articulo">{{ producto.precio }}</p>
+              <strong class="titulo-publicacion">$</strong> <p class="valor-articulo"><em><b>{{ producto.precio }}</b></em></p>
           </div>
           </div>
             <!--IMAGENES DE PRODUCTO-->

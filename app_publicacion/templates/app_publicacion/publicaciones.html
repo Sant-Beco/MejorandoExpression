@@ -61,7 +61,7 @@
 
   .titulo-publicacion{
     font-family: pompiere; 
-    font-size: 24px;
+    font-size: 2em;
 
   }
 
@@ -223,6 +223,10 @@
     border: 2px solid #000;
     margin-left: 110px;
   }
+
+  .fecha{
+        display: flex;
+      }
  
 /* Estilos para pantallas pequeñas (movile) */
 @media (max-width: 576px) {
@@ -264,10 +268,6 @@
 
   .titulo-publicacion {
     font-size: 1em;
-  }
-
-  .descripcion {
-    font-size: 0.8em;
   }
 
   .comment-form .form {
@@ -326,14 +326,14 @@
           </a>
         </div>
         <div class="col-10 mt-4 alias">
-          <a href="#" class="nombre">{{ publicacion.id_usuario.alias }}</a>
-          <p class="fecha">{{ publicacion.fecha_publicacion }}</p>
+          <p href="#" class="nombre" style="color: #000; font-family: pompiere; font-size: 20px; text-decoration: none; margin-bottom: 0;"><em>{{ publicacion.id_usuario.alias }}</em></p>
+          <p class="fecha" style="font-size: 12px;"><strong>{{ publicacion.fecha_publicacion }}</strong></p>
         </div>
         <div class="row contenidos">
           <div class="col-12">
             <h3>{{ v.nombre_producto }}</h3>         
-            <p class="titulo-publicacion">{{ publicacion.titulo }}</p>
-            <p class="descripcion">{{ publicacion.descripcion }}</p>
+            <p class="titulo-publicacion"><b><em>{{ publicacion.titulo }}</em></b></p>
+            <p class="descripcion" style="font-size: 1.3em; font-family: cursive;">{{ publicacion.descripcion }}</p>
           </div>
           <div class="col-12">
             {% if publicacion.foto and publicacion.foto.url %}
@@ -347,7 +347,6 @@
             <button class="like" type="submit"><i class="bi bi-heart-fill"></i></button>
             <p class="likes"> {{ publicacion.get_likes_count }}</p>
             </form>
-
 
              <!-- comentarios -->
 
