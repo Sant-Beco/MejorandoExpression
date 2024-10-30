@@ -98,12 +98,6 @@ body{
   margin: 0 1px; /* juntar más o separar los íconos */
 }
 
-.iconos-principales:hover{
-  width: 40px;
-  height: 40px;
-}
-
-
 .video-container {
   display: flex;
   justify-content: space-between;
