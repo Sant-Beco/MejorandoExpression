@@ -118,188 +118,188 @@
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
   }
 
-  /* Estilos del textarea */
- .comment-form textarea {
-  width: calc(100% - 40px); 
-  height: 40px;
-  resize: vertical;
-  box-sizing: border-box;
-  padding-right: 50px; 
-}
-
-  .envia{
-    color: black;
+    /* Estilos del textarea */
+  .comment-form textarea {
+    width: calc(100% - 40px); 
+    height: 40px;
+    resize: vertical;
+    box-sizing: border-box;
+    padding-right: 50px; 
   }
+
+    .envia{
+      color: black;
+    }
+    
+    .envia:hover{
+      color: #cc0000;
+    }
+    .comment-form .enviar {
+      position: absolute;
+      font-size: 20px;
+      right: 15px; 
+      bottom: 25px;
+      height: 40px; 
+      background: #c2abd1; 
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+    
+    .comment-form .enviar:hover{
+      background: #f7f4f4;
+    }
+    .delete-comment{
+      border: none; /* Sin borde */
+      outline: none; /* Sin contorno */
+      top: -10px;
+      background: none;
+      text-decoration: none;
+      border-bottom: none;
+    }
+    
+    .eliminar{
+      color: #ff0000;
+      cursor: pointer;
+    }
+    
+    .eliminar:hover {
+      color: #cc0000; /* Color más oscuro al pasar el mouse */
+    }
+    
+    .comentario{
+      margin-top: 2px;
+      margin-left: 4px;
+      color: #139db8;
+      width: 35px;
+      height: 30px;
+    }
+    
+    .comment-row {
+      display: flex; /* Usamos flexbox para alinear los elementos del comentario */
+      align-items: center; /* Alineamos verticalmente al centro */
+      justify-content: space-between; /* Separar el texto del botón de eliminar */
+    }
+    
+    .likes{
+      margin-left: 125px; 
+      cursor: pointer; 
+    }
+    
+    .like{
+      margin-left: 125px;
+      background: none;
+      margin-top: -10PX;
+      border: none;
+    }
+    
+    .bi-heart-fill{
+      font-size: 35px;
+      color: #cc0000;
+    }
+    .fotos{
+      width: 50px;
+      height: 50px;
+      border-radius: 30px;
+      margin-left: 20px;
+    }
+    
+    .person{
+      width: 50px;
+      height: 50px;
+      margin-left: 20px;
+    }
+    /* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
+    .bi-heart-fill:active {
+      background: none;
+      outline: none;
+    }
+
+    .imagen-publica{
+      margin: 10px 110px
+    }
+
+    .contenidos{
+      border: 2px solid #000;
+      margin-left: 110px;
+    }
+
+    .fecha{
+          display: flex;
+        }
   
-  .envia:hover{
-    color: #cc0000;
-  }
-  .comment-form .enviar {
-    position: absolute;
-    font-size: 20px;
-    right: 15px; 
-    bottom: 25px;
-    height: 40px; 
-    background: #c2abd1; 
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
-  }
-  
-  .comment-form .enviar:hover{
-    background: #f7f4f4;
-  }
-  .delete-comment{
-    border: none; /* Sin borde */
-    outline: none; /* Sin contorno */
-    top: -10px;
-    background: none;
-    text-decoration: none;
-    border-bottom: none;
-  }
-  
-  .eliminar{
-    color: #ff0000;
-    cursor: pointer;
-  }
-  
-  .eliminar:hover {
-    color: #cc0000; /* Color más oscuro al pasar el mouse */
-  }
-  
-  .comentario{
-    margin-top: 2px;
-    margin-left: 4px;
-    color: #139db8;
-    width: 35px;
-    height: 30px;
-  }
-  
-  .comment-row {
-    display: flex; /* Usamos flexbox para alinear los elementos del comentario */
-    align-items: center; /* Alineamos verticalmente al centro */
-    justify-content: space-between; /* Separar el texto del botón de eliminar */
-  }
-  
-  .likes{
-    margin-left: 125px; 
-    cursor: pointer; 
-  }
-  
-  .like{
-    margin-left: 125px;
-    background: none;
-    margin-top: -10PX;
-    border: none;
-  }
-  
-  .bi-heart-fill{
-    font-size: 35px;
-    color: #cc0000;
-  }
-  .fotos{
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-    margin-left: 20px;
-  }
-  
-  .person{
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-  }
-  /* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
-  .bi-heart-fill:active {
-    background: none;
-    outline: none;
-  }
+  /* Estilos para pantallas pequeñas (movile) */
+  @media (max-width: 576px) {
 
-  .imagen-publica{
-    margin: 10px 110px
+    .contenedor{
+      margin: 0;
+      padding: 0;
+    }
+
+    .publicaciones {
+      padding: 10px;
+    }
+
+    .col-1, .col-10 {
+      text-align: center;
+    }
+
+    .col-1 {
+      margin-bottom: 10px;
+    }
+
+    .fotos {
+      width: 42px;
+      height: 42px;
+    }
+
+    .imagen-publica{
+      width: 100%;
+      margin: 2px;
+    }
+
+    .alias {
+      font-size: 1em;
+    }
+
+    .fecha {
+      font-size: 0.9em;
+    }
+
+    .titulo-publicacion {
+      font-size: 1em;
+    }
+
+    .comment-form .form {
+      width: calc(100% - 40px);
+    }
+
+    .enviar {
+      font-size: 0.9em;
+    }
+
+    .contenidos{
+      border: 2px solid #000;
+      margin-left: 10px;
+    }
+
+    /* espacio */
+    .caja-cultura{
+      left: -36px;
+    }
+
+  /* botones moviles */
+
+  .buton-crear{
+      position: relative;
+      top: -50px;
+      left: 260px;
+      width: 90px;
+      background: #b9b4b9;
+      margin: 6px;
+    }
+
   }
-
-  .contenidos{
-    border: 2px solid #000;
-    margin-left: 110px;
-  }
-
-  .fecha{
-        display: flex;
-      }
- 
-/* Estilos para pantallas pequeñas (movile) */
-@media (max-width: 576px) {
-
-  .contenedor{
-    margin: 0;
-    padding: 0;
-  }
-
-  .publicaciones {
-    padding: 10px;
-  }
-
-  .col-1, .col-10 {
-    text-align: center;
-  }
-
-  .col-1 {
-    margin-bottom: 10px;
-  }
-
-  .fotos {
-    width: 42px;
-    height: 42px;
-  }
-
-  .imagen-publica{
-    width: 100%;
-    margin: 2px;
-  }
-
-  .alias {
-    font-size: 1em;
-  }
-
-  .fecha {
-    font-size: 0.9em;
-  }
-
-  .titulo-publicacion {
-    font-size: 1em;
-  }
-
-  .comment-form .form {
-    width: calc(100% - 40px);
-  }
-
-  .enviar {
-    font-size: 0.9em;
-  }
-
-  .contenidos{
-    border: 2px solid #000;
-    margin-left: 10px;
-  }
-
-   /* espacio */
-  .caja-cultura{
-    left: -36px;
-  }
-
-/* botones moviles */
-
-.buton-crear{
-    position: relative;
-    top: -50px;
-    left: 260px;
-    width: 90px;
-    background: #b9b4b9;
-    margin: 6px;
-  }
-
-}
 
 </style>
 

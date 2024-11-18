@@ -14,335 +14,501 @@
 {% block content%}
 
 <style>
-  /*BOTON DEL FORMULARIO*/
-  .btncrear{
-    background: linear-gradient(rgba(35, 7, 50, 0.593),rgb(220, 4, 244));
-    padding: 5px;
-    cursor: pointer;
-    color: white;
-    font-family: pompiere;
-    font-size: 18px;
-    border: 1px outset rgb(212, 210, 210);
-  }
+      /*BOTON DEL FORMULARIO*/
+      .btncrear{
+        background: linear-gradient(rgba(35, 7, 50, 0.593),rgb(220, 4, 244));
+        padding: 5px;
+        cursor: pointer;
+        color: white;
+        font-family: pompiere;
+        font-size: 18px;
+        border: 1px outset rgb(212, 210, 210);
+      }
 
 
 
-  .nombre{
-    font-size: 20px;
-    color: #0c0c0c;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 0%;
-  }
+      .nombre{
+        font-size: 20px;
+        color: #0c0c0c;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 0%;
+      }
 
-  .fecha{
-    font-size: 13px;
-    color: #858585;
-    text-decoration: none;
-    font-family: 'pompiere';
-  }
+      .fecha{
+        font-size: 13px;
+        color: #858585;
+        text-decoration: none;
+        font-family: 'pompiere';
+      }
 
-  .titulo-publicacion{
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  }
+      .titulo-publicacion{
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
 
-  .descripcion{
-    font-size: 20px;
-    font-family: 'pompiere';
-  }
+      .descripcion{
+        font-size: 20px;
+        font-family: 'pompiere';
+      }
 
-  .contenedor-valor{
-    display: flex;
-  }
+      .contenedor-valor{
+        display: flex;
+      }
 
-  .valor-articulo{
-    font-size: 20px;
-    font-family: 'pompiere';
-    margin-left: 10px;
-    margin-top: 1px;
-  }
+      .valor-articulo{
+        font-size: 20px;
+        font-family: 'pompiere';
+        margin-left: 10px;
+        margin-top: 1px;
+      }
 
-  .contenidos{
-    border: 2px solid #000;
-    margin-left: 100px;
-  }
-
-
+      .contenidos{
+        border: 2px solid #000;
+        margin-left: 100px;
+      }
 
 
-  /*ESTILOS FILTRO*/
-  .contenedor-filtro{
-    position: absolute;
-    right: 0;
-  }
 
-  .selecciona-catgoria{
-    width: 250px;
-    height: auto;
-  }
 
-  .icon-filtro{
-    width: 20px;
-    height: 20px;
-  }
+      /*ESTILOS FILTRO*/
+      .contenedor-filtro{
+        position: absolute;
+        right: 0;
+      }
 
-  /*ESTILOS DE LOS COMENTARIOS*/
-  .comment {
+      .selecciona-catgoria{
+        width: 250px;
+        height: auto;
+      }
+
+      .icon-filtro{
+        width: 20px;
+        height: 20px;
+      }
+
+      /*ESTILOS DE LOS COMENTARIOS*/
+      .comment {
+          border-radius: 5px;
+          padding: 5px;
+          margin-bottom: 10px;
+          margin-left: 30px;
+          max-width: 600px;
+          word-wrap: break-word;
+      }
+
+      .comment-author {
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+
+      .comment-text {
+          margin-top: 5px;
+          max-width: 500PX;
+      }
+
+      .comment-section {
+        position: relative;
+        max-width: 600px;
+        margin-left: 100px;
+        display: none;
+      }
+
+      .comment-form {
+        position: sticky;
+        bottom: 0;
+        background: #fff;
+        border-top: 1px solid #ccc;
+        padding: 10px;
+        z-index: 1000;
+        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Estilos del textarea */
+    .comment-form textarea {
+      width: calc(100% - 40px);
+      height: 40px;
+      resize: vertical;
+      box-sizing: border-box;
+      padding-right: 50px;
+    }
+
+    .envia{
+      color: black;
+    }
+
+    .envia:hover{
+      color: #cc0000;
+    }
+    .comment-form .enviar {
+      position: absolute;
+      font-size: 20px;
+      right: 15px;
+      bottom: 25px;
+      height: 40px;
+      background: #c2abd1;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+
+    .comment-form .enviar:hover{
+      background: #f7f4f4;
+    }
+    .delete-comment{
+      border: none; /* Sin borde */
+      outline: none; /* Sin contorno */
+      top: -10px;
+      background: none;
+      text-decoration: none;
+      border-bottom: none;
+    }
+
+    .eliminar{
+      color: #ff0000;
+      cursor: pointer;
+    }
+
+    .eliminar:hover {
+      color: #cc0000; /* Color más oscuro al pasar el mouse */
+    }
+
+    .comentario{
+      margin-top: 2px;
+      margin-left: 4px;
+      color: #139db8;
+      width: 35px;
+      height: 30px;
+    }
+
+    .comment-row {
+      display: flex; /* Usamos flexbox para alinear los elementos del comentario */
+      align-items: center; /* Alineamos verticalmente al centro */
+      justify-content: space-between; /* Separar el texto del botón de eliminar */
+    }
+
+    .likes{
+      margin-left: 125px;
+      cursor: pointer;
+    }
+
+    .like{
+      margin-left: 125px;
+      background: none;
+      margin-top: -10PX;
+      border: none;
+    }
+
+    .bi-heart-fill{
+      font-size: 35px;
+      color: #cc0000;
+    }
+    .fotos{
+      width: 50px;
+      height: 50px;
+      border-radius: 30px;
+      margin-left: 20px;
+    }
+
+    .person{
+      width: 50px;
+      height: 50px;
+      margin-left: 20px;
+    }
+    /* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
+    .bi-heart-fill:active {
+      background: none;
+      outline: none;
+    }
+
+    .imagen-publica{
+        margin: 10px 110px
+      }
+
+      .contenidos{
+        border: 2px solid #000;
+        margin-left: 110px;
+      }
+
+    /* Estilos básicos */
+    .container {
+      padding: 15px;
+    }
+
+    .publicaciones, .convocatoria {
       border-radius: 5px;
-      padding: 5px;
-      margin-bottom: 10px;
-      margin-left: 30px;
-      max-width: 600px;
-      word-wrap: break-word;
-  }
+      margin-bottom: 15px;
+      padding: 10px;
+    }
 
-  .comment-author {
-      font-weight: bold;
-      margin-bottom: 5px;
-  }
+    .fotos {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
 
-  .comment-text {
-      margin-top: 5px;
-      max-width: 500PX;
-  }
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
 
-  .comment-section {
-    position: relative;
-    max-width: 600px;
-    margin-left: 100px;
-    display: none;
-  }
+      .col-1 {
+        display: none;
+      }
 
-  .comment-form {
-    position: sticky;
-    bottom: 0;
-    background: #fff;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    z-index: 1000;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-  }
+      .col-10 {
+        width: 100%;
+      }
 
-  /* Estilos del textarea */
- .comment-form textarea {
-  width: calc(100% - 40px);
-  height: 40px;
-  resize: vertical;
-  box-sizing: border-box;
-  padding-right: 50px;
-}
+      .publicaciones img, .convocatoria img {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+      }
 
-.envia{
-  color: black;
-}
+      .col-6 {
+        width: 100%;
+        padding: 5px;
+      }
 
-.envia:hover{
-  color: #cc0000;
-}
-.comment-form .enviar {
-  position: absolute;
-  font-size: 20px;
-  right: 15px;
-  bottom: 25px;
-  height: 40px;
-  background: #c2abd1;
-  border: none;
-  cursor: pointer;
-  border-radius: 20px;
-}
+      .comentario, .like {
+        width: 35px;
+        height: 35px;
+      }
 
-.comment-form .enviar:hover{
-  background: #f7f4f4;
-}
-.delete-comment{
-  border: none; /* Sin borde */
-  outline: none; /* Sin contorno */
-  top: -10px;
-  background: none;
-  text-decoration: none;
-  border-bottom: none;
-}
+      .comment-form textarea {
+        width: 100%;
+        margin-top: 10px;
+      }
 
-.eliminar{
-  color: #ff0000;
-  cursor: pointer;
-}
+      .comment-form button {
+        width: 100%;
+        text-align: center;
+      }
+    }
 
-.eliminar:hover {
-  color: #cc0000; /* Color más oscuro al pasar el mouse */
-}
+    @media (max-width: 480px) {
 
-.comentario{
-  margin-top: 2px;
-  margin-left: 4px;
-  color: #139db8;
-  width: 35px;
-  height: 30px;
-}
+      .contenedor{
+          margin: 0;
+          padding: 0;
+      }
+      .publicaciones h3, .convocatoria h3 {
+        font-size: 20px;
+      }
 
-.comment-row {
-  display: flex; /* Usamos flexbox para alinear los elementos del comentario */
-  align-items: center; /* Alineamos verticalmente al centro */
-  justify-content: space-between; /* Separar el texto del botón de eliminar */
-}
+      .publicaciones .titulo-publicacion, .convocatoria .titulo-convocatoria {
+        font-size: 18px;
+      }
 
-.likes{
-  margin-left: 125px;
-  cursor: pointer;
-}
+      .publicaciones .descripcion, .convocatoria .descripcion {
+        font-size: 16px;
+      }
 
-.like{
-  margin-left: 125px;
-  background: none;
-  margin-top: -10PX;
-  border: none;
-}
+      .like, .comentario {
+        width: 30px;
+        height: 30px;
+        color: #139db8;
+      }
 
-.bi-heart-fill{
-  font-size: 35px;
-  color: #cc0000;
-}
-.fotos{
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
-  margin-left: 20px;
-}
+      .contenidos{
+        border: 2px solid #000;
+        margin-left: 10px;
+      }
 
-.person{
-  width: 50px;
-  height: 50px;
-  margin-left: 20px;
-}
-/* Opcional: Estilo para el estado activo (cuando se toca el ícono) */
-.bi-heart-fill:active {
-  background: none;
-  outline: none;
-}
+      .imagen-publica{
+        margin: 10px;
+      }
 
-.imagen-publica{
-    margin: 10px 110px
-  }
+      .fotos {
+      width: 42px;
+      height: 42px;
+    }
 
-  .contenidos{
-    border: 2px solid #000;
-    margin-left: 110px;
-  }
+    .comentario{
+        width: 30px;
+        height: 30px;
+        margin-left: 20px;
+        color: #139db8;
+      }
 
-/* Estilos básicos */
-.container {
-  padding: 15px;
-}
+    .likes{
+      margin-right: 20px;
+    }
 
-.publicaciones, .convocatoria {
-  border-radius: 5px;
-  margin-bottom: 15px;
-  padding: 10px;
-}
-
-.fotos {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-
-  .col-1 {
-    display: none;
-  }
-
-  .col-10 {
-    width: 100%;
-  }
-
-  .publicaciones img, .convocatoria img {
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
-  }
-
-  .col-6 {
-    width: 100%;
-    padding: 5px;
-  }
-
-  .comentario, .like {
-    width: 35px;
-    height: 35px;
-  }
-
-  .comment-form textarea {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .comment-form button {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .contenedor{
-      margin: 0;
-      padding: 0;
-  }
-  .publicaciones h3, .convocatoria h3 {
-    font-size: 20px;
-  }
-
-  .publicaciones .titulo-publicacion, .convocatoria .titulo-convocatoria {
-    font-size: 18px;
-  }
-
-  .publicaciones .descripcion, .convocatoria .descripcion {
-    font-size: 16px;
-  }
-
-  .like, .comentario {
-    width: 30px;
-    height: 30px;
-    color: #139db8;
-  }
-
-  .contenidos{
-    border: 2px solid #000;
-    margin-left: 10px;
-  }
-
-  .imagen-publica{
-    margin: 10px;
-  }
-
-  .fotos {
-  width: 42px;
-  height: 42px;
-}
-
-.comentario{
-    width: 30px;
-    height: 30px;
-    margin-left: 20px;
-    color: #139db8;
-  }
-
-.likes{
-  margin-right: 20px;
-}
-
-}
+    }
 
 
 </style>
+
+
+
+
+
+
+
+
+
+<!--ESTE ES EL CONTENIDO DE PUBLICACIONES CON LOS DATOS DE LA BD--> 
+{% for publicacion in publicaciones %}
+<div class="contenedor">
+  <div class="col">
+    <div class="publicaciones">
+      <div class="row">
+        <div class="col-1 text-center mt-4">
+          <a href="">
+            <i>
+              {% if publicacion.id_usuario.foto_perfil and publicacion.id_usuario.foto_perfil.url %}
+              <img class="fotos" src="{{ publicacion.id_usuario.foto_perfil.url }}" alt="">
+              {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="person bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+              {% endif %} 
+              
+            </i>
+
+          </a>
+        </div>
+        <div class="col-10 mt-4 alias">
+          <p href="#" class="nombre" style="color: #000; font-family: pompiere; font-size: 20px; text-decoration: none; margin-bottom: 0;"><em>{{ publicacion.id_usuario.alias }}</em></p>
+          <p class="fecha" style="font-size: 12px;"><strong>{{ publicacion.fecha_publicacion }}</strong></p>
+        </div>
+        <div class="row contenidos">
+          <div class="col-12">
+            <h3>{{ v.nombre_producto }}</h3>         
+            <p class="titulo-publicacion"><b><em>{{ publicacion.titulo }}</em></b></p>
+            <p class="descripcion" style="font-size: 1.3em; font-family: cursive;">{{ publicacion.descripcion }}</p>
+          </div>
+          <div class="col-12">
+            {% if publicacion.foto and publicacion.foto.url %}
+            <img src="{{ publicacion.foto.url }}" alt=""  width="700" class="imagen-publica">
+            {% else %}
+            <p>No image available</p>
+          {% endif %} 
+          </div>
+            <form action="{% url 'like' tipo_entidad='publicacion' id_entidad=publicacion.id_publicacion %}" method="post" style="text-align: center; margin-top: 10px;">
+            {% csrf_token %}
+            <button class="like" type="submit"><i class="bi bi-heart-fill"></i></button>
+            <p class="likes"> {{ publicacion.get_likes_count }}</p>
+            </form>
+
+             <!-- comentarios -->
+
+    <!-- Botón para mostrar/ocultar el formulario de comentario y la lista de comentarios -->
+    <a href="#" class="toggle-comments" data-publicacion-id="{{ publicacion.id_publicacion }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-fill comentario" viewBox="0 0 16 16">
+            <path d="M14 0a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
+        </svg>
+    </a>
+
+    <!-- Lista de Comentarios (inicialmente oculta) -->
+    <div class="comentarios-container">
+        <ul class="comentarios-list" id="comments-list-{{ publicacion.id_publicacion }}" style="display: none;">
+            {% for comentario in publicacion.comentarios %}
+                <div class="comentario-item" style="padding: 0 20%;">
+                    <strong>{{ comentario.id_usuario }}</strong> - {{ comentario.fecha_comentario }}
+                    <p><em>{{ comentario.texto }}</em></p>
+                </div>
+            {% empty %}
+                <li>No hay comentarios aún.</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Formulario para agregar nuevo comentario (inicialmente oculto) -->
+        <div class="col-11 comment-section" id="comment-section-{{ publicacion.id_publicacion }}" style="display: none;">
+          <div class="comment-form">
+            <form method="post" action="{% url 'crear_comentario' tipo_entidad=tipo_entidad id_entidad=publicacion.id_publicacion %}">
+              {% csrf_token %}
+              <div>
+                  <label for="texto">Comentario:</label>
+                  <textarea name="texto" id="texto" rows="4" placeholder="Escribe tu comentario" required></textarea>
+              </div>
+              <button type="submit" class="enviar"> <i class="bi bi-cursor-fill envia"></i></button>
+          </form>
+          </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+{% endfor %}
+
+<!-- Incluye jQuery, Popper.js y Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+      // Manejar el clic en el botón de mostrar/ocultar comentarios
+      $(document).on('click', '.toggle-comments', function(e) {
+          e.preventDefault();
+  
+          const publicacionId = $(this).data('publicacion-id');
+          const commentSection = $(`#comment-section-${publicacionId}`);
+          const commentsList = $(`#comments-list-${publicacionId}`);
+          
+          // Alternar visibilidad de comentarios y formulario
+          commentSection.toggle();
+          commentsList.toggle();
+      });
+  });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--ESTE ES EL CONTENIDO DE PUBLICACIONES CON LOS DATOS DE LA BD-->
 {% for publicacion in lista_p %}
