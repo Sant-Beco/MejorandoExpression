@@ -34,40 +34,6 @@ def publicaciones(request):
 
     return render(request, 'app_publicacion/publicaciones.html', context)
 
-# def publicaciones(request):
-#     publicaciones = Publicacion.objects.all()
-#     usuario_id = request.session.get('id_usuario')
-#     usuario = Usuario.objects.get(id_usuario=usuario_id) if usuario_id else None
-#     id_categoria = request.GET.get('categoria', '')
-#     categorias = Categoria.objects.all()
-
-#     if id_categoria.isdigit():
-#         publicaciones = Publicacion.objects.filter(id_categoria=id_categoria).order_by('-id_publicacion')
-#     else:
-#         publicaciones = Publicacion.objects.all().order_by('-id_publicacion')
-        
-#     # Obtener comentarios para cada publicacion y añadirlos directamente a la publicacion
-#     for publicacion in publicaciones:
-#         publicacion.comentarios = Comentario.objects.filter(id_entidad=publicacion.id_publicacion, tipo_entidad='publicacion')
-        
-#     context = {
-#         'publicaciones': publicaciones,
-#         'categorias': categorias,
-#         'selected_categoria': int(id_categoria) if id_categoria.isdigit() else '',
-#         'usuario': usuario,
-#         'tipo_entidad': 'publicacion',
-#     }
-
-#     return render(request, 'app_publicacion/publicaciones.html', context)
-
-    # return render(request, 'app_publicacion/publicaciones.html', {
-    #     'publicaciones': publicaciones,
-    #     'categorias': categorias,
-    #     'selected_categoria': int(id_categoria) if id_categoria else '',
-    #     'usuario': usuario
-    # })
-
-
 
 def formulario_publicacion(request):
     if request.method == 'POST':
@@ -150,34 +116,3 @@ def crear_comentario(request, tipo_entidad, id_entidad):
     return HttpResponse("Método no permitido", status=405)
 
 
-
-# def crear_comentario(request, tipo_entidad, id_entidad):
-#     usuario_id = request.session.get('id_usuario')  # Obtenemos el ID del usuario desde la sesión
-#     usuario = Usuario.objects.get(id_usuario=usuario_id)
-    
-#     # Obtener la entidad dependiendo del tipo
-#     if tipo_entidad == 'convocatoria':
-#         entidad = get_object_or_404(Convocatoria, pk=id_entidad)
-#     elif tipo_entidad == 'producto':
-#         entidad = get_object_or_404(Producto, pk=id_entidad)
-#     elif tipo_entidad == 'publicacion':
-#         entidad = get_object_or_404(Publicacion, pk=id_entidad)
-#     else:
-#         return HttpResponse("Tipo de entidad no válido.", status=400)
-
-#     # Procesar el formulario de comentario
-#     if request.method == 'POST':
-#         texto = request.POST.get('texto')
-        
-#         # Crear el comentario
-#         Comentario.objects.create(
-#             id_usuario=usuario,
-#             tipo_entidad=tipo_entidad,
-#             id_entidad=id_entidad,
-#             texto=texto
-#         )
-        
-#         # Redireccionar a la página anterior
-#         return redirect(request.META.get('HTTP_REFERER', 'publicaciones'))
-
-#     return HttpResponse("Método no permitido", status=405)
