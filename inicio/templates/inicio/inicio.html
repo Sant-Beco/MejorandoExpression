@@ -1,156 +1,112 @@
 {% extends "app_funcionalidad/base.html" %}
 
 {% load static %}
+{% block title %} Publicaciones {% endblock %}
 
-<head>
 
-  {% block title %} Inicio {% endblock %}
-  <link href="{% static 'app_funcionalidad/css/inicio.css' %}" rel="stylesheet">
-
-</head>
-
-{% block content%}
-
+{% block content %} 
 <style>
-      /*BOTON DEL FORMULARIO*/
-      .btncrear{
-        background: linear-gradient(rgba(35, 7, 50, 0.593),rgb(220, 4, 244));
-        padding: 5px;
-        cursor: pointer;
-        color: white;
-        font-family: pompiere;
-        font-size: 18px;
-        border: 1px outset rgb(212, 210, 210);
-      }
+  /*BOTON DEL FORMULARIO*/
+  /*BOTON DEL FORMULARIO*/
+  .btncrear{
+    background: #b084ef;
+    padding: 5px;
+    cursor: pointer;
+    color: rgb(10, 10, 10);
+    font-family: pompiere;
+    font-size: 16px;
+    box-shadow:  1px 1px 4px rgb(7, 7, 7);
+    border: none;
+   
+  }
 
+  .titulo-publicacion{
+    font-family: pompiere; 
+    font-size: 2em;
 
+  }
 
-      .nombre{
-        font-size: 20px;
-        color: #0c0c0c;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        margin: 0%;
-      }
+  /*ESTILOS FILTRO*/
+  .contenedor-filtro{
+    position: absolute;
+    right: 0;
+  }
+  
+  .selecciona-catgoria{
+    width: 250px;
+    height: auto;
+  }
 
-      .fecha{
-        font-size: 13px;
-        color: #858585;
-        text-decoration: none;
-        font-family: 'pompiere';
-      }
+  .icon-filtro{
+    width: 20px;
+    height: 20px;
+  }
 
-      .titulo-publicacion{
-        font-size: 22px;
-        font-weight: 600;
-        margin-bottom: 4px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      }
+  /*ESTILOS DE LOS COMENTARIOS*/
+  .comment {
+      border-radius: 5px;
+      padding: 5px;
+      margin-bottom: 10px;
+      margin-left: 30px;
+      max-width: 600px;
+      word-wrap: break-word; 
+  }
 
-      .descripcion{
-        font-size: 20px;
-        font-family: 'pompiere';
-      }
+  .comment-author {
+      font-weight: bold;
+      margin-bottom: 5px;
+  }
 
-      .contenedor-valor{
-        display: flex;
-      }
+  .comment-text {
+      margin-top: 5px;
+      max-width: 500PX;
+  }
 
-      .valor-articulo{
-        font-size: 20px;
-        font-family: 'pompiere';
-        margin-left: 10px;
-        margin-top: 1px;
-      }
+  .comment-section {
+    position: relative; 
+    max-width: 600px;
+    margin-left: 100px;
+    display: none;
+  }
 
-      .contenidos{
-        border: 2px solid #000;
-        margin-left: 100px;
-      }
+  .comment-form {
+    position: sticky;
+    bottom: 0;
+    background: #fff; 
+    border-top: 1px solid #ccc; 
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+  }
 
-
-
-
-      /*ESTILOS FILTRO*/
-      .contenedor-filtro{
-        position: absolute;
-        right: 0;
-      }
-
-      .selecciona-catgoria{
-        width: 250px;
-        height: auto;
-      }
-
-      .icon-filtro{
-        width: 20px;
-        height: 20px;
-      }
-
-      /*ESTILOS DE LOS COMENTARIOS*/
-      .comment {
-          border-radius: 5px;
-          padding: 5px;
-          margin-bottom: 10px;
-          margin-left: 30px;
-          max-width: 600px;
-          word-wrap: break-word;
-      }
-
-      .comment-author {
-          font-weight: bold;
-          margin-bottom: 5px;
-      }
-
-      .comment-text {
-          margin-top: 5px;
-          max-width: 500PX;
-      }
-
-      .comment-section {
-        position: relative;
-        max-width: 600px;
-        margin-left: 100px;
-        display: none;
-      }
-
-      .comment-form {
-        position: sticky;
-        bottom: 0;
-        background: #fff;
-        border-top: 1px solid #ccc;
-        padding: 10px;
-        z-index: 1000;
-        box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Estilos del textarea */
-    .comment-form textarea {
-      width: calc(100% - 40px);
-      height: 40px;
-      resize: vertical;
-      box-sizing: border-box;
-      padding-right: 50px;
-    }
+    /* Estilos del textarea */
+  .comment-form textarea {
+    width: calc(100% - 40px); 
+    height: 40px;
+    resize: vertical;
+    box-sizing: border-box;
+    padding-right: 50px; 
+  }
 
     .envia{
       color: black;
     }
-
+    
     .envia:hover{
       color: #cc0000;
     }
     .comment-form .enviar {
       position: absolute;
       font-size: 20px;
-      right: 15px;
+      right: 15px; 
       bottom: 25px;
-      height: 40px;
-      background: #c2abd1;
+      height: 40px; 
+      background: #c2abd1; 
       border: none;
       cursor: pointer;
       border-radius: 20px;
     }
-
+    
     .comment-form .enviar:hover{
       background: #f7f4f4;
     }
@@ -162,16 +118,16 @@
       text-decoration: none;
       border-bottom: none;
     }
-
+    
     .eliminar{
       color: #ff0000;
       cursor: pointer;
     }
-
+    
     .eliminar:hover {
       color: #cc0000; /* Color más oscuro al pasar el mouse */
     }
-
+    
     .comentario{
       margin-top: 2px;
       margin-left: 4px;
@@ -179,25 +135,25 @@
       width: 35px;
       height: 30px;
     }
-
+    
     .comment-row {
       display: flex; /* Usamos flexbox para alinear los elementos del comentario */
       align-items: center; /* Alineamos verticalmente al centro */
       justify-content: space-between; /* Separar el texto del botón de eliminar */
     }
-
+    
     .likes{
-      margin-left: 125px;
-      cursor: pointer;
+      margin-left: 125px; 
+      cursor: pointer; 
     }
-
+    
     .like{
       margin-left: 125px;
       background: none;
       margin-top: -10PX;
       border: none;
     }
-
+    
     .bi-heart-fill{
       font-size: 35px;
       color: #cc0000;
@@ -208,7 +164,7 @@
       border-radius: 30px;
       margin-left: 20px;
     }
-
+    
     .person{
       width: 50px;
       height: 50px;
@@ -221,129 +177,92 @@
     }
 
     .imagen-publica{
-        margin: 10px 110px
-      }
-
-      .contenidos{
-        border: 2px solid #000;
-        margin-left: 110px;
-      }
-
-    /* Estilos básicos */
-    .container {
-      padding: 15px;
+      margin: 10px 110px
     }
 
-    .publicaciones, .convocatoria {
-      border-radius: 5px;
-      margin-bottom: 15px;
+    .contenidos{
+      border: 2px solid #000;
+      margin-left: 110px;
+    }
+
+    .fecha{
+          display: flex;
+        }
+  
+  /* Estilos para pantallas pequeñas (movile) */
+  @media (max-width: 576px) {
+
+    .contenedor{
+      margin: 0;
+      padding: 0;
+    }
+
+    .publicaciones {
       padding: 10px;
     }
 
+    .col-1, .col-10 {
+      text-align: center;
+    }
+
+    .col-1 {
+      margin-bottom: 10px;
+    }
+
     .fotos {
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      object-fit: cover;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-
-      .col-1 {
-        display: none;
-      }
-
-      .col-10 {
-        width: 100%;
-      }
-
-      .publicaciones img, .convocatoria img {
-        width: 100%;
-        height: auto;
-        margin: 10px 0;
-      }
-
-      .col-6 {
-        width: 100%;
-        padding: 5px;
-      }
-
-      .comentario, .like {
-        width: 35px;
-        height: 35px;
-      }
-
-      .comment-form textarea {
-        width: 100%;
-        margin-top: 10px;
-      }
-
-      .comment-form button {
-        width: 100%;
-        text-align: center;
-      }
-    }
-
-    @media (max-width: 480px) {
-
-      .contenedor{
-          margin: 0;
-          padding: 0;
-      }
-      .publicaciones h3, .convocatoria h3 {
-        font-size: 20px;
-      }
-
-      .publicaciones .titulo-publicacion, .convocatoria .titulo-convocatoria {
-        font-size: 18px;
-      }
-
-      .publicaciones .descripcion, .convocatoria .descripcion {
-        font-size: 16px;
-      }
-
-      .like, .comentario {
-        width: 30px;
-        height: 30px;
-        color: #139db8;
-      }
-
-      .contenidos{
-        border: 2px solid #000;
-        margin-left: 10px;
-      }
-
-      .imagen-publica{
-        margin: 10px;
-      }
-
-      .fotos {
       width: 42px;
       height: 42px;
     }
 
-    .comentario{
-        width: 30px;
-        height: 30px;
-        margin-left: 20px;
-        color: #139db8;
-      }
-
-    .likes{
-      margin-right: 20px;
+    .imagen-publica{
+      width: 100%;
+      margin: 2px;
     }
 
+    .alias {
+      font-size: 1em;
     }
 
+    .fecha {
+      font-size: 0.9em;
+    }
+
+    .titulo-publicacion {
+      font-size: 1em;
+    }
+
+    .comment-form .form {
+      width: calc(100% - 40px);
+    }
+
+    .enviar {
+      font-size: 0.9em;
+    }
+
+    .contenidos{
+      border: 2px solid #000;
+      margin-left: 10px;
+    }
+
+    /* espacio */
+    .caja-cultura{
+      left: -36px;
+    }
+
+  /* botones moviles */
+
+  .buton-crear{
+      position: relative;
+      top: -50px;
+      left: 260px;
+      width: 90px;
+      background: #b9b4b9;
+      margin: 6px;
+    }
+
+  }
 
 </style>
-
-
-<!-- comienzo nuevo codigo pro -->
 
 <!--ESTE ES EL CONTENIDO DE PUBLICACIONES CON LOS DATOS DE LA BD--> 
 {% for publicacion in publicaciones %}
@@ -412,10 +331,14 @@
             {% endfor %}
         </ul>
 
+
+       
+      
+
         <!-- Formulario para agregar nuevo comentario (inicialmente oculto) -->
         <div class="col-11 comment-section" id="comment-section-{{ publicacion.id_publicacion }}" style="display: none;">
           <div class="comment-form">
-            <form method="post" action="{% url 'crear_comentario' tipo_entidad=tipo_entidad id_entidad=publicacion.id_publicacion %}">
+            <form method="post" action="{% url 'crear_comentario'   tipo_entidad=tipo_entidad id_entidad=publicacion.id_publicacion %}">
               {% csrf_token %}
               <div>
                   <label for="texto">Comentario:</label>
@@ -455,12 +378,3 @@
   </script>
 
 {% endblock %}
-
-
-
-
-
-
-
-<!-- fin de codigo nuevo actualizado -->
-
