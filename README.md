@@ -45,8 +45,7 @@ Cultural_Expression/
 ├── requirements.txt
 └── README.md
 
-📸 Capturas de pantalla
-Incluye algunas imágenes de la plataforma en funcionamiento para hacer el README más atractivo.
+📸 Capturas de pantalla de la plataforma de Cultural Expression
 
 ![image](https://github.com/user-attachments/assets/a2b86e59-dd98-4118-8246-ce255a62281e)
 ![image](https://github.com/user-attachments/assets/2d6caac8-e009-413d-8b9d-40fbd2e517db)
