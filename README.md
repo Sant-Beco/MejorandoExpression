@@ -49,7 +49,6 @@ Cultural_Expression/
 Incluye algunas imágenes de la plataforma en funcionamiento para hacer el README más atractivo.
 
 ![image](https://github.com/user-attachments/assets/a2b86e59-dd98-4118-8246-ce255a62281e)
-![image](https://github.com/user-attachments/assets/38ca6efc-08fe-4b43-9293-ac38e0cdaa4f)
 ![image](https://github.com/user-attachments/assets/2d6caac8-e009-413d-8b9d-40fbd2e517db)
 ![image](https://github.com/user-attachments/assets/5d495f49-53d0-4d99-885d-a6e187b65a96)
 ![image](https://github.com/user-attachments/assets/937a9845-271f-4530-85d7-478ed54d23e8)
