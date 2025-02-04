@@ -55,5 +55,11 @@ Registrarse
 📧 Contacto
 Si tienes alguna pregunta o sugerencia, no dudes en escribirme a sanprogramador8@gmail.com.
 
+🔥 Mejoras propuestas para el futuro
+
+🤖 Chat Bot para asistir a los usuarios en tiempo real.
+🎥 Reels para compartir videos cortos relacionados con arte, cultura y deporte.
+📢 Notificaciones en tiempo real para publicaciones, convocatorias y comentarios.
+✨ Mejoras en la experiencia de usuario (UX/UI) para hacer la plataforma más intuitiva y atractiva.
 
 
