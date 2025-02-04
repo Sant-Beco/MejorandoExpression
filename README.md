@@ -29,21 +29,8 @@ Bibliotecas: Plotly
 
 📂 Estructura del proyecto
 
-Cultural_Expression/
-│
-├── admin_convocatoria/
-├── admin_inicio/
-├── admin_producto/
-├── app_convocatoria/
-├── app_funcionalidad/
-├── app_pag_static/
-├── app_perfil/
-├── app_producto/
-├── app_publicacion/
-├── registrar/
-├── manage.py
-├── requirements.txt
-└── README.md
+![image](https://github.com/user-attachments/assets/8d40d2fc-2763-41f4-b63d-7a43741d995e)
+
 
 📸 Capturas de pantalla de la plataforma de Cultural Expression
 
