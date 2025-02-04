@@ -1,7 +1,9 @@
 🎨 Cultural Expression
+
 Promoviendo el arte, la cultura y el deporte del municipio
 
 📖 Descripción
+
 Cultural Expression es una plataforma web innovadora diseñada para conectar a la comunidad del municipio a través del arte, la cultura y el deporte. La plataforma ofrece un espacio donde los usuarios pueden:
 
 Publicar contenido cultural y deportivo.
@@ -11,6 +13,7 @@ Administrar su perfil de usuario.
 Además, Cultural Expression integra un sistema de autenticación seguro (Login y Logout), gestión de roles (Usuarios y Administradores) y vistas protegidas, garantizando la privacidad y seguridad de los datos.
 
 🚀 Características principales
+
 🔐 Sistema de autenticación y gestión de usuarios
 📝 Publicaciones de contenido relacionado con arte, cultura y deporte
 📢 Convocatorias para eventos y actividades culturales
@@ -20,6 +23,7 @@ Además, Cultural Expression integra un sistema de autenticación seguro (Login 
 👤 Perfil de usuario personalizable
 
 🛠 Tecnologías utilizadas
+
 Backend: Django, Python
 Frontend: HTML5, CSS3, Bootstrap
 Base de datos: SQLite
@@ -53,6 +57,7 @@ Registrarse
 ![image](https://github.com/user-attachments/assets/5181c95f-ed2e-4c81-a685-7bba4318fcf8)
 
 📧 Contacto
+
 Si tienes alguna pregunta o sugerencia, no dudes en escribirme a sanprogramador8@gmail.com.
 
 🔥 Mejoras propuestas para el futuro
