@@ -7,27 +7,41 @@ Promoviendo el arte, la cultura y el deporte del municipio
 Cultural Expression es una plataforma web innovadora diseñada para conectar a la comunidad del municipio a través del arte, la cultura y el deporte. La plataforma ofrece un espacio donde los usuarios pueden:
 
 Publicar contenido cultural y deportivo.
+
 Crear y gestionar convocatorias para eventos.
+
 Promocionar productos locales.
+
 Administrar su perfil de usuario.
+
 Además, Cultural Expression integra un sistema de autenticación seguro (Login y Logout), gestión de roles (Usuarios y Administradores) y vistas protegidas, garantizando la privacidad y seguridad de los datos.
 
 🚀 Características principales
 
 🔐 Sistema de autenticación y gestión de usuarios
+
 📝 Publicaciones de contenido relacionado con arte, cultura y deporte
+
 📢 Convocatorias para eventos y actividades culturales
+
 🛍 Promoción de productos locales con imágenes y descripciones
+
 💬 Comentarios y reacciones (corazones) en publicaciones, convocatorias y productos
+
 🎭 Carrusel de imágenes en la vista principal
+
 👤 Perfil de usuario personalizable
 
 🛠 Tecnologías utilizadas
 
 Backend: Django, Python
-Frontend: HTML5, CSS3, Bootstrap
-Base de datos: SQLite
+
+Frontend: HTML5, CSS3, Bootstrap, JavaScript
+
+Base de datos: MySQL
+
 Control de versiones: Git y GitHub
+
 Visualización de datos: Plotly
 
 
@@ -41,8 +55,11 @@ Visualización de datos: Plotly
 Vista principal
 
 ![image](https://github.com/user-attachments/assets/a2b86e59-dd98-4118-8246-ce255a62281e)
+
 ![image](https://github.com/user-attachments/assets/2d6caac8-e009-413d-8b9d-40fbd2e517db)
+
 ![image](https://github.com/user-attachments/assets/5d495f49-53d0-4d99-885d-a6e187b65a96)
+
 ![image](https://github.com/user-attachments/assets/a8b2a875-c7ea-4250-b28b-3d19cc8a5bf3)
 
 
@@ -110,8 +127,11 @@ Si tienes alguna pregunta o sugerencia, no dudes en escribirme a sanprogramador8
 🔥 Mejoras propuestas para el futuro
 
 🤖 Chat Bot para asistir a los usuarios en tiempo real.
+
 🎥 Reels para compartir videos cortos relacionados con arte, cultura y deporte.
+
 📢 Notificaciones en tiempo real para publicaciones, convocatorias y comentarios.
+
 ✨ Mejoras en la experiencia de usuario (UX/UI) para hacer la plataforma más intuitiva y atractiva.
 
 
